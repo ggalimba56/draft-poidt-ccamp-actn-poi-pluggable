@@ -8,7 +8,7 @@ title: >
 
 docname: draft-poidt-ccamp-actn-poi-pluggable-latest
 submissiontype: IETF
-workgroup: CCAMP Working Group
+workgroup: "Common Control and Measurement Plane"
 category: info
 ipr: trust200902
 
