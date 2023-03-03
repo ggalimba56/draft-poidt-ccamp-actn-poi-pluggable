@@ -716,8 +716,8 @@ MC-link = Media Channel link (MC optical circuit)
 # Optical Interface for external transponder in a WDM network
 
    This document proposes an augmentation to the ietf-interface module
-   called ietf-ext-xponder-wdm-if.  The ietf-ext-xponder-wdm-if [author
-   note: define the model] is an augment to the ietf-interface.  It
+   called ietf-ext-xponder-wdm-if.  The ietf-ext-xponder-wdm-if, author
+   note: define the model, is an augment to the ietf-interface.  It
    allows the user to set the operating mode of transceivers as well as
    other operational parameters.  The module also provides threshold
    settings and notifications to supervise measured parameters and
