@@ -221,7 +221,7 @@ o--/---o               o---\-|-------|--/---o               o---\--o
    |      |       | ROADM| \________\/ | ROADM|       |      |
    +------+       +------+             +------+       +------+
     Packet                  Optical                    Packet
-    Layer                   Layer                      Layer 
+    Layer                   Layer                      Layer
 
 
 
@@ -387,20 +387,19 @@ Px = DWDM (coherent pluggable) Router ports
 |  |       |  |              DCO-link             |  |       |  |
 |  |  DCO <-------------------------------------------> DCO  |  |
 +--+-------+--+                                   +--+-------+--+
-       ^                                                 ^       
-       |       +-------+                 +-------+       |       
-       |       |  OLS  |                 |  OLS  |       |       
-       |       |       |                 |       |       |       
-       +-----> | <-----------------------------> |<------+       
-  inter-layer  |       |    MC-link      |       | inter-layer   
-     link      |       |                 |       |    link       
-               +-------+                 +-------+               
-                                                                 
-                                                                 
+       ^                                                 ^
+       |       +-------+                 +-------+       |
+       |       |  OLS  |                 |  OLS  |       |
+       |       |       |                 |       |       |
+       +-----> | <-----------------------------> |<------+
+  inter-layer  |       |    MC-link      |       | inter-layer
+     link      |       |                 |       |    link
+               +-------+                 +-------+
+ 
 
-                         
+
 IP-link = IP service, out of this document scope
-Eth-link = Ethernet connection 
+Eth-link = Ethernet connection
 DCO-link = Pluggable connection (OTSi connection)
 MC-link = Media Channel link (MC optical circuit)
 
