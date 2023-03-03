@@ -687,8 +687,8 @@ MC-link = Media Channel link (MC optical circuit)
 
    NOTE: the restoration may not be feasible due to optical impairments
    calculation failure.  In this case the O-PNC will notify the optical
-   circuit restoration failure to MDSC.  It is up to the operator
-   (through MDSC) to take actions and/or plan a network upgrade.
+   circuit restoration failure to MDSC.  It is up to the operator,
+   through MDSC, to take actions and/or plan a network upgrade.
 
    In case the optical circuit restoration is revertible, is again O-PNC
    responsibility to monitor the failure after the fix and start the
