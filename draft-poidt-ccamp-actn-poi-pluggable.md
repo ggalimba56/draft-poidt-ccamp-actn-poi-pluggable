@@ -2,7 +2,7 @@
 coding: utf-8
 
 title: >
-  Applicability of Abstraction and Control of Traffic Engineered Networks 
+  Applicability of Abstraction and Control of Traffic Engineered Networks
   (ACTN) to Packet Optical Integration (POI) extensions to support Router
   Optical  interfaces
 
@@ -225,11 +225,11 @@ o--/---o               o---\-|-------|--/---o               o---\--o
 
 
 
-                         
+
 P.N. = Packet Node (ROADM)
 O.N. = Optical DWDM Node
 ROADM = Lambda/Spectrum switch
-Px = DWDM (coherent pluggable) Router ports 
+Px = DWDM (coherent pluggable) Router ports
 
 ~~~~
 {: #my_figure-1 title="Cross layer interconnection"}
@@ -305,7 +305,7 @@ Px = DWDM (coherent pluggable) Router ports
    and the provisioned Modulation Format.  It is an input for O-PNC
 
    Transmitter Output power
-   
+
    > This parameter provisions the Transceiver Output power.
 
    Receiver input power range
@@ -395,7 +395,7 @@ Px = DWDM (coherent pluggable) Router ports
   inter-layer  |       |    MC-link      |       | inter-layer
      link      |       |                 |       |    link
                +-------+                 +-------+
- 
+
 
 
 IP-link = IP service, out of this document scope
