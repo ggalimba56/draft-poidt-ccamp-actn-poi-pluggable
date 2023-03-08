@@ -136,7 +136,7 @@ informative:
    and data models are identified for each multi-layer (packet over
    optical) scenario with a specific focus on the MPI (Multi-Domain
    Service Coordinator to Provisioning Network Controllers Interface)in
-   the ACTN architecture.
+   the ACTN architecture.   CHECK
 
 --- middle
 
