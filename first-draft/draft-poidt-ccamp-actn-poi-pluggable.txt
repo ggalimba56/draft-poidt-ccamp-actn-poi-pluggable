@@ -5,12 +5,12 @@
 Common Control and Measurement Plane                  G. Galimberti, Ed.
 Internet-Draft                                                     Cisco
 Intended status: Informational                          J. Bouquier, Ed.
-Expires: 9 September 2023                                       Vodafone
+Expires: 15 September 2023                                      Vodafone
                                                          O. Gerstel, Ed.
                                                           B. Foster, Ed.
                                                       D. Ceccarelli, Ed.
                                                                    Cisco
-                                                            8 March 2023
+                                                           14 March 2023
 
 
 Applicability of Abstraction and Control of Traffic Engineered Networks
@@ -28,7 +28,7 @@ Abstract
    and data models are identified for each multi-layer (packet over
    optical) scenario with a specific focus on the MPI (Multi-Domain
    Service Coordinator to Provisioning Network Controllers Interface)in
-   the ACTN architecture.  CHECK
+   the ACTN architecture.  CHECK again
 
 Discussion Venues
 
@@ -56,7 +56,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 September 2023.
+   This Internet-Draft will expire on 15 September 2023.
 
 Copyright Notice
 
@@ -714,9 +714,9 @@ Table of Contents
               Grammel, "A YANG model to manage the optical interface
               parameters for an external transponder in a WDM network",
               Work in Progress, Internet-Draft, draft-ietf-ccamp-dwdm-
-              if-param-yang-08, 24 October 2022,
+              if-param-yang-09, 13 March 2023,
               <https://datatracker.ietf.org/doc/html/draft-ietf-ccamp-
-              dwdm-if-param-yang-08>.
+              dwdm-if-param-yang-09>.
 
    [ITU.G694.1]
               International Telecommunications Union, "Spectral grids
