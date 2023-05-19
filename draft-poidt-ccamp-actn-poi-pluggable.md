@@ -78,6 +78,7 @@ contributor:
     email: manuel-julian.lopez@vodafone.com
 
 normative:
+  RFC8795:
   RFC7698:
   RFC7699:
   RFC6205:
@@ -347,16 +348,16 @@ The figure {{my_figure-2}} describes the architecture of option 1.
                    |                    | 
               +----+----+          +----+----+
               |  P-PNC  |          |  O-PNC  |
-              +----+----+          +----+----+
-                   ^                 ^  ^  ^
-                   |                 |  |  |
-         +---------+-----------------|--|--|------+
-         |                           |  |  |      |  
-         |   +-----------------------+  |  +--+   |
-         |   |               +----------+     |   |
-         |   |               |                |   |
-         |   |               v                |   |
-         v   |        +--------------+        |   v
+              +--+---+--+          +----+----+
+                 ^   ^                  ^  
+                 |   |                  |  
+         +-------+   +------------------|---------+
+         |                              |         |  
+         |                              |         |
+         |                   +----------+         |
+         |                   |                    |
+         |                   v                    |
+         v            +--------------+            v
         +-----+      /                \      +-----+
        / P.N.1 \..../..O.N--------O.N..\..../ P.N.2 \
        \       /    \  Optical Domain  /    \       / 
@@ -421,11 +422,11 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    domain (e.g.  P-PNC) or to set parameters.
 
 
-   The reason of this change is due to the following statements:
+  To better explain the reason of this change, there are two phases before setting an optical circuit:
 
-   O-PNC routing and wavelength assignment
+   O-PNC routing and wavelength assignment and Optical Circuit Feasibility.
 
-   > The MDSC can ask the O-PNC to set an optical circuit between two
+   > During the first phase the MDSC can ask the O-PNC to set an optical circuit between two
    ROADM ports (A and Z).  The O-PNC having the full Optical Topology
    network knowledge can calculate the Optical Path, the wavelength
    assignment (RWA), etc.  K-circuits may be calculated and sorted
@@ -434,14 +435,14 @@ The figure {{my_figure-2}} describes the architecture of option 1.
 
    Optical Circuit Feasibility
 
-   > O-PNC can calculate the estimated OSNR for the A to Z circuits
-   and sort them from the best to the worse performance or select the
-   most suitable one from an optical performance standpoint.  
+   > During the optical circuit feasibility, the O-PNC can calculate the estimated OSNR for the A to Z circuits
+   and sort them from the best to the worst performance or select the
+   most suitable one from a optical performance standpoint.  
    To verify the circuit 
    feasibility the O-PNC needs to know the Transceiver optical
    characteristics, e.g.  OSNR Robustness, DC capability, supported
    PDL, FEC, etc.  For more details refer to 
-   {{!I-D.draft-ietf-ccamp-dwdm-if-param-yang}}. 
+   {{!I-D.draft-ietf-ccamp-dwdm-if-param-yang}} and XXX (ADD HERE REF TO OPTICAL IMPAIRMENTS TOPO DRAFT) . 
    The above parameters may not be directly retrieved
    from Packet Node by the O-PNC, (e.g. because the Packet Node
    supports only proprietary models or the Packet Nodes is not able
@@ -451,6 +452,12 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    parameters like central frequency and transmit power are
    calculated by the O-PNC and must be provisioned to the Pluggable
    optics when the circuit is set-up.
+   
+   ## Transceiver optical parameters capabilities
+   
+   We can summarize here the list of parameters needed for O-PNC to compute optical circuit
+   feasibility and spectrum allocation. The parameters are read by the P-PNC from the DWDM
+   pluggable and shared with MDSC to give the visibility of the pluggable characteristics.
 
    Nominal Central frequency
 
@@ -490,7 +497,7 @@ The figure {{my_figure-2}} describes the architecture of option 1.
       (between transceiver and ROADM) loss comparing it with the ROADM
       port received power.
 
-   operational-mode
+   Operational-mode
 
    > In order to make the MPI communication more efficient and improve
       the abstraction, the above (and more) parameters can be 
@@ -511,12 +518,15 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    parameters are read by the P-PNC from the DWDM pluggable and shared
    with MDSC to give the visibility of the pluggable characteristics.
    MDSC can use the info to understand the client capability and, again,
-   share the same info to O-PNC for the impairment verification.  On the
-   opposite direction O-PNC can send to MDSC the values (e.g.
+   share the same info to O-PNC for the impairment verification.  
+   
+   ## Pluggables provisioning
+   
+   On the opposite direction O-PNC can send to MDSC the values (e.g.
    operational mode, lambda, TX power) to provision the Client (Packet)
    DWDM Pluggable.  The pluggable provisioning will be done by the
    P-PNC.  For more details on the optical interface parameters see:
-   {{!I-D.draft-ietf-ccamp-dwdm-if-param-yang}}.
+   {{!I-D.draft-ietf-ccamp-dwdm-if-param-yang}} XXX (ADD HERE REFERENCE TO OPTICAL IMP TOPO).
 
    In summary the pluggable parameters exchanged from O-PNC to MDSC
      to P-PNC for end to end service provisioning are:
@@ -527,7 +537,7 @@ The figure {{my_figure-2}} describes the architecture of option 1.
      - TX Output power (source port-ID)
      - TX Output power (destination port-ID)
      - Operational-mode (compatible)
-     - Vendor OUI (if the operational mode in not standard)
+     - Vendor OUI 
      - Pluggable part number (if the operational mode in not standard)
      - Admin-state (common ?)
 
@@ -585,7 +595,7 @@ MC-link = Media Channel link (MC optical circuit)
       are set in the Packet and DWDM nodes either manually (e.g.  CLI)
       or via PNCs.  The values identifying the inter layer links may be
       defined by MDSC which has the visibility of both IP and Optical
-      layers.  The "plug-id" could be used for this purpose.
+      layers.  The "plug-id" {{!RFC8795}} could be used for this purpose.
 
    Network topology discovery and provisioning
 
