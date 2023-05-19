@@ -50,7 +50,12 @@ author:
     role: editor
     org: Cisco
     email: daniele.ietf@gmail.com
-
+  -
+    name: Sergio Belotti
+    role: editor
+    org: Nokia
+    email: sergio.belotti@nokia.com
+    
 contributor:
   -
     name: Phil Bedard
@@ -168,8 +173,8 @@ informative:
    IP/MPLS/Optical device, as the optical connections (OTSi service
    and media channels) start and end at such devices.
 
-   The pluggable DCO deployment in routers has already
-   started and are expanding significantly.  The way the pluggable DCOs
+   The coherent pluggable interface deployment in routers has already
+   started and are expanding significantly.  The way the pluggables 
    are in general managed is not yet completely specified and defined by
    any standard and it is becoming an urgent matter to cover for Service
    Providers.  A full end-to-end management solution of these pluggable
@@ -400,12 +405,9 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    requested to the O-PNC), monitoring the performances and managing
    the faults/alarms of the services at all layers.
    
-   In case of path computation for the optical layer performed by the
-   O-PNC, it needs to expose path computation APIs too the MDSC, 
-   otherwise it is only in charge to provision the media channel in
-   the optical domain.
-
-
+   As the path computation for the optical layer is performed by the
+   O-PNC, it needs to expose path computation APIs to the MDSC in order to accept the path characteristics
+   or return the effective patameters of the computed path. 
 
   # Updates to the ACTN MPI interface
 
@@ -545,7 +547,7 @@ The figure {{my_figure-2}} describes the architecture of option 1.
 
    The different services supported by the network are shown in
    {{my_figure-4}}.  This draft is focused on the inter-domain link, 
-   the DCO links setting through the MC-links setting although the POI
+   the coherent pluggable interfaces setting through the MC-links setting although the POI
    first goal is to set an IP service.
 
    {{my_figure-4}}
@@ -563,7 +565,7 @@ The figure {{my_figure-2}} describes the architecture of option 1.
 |  +-------+  |              Eth-link             |  +-------+  |
 |  |  <--------------------------------------------------->  |  |
 |  |       |  |                                   |  |       |  |
-|  |       |  |              DCO-link             |  |       |  |
+|  |       |  |              OTSi-link            |  |       |  |
 |  |  DCO <-------------------------------------------> DCO  |  |
 +--+-------+--+                                   +--+-------+--+
        ^                                                 ^
@@ -579,7 +581,8 @@ The figure {{my_figure-2}} describes the architecture of option 1.
 
 IP-link = IP service, out of this document scope
 Eth-link = Ethernet connection
-DCO-link = Pluggable connection (OTSi connection)
+DCO = Coherent pluggable interface (Digital Coherent Optics)
+OTSi-link = Pluggable connection (OTSi connection)
 MC-link = Media Channel link (MC optical circuit)
 
 ~~~~
@@ -657,7 +660,7 @@ MC-link = Media Channel link (MC optical circuit)
 
    The inter-domain link must be set (or clear) any time a new pluggable
    module is installed (or removed) and it is connected to the ROADM
-   port with the fiber patchcord.  When a new DCO is installed an
+   port with the fiber patchcord.  When a new coherent pluggable interface is installed an
    inventory notification must be reported to the PNC and MDSC, the
    reported info are:
 
@@ -723,7 +726,7 @@ Option 1
      service.
   3. First MDSC starts to compute the routing, the bandwidth, the
      constrains of the packet service.
-  4. If the Packer network can support the service without additional
+  4. If the Packet network can support the service without additional
      connections among the Routers
      4.1. then the packet service is commissioned through the P-PNC
      4.2. a notification with all the service info is sent to OSS.
@@ -759,7 +762,7 @@ Option 1
      provisioning parameters to P-PNC to complete the optical set-up.
   10. MDSC is ready to commission the packet service through P-PNC
       10.1. has the visibility of end to end optical circuit (active)
-      10.2. the packer service is commissioned
+      10.2. the packet service is commissioned
       10.3. MDSC service DB is updated
   11. MDSC notifies the OSS of successful end to end service set-up
   12. The service assurance can then start, through the O-PNC for the
@@ -795,7 +798,7 @@ Option 1
      service.
   3. First MDSC starts to compute the routing, the bandwidth, the
      constrains of the packet service.
-  4. If the Packer network can support the service without additional
+  4. If the Packet network can support the service without additional
      connections among the Routers
      4.1. then the packet service is commissioned through the P-PNC
      4.2. a notification with all the service info is sent to OSS.
@@ -831,7 +834,7 @@ Option 1
      provisioning parameters to P-PNC to complete the optical set-up.
   10. MDSC is ready to commission the packet service through P-PNC
       10.1. has the visibility of end to end optical circuit (active)
-      10.2. the packer service is commissioned
+      10.2. the packet service is commissioned
       10.3. MDSC service DB is updated
   11. MDSC notifies the OSS of successful end to end service set-up
   12. The service assurance can then start, through the O-PNC for the
