@@ -1039,4 +1039,6 @@ Option 1
 
 # Acknowledgments
 
+   Many Thanks to Italo Busi for the several comments, suggestion and 
+   support in GitHub process management.
    This document was prepared using kramdown.
