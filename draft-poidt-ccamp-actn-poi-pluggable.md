@@ -129,7 +129,8 @@ normative:
 informative:
   RFC3410:
   RFC2629:
-
+  MANTRA whitepaper IPoWDM: title: > MANTRA whitepaper IPoWDM convergent SDN architecture author: org: Telecom Infra Project OOPT https://telecominfraproject.com/oopt/
+  date: 31/08/2022 target: https://cdn.brandfolder.io/D8DI15S7/at/n85t9h48bqtkhm9k7tqbs9fv/TIP_OOPT_MANTRA_IP_over_DWDM_Whitepaper_-_Final_Version3.pdf)
 
 --- abstract
 
@@ -444,7 +445,7 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    feasibility the O-PNC needs to know the Transceiver optical
    characteristics, e.g.  OSNR Robustness, DC capability, supported
    PDL, FEC, etc.  For more details refer to 
-   {{!I-D.draft-ietf-ccamp-dwdm-if-param-yang}} and XXX (ADD HERE REF TO OPTICAL IMPAIRMENTS TOPO DRAFT) . 
+   {{!I-D.draft-ietf-ccamp-dwdm-if-param-yang}} and {{!I-D.draft-ietf-optical-impairment-topology-yang}}. 
    The above parameters may not be directly retrieved
    from Packet Node by the O-PNC, (e.g. because the Packet Node
    supports only proprietary models or the Packet Nodes is not able
@@ -528,7 +529,8 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    operational mode, lambda, TX power) to provision the Client (Packet)
    DWDM Pluggable.  The pluggable provisioning will be done by the
    P-PNC.  For more details on the optical interface parameters see:
-   {{!I-D.draft-ietf-ccamp-dwdm-if-param-yang}} XXX (ADD HERE REFERENCE TO OPTICAL IMP TOPO).
+   {{!I-D.draft-ietf-ccamp-dwdm-if-param-yang}} 
+   {{!I-D.draft-ietf-ccamp-optical-impairment-topology-yang}}.
 
    In summary the pluggable parameters exchanged from O-PNC to MDSC
      to P-PNC for end to end service provisioning are:
@@ -1031,7 +1033,7 @@ Option 1
    This document registers a YANG module in the YANG Module Names
    registry {{!RFC6020}}.
 
-   prefix: ietf-ext-xponder-wdm-if reference: RFC XXXX
+   prefix: {{!I-D.draft-ietf-ccamp-dwdm-if-param-yang}}
 
 --- back
 
