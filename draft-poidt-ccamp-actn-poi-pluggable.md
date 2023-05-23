@@ -129,8 +129,14 @@ normative:
 informative:
   RFC3410:
   RFC2629:
-  MANTRA whitepaper IPoWDM: title: > MANTRA whitepaper IPoWDM convergent SDN architecture author: org: Telecom Infra Project OOPT https://telecominfraproject.com/oopt/
-  date: 31/08/2022 target: https://cdn.brandfolder.io/D8DI15S7/at/n85t9h48bqtkhm9k7tqbs9fv/TIP_OOPT_MANTRA_IP_over_DWDM_Whitepaper_-_Final_Version3.pdf)
+  MANTRA-whitepaper-IPoWDM:
+   title: MANTRA whitepaper IPoWDM convergent SDN architecture
+   author:
+   org: Telecom Infra Project
+   date: August 2022
+   seriesinfo: 
+   target:  https://cdn.brandfolder.io/D8DI15S7/at/n85t9h48bqtkhm9k7tqbs9fv/TIP_OOPT_MANTRA_IP_over_DWDM_Whitepaper_-_Final_Version3.pdf
+
 
 --- abstract
 
