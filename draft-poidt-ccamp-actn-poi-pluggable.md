@@ -269,7 +269,7 @@ Px = DWDM (coherent pluggable) Router ports
    An architecture analysis has already been carried out by the MANTRA 
    sub-group in the OOPT – (Open Optical & Packet Transport)a Telecom
    Infra Project (TIP) group Project Group in the MANTRA whitepaper 
-   MANTRA.
+   {{MANTRA-whitepaper-IPoWDM}}.
 
    Two different architectural options have been identified, namely:
 ~~~~ ascii-art
