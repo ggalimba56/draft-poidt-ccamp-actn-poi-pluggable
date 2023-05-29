@@ -56,6 +56,12 @@ author:
     org: Nokia
     email: sergio.belotti@nokia.com
     
+  -
+    name: Oscar Gonzalez de Dios
+    role: editor
+    org: Telefonica
+    email: oscar.gonzalezdedios@telefonica.com
+    
 contributor:
   -
     name: Phil Bedard
