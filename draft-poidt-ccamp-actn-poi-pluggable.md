@@ -679,8 +679,8 @@ MC-link = Media Channel link (MC optical circuit)
    reported info are:
 
             - Pluggable port-ID (e.g. rack/shelf/slot/port or UUID)
-            - Supported Operational-modes
-            - Vendor OUI (if the operational mode in not standard)
+            - Supported Operational-modes (standard, organizational and explicit mode)
+            - Supported Application codes
             - Pluggable part number (if the op-mode in not standard)
             - Manufacturing data
 
