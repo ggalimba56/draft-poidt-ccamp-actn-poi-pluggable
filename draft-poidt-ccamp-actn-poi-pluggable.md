@@ -713,9 +713,8 @@ MC-link = Media Channel link (MC optical circuit)
    inserted or remove at any time it is relevant to have admin and
    operational state notification from the network to the PNC and MDSC.
 
-   Also in this case the MDSC can retrieve all the needed info from
-   the P-PNC in both options and optionally the pluggables and
-   inter-domain links also from the O-PNC in case of option 1.
+   Also in this case the MDSC can retrieve all the needed info in collaboration
+   with the P-PNC and O-PNC.
 
 {: #e2e-svc-provisioning}
 
