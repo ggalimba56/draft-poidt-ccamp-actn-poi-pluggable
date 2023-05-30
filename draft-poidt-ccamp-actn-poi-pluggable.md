@@ -350,8 +350,8 @@ The figure {{my_figure-2}} describes the architecture of option 1.
 
  ## Option 2 - Single SBI management of IPoWDM routers
 
-   The architecture related to option 2 is more meeting a classical
-   The architecture related to option 2 is more meeting a canonical  ACTN approach, i.e. any PNCs only manage resources related to his own administrative domain,  like in {{!RFC8453}} and 
+   The architecture related to option 2 is more meeting a canonical  ACTN approach, i.e.
+   any PNCs only manage resources related to his own administrative domain,  like in {{!RFC8453}} and 
    {{!I-D.draft-ietf-teas-actn-poi-applicability}} is described 
    in figure {{my_figure-3}}.
 
