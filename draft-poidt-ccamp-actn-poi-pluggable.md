@@ -768,8 +768,8 @@ Option 1
      7.1.  If all is OK, provisions the optical circuit in ROADM.
      7.2.  If anything went wrong the O-PNC rejects the MDSC request.
   8. O-PNC updates the MDSC of successful circuit provisioning
-     including the path, the Lambda, the operational mode (or the
-     explicit optical parameters), the TX power, SRLG, etc.
+     including the path, the nominal central frequency, the operational mode (or the
+     explicit optical parameters), the TX power, SRLG etc.
      The optical circuit at this point is provisioned but not yet
      operational (no optical power coming from the transceivers yet)
   9. The MDSC updates the service DB and forward the pluggable
