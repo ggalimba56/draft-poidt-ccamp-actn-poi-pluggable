@@ -5,14 +5,16 @@
 Common Control and Measurement Plane                  G. Galimberti, Ed.
 Internet-Draft                                                          
 Intended status: Informational                          J. Bouquier, Ed.
-Expires: 20 November 2023                                       Vodafone
+Expires: 1 December 2023                                        Vodafone
                                                          O. Gerstel, Ed.
                                                           B. Foster, Ed.
                                                       D. Ceccarelli, Ed.
                                                                    Cisco
                                                          S. Belotti, Ed.
                                                                    Nokia
-                                                             19 May 2023
+                                                     O. G. de. Dios, Ed.
+                                                              Telefonica
+                                                             30 May 2023
 
 
                 Applicability of Abstraction and Control
@@ -46,14 +48,12 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 November 2023.
+   This Internet-Draft will expire on 1 December 2023.
 
 
 
 
-
-
-Galimberti, et al.      Expires 20 November 2023                [Page 1]
+Galimberti, et al.       Expires 1 December 2023                [Page 1]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -93,8 +93,8 @@ Table of Contents
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  22
      8.1.  Normative References  . . . . . . . . . . . . . . . . . .  22
      8.2.  Informative References  . . . . . . . . . . . . . . . . .  24
-   Acknowledgments . . . . . . . . . . . . . . . . . . . . . . . . .  24
-   Contributors  . . . . . . . . . . . . . . . . . . . . . . . . . .  24
+   Acknowledgments . . . . . . . . . . . . . . . . . . . . . . . . .  25
+   Contributors  . . . . . . . . . . . . . . . . . . . . . . . . . .  25
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  25
 
 1.  Introduction
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Galimberti, et al.      Expires 20 November 2023                [Page 2]
+Galimberti, et al.       Expires 1 December 2023                [Page 2]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -165,7 +165,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
 
-Galimberti, et al.      Expires 20 November 2023                [Page 3]
+Galimberti, et al.       Expires 1 December 2023                [Page 3]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -221,7 +221,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
 
-Galimberti, et al.      Expires 20 November 2023                [Page 4]
+Galimberti, et al.       Expires 1 December 2023                [Page 4]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -259,7 +259,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
    An architecture analysis has already been carried out by the MANTRA
    sub-group in the OOPT – (Open Optical & Packet Transport)a Telecom
    Infra Project (TIP) group Project Group in the MANTRA whitepaper
-   MANTRA.
+   [MANTRA-whitepaper-IPoWDM].
 
    Two different architectural options have been identified, namely:
    ~~~~ ascii-art - Option 1: Dual SBI management of IPoDWDM routers -
@@ -277,7 +277,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
 
-Galimberti, et al.      Expires 20 November 2023                [Page 5]
+Galimberti, et al.       Expires 1 December 2023                [Page 5]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -290,10 +290,10 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
                       |                    |
                  +----+----+          +----+----+
                  |  P-PNC  |          |  O-PNC  |
-                 +----+----+          +----+----+
-                      ^                 ^  ^  ^
-                      |                 |  |  |
-            +---------+-----------------|--|--|------+
+                 +--+---+--+          +----+----+
+                    ^   ^               ^  ^  ^
+                    |   |               |  |  |
+            +-------+   +---------------|--|--|------+
             |                           |  |  |      |
             |   +-----------------------+  |  +--+   |
             |   |               +----------+     |   |
@@ -333,7 +333,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
 
-Galimberti, et al.      Expires 20 November 2023                [Page 6]
+Galimberti, et al.       Expires 1 December 2023                [Page 6]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -389,7 +389,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
 
-Galimberti, et al.      Expires 20 November 2023                [Page 7]
+Galimberti, et al.       Expires 1 December 2023                [Page 7]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -445,7 +445,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
 
-Galimberti, et al.      Expires 20 November 2023                [Page 8]
+Galimberti, et al.       Expires 1 December 2023                [Page 8]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -469,16 +469,17 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
       To verify the circuit feasibility the O-PNC needs to know the
       Transceiver optical characteristics, e.g.  OSNR Robustness, DC
       capability, supported PDL, FEC, etc.  For more details refer to
-      [I-D.draft-ietf-ccamp-dwdm-if-param-yang] and XXX (ADD HERE REF TO
-      OPTICAL IMPAIRMENTS TOPO DRAFT) .  The above parameters may not be
-      directly retrieved from Packet Node by the O-PNC, (e.g. because
-      the Packet Node supports only proprietary models or the Packet
-      Nodes is not able to support dual writing operation or the Packet
-      Node belongs to a different IP AS nor reachable by O-PNC), then
-      they must be read by the P-PNC, shared to MDSC via MPI and finally
-      to O-PNC.  Other parameters like central frequency and transmit
-      power are calculated by the O-PNC and must be provisioned to the
-      Pluggable optics when the circuit is set-up.
+      [I-D.draft-ietf-ccamp-dwdm-if-param-yang] and
+      [I-D.draft-ietf-optical-impairment-topology-yang].  The above
+      parameters may not be directly retrieved from Packet Node by the
+      O-PNC, (e.g. because the Packet Node supports only proprietary
+      models or the Packet Nodes is not able to support dual writing
+      operation or the Packet Node belongs to a different IP AS nor
+      reachable by O-PNC), then they must be read by the P-PNC, shared
+      to MDSC via MPI and finally to O-PNC.  Other parameters like
+      central frequency and transmit power are calculated by the O-PNC
+      and must be provisioned to the Pluggable optics when the circuit
+      is set-up.
 
    ## Transceiver optical parameters capabilities
 
@@ -495,17 +496,19 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
    FEC Coding
 
-      This parameter indicates what Forward Error Correction (FEC) code
-      is used at Ss and Rs (R/W) (not mentioned in G.698.2), it is used
-      by the O-PNC to calculate the optical feasibility.  The FEC coding
 
 
 
-Galimberti, et al.      Expires 20 November 2023                [Page 9]
+
+
+Galimberti, et al.       Expires 1 December 2023                [Page 9]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
+      This parameter indicates what Forward Error Correction (FEC) code
+      is used at Ss and Rs (R/W) (not mentioned in G.698.2), it is used
+      by the O-PNC to calculate the optical feasibility.  The FEC coding
       list (FEC can be many) supported by the pluggable is an input for
       O-PNC, one coding is selected for a specific circuit and is shared
       (as output) to MDSC for pluggable provisioning.
@@ -551,16 +554,17 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
    and are used by the Optical Network control plane in order to
    calculate the optical feasibility and the spectrum allocation.  The
    parameters are read by the P-PNC from the DWDM pluggable and shared
-   with MDSC to give the visibility of the pluggable characteristics.
-   MDSC can use the info to understand the client capability and, again,
-   share the same info to O-PNC for the impairment verification.
 
 
 
-Galimberti, et al.      Expires 20 November 2023               [Page 10]
+Galimberti, et al.       Expires 1 December 2023               [Page 10]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
+
+   with MDSC to give the visibility of the pluggable characteristics.
+   MDSC can use the info to understand the client capability and, again,
+   share the same info to O-PNC for the impairment verification.
 
    ## Pluggables provisioning
 
@@ -568,8 +572,8 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
    operational mode, lambda, TX power) to provision the Client (Packet)
    DWDM Pluggable.  The pluggable provisioning will be done by the
    P-PNC.  For more details on the optical interface parameters see:
-   [I-D.draft-ietf-ccamp-dwdm-if-param-yang] XXX (ADD HERE REFERENCE TO
-   OPTICAL IMP TOPO).
+   [I-D.draft-ietf-ccamp-dwdm-if-param-yang]
+   [I-D.draft-ietf-ccamp-optical-impairment-topology-yang].
 
    In summary the pluggable parameters exchanged from O-PNC to MDSC to
    P-PNC for end to end service provisioning are:
@@ -609,11 +613,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
 
-
-
-
-
-Galimberti, et al.      Expires 20 November 2023               [Page 11]
+Galimberti, et al.       Expires 1 December 2023               [Page 11]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -669,7 +669,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
 
-Galimberti, et al.      Expires 20 November 2023               [Page 12]
+Galimberti, et al.       Expires 1 December 2023               [Page 12]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -725,7 +725,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
 
-Galimberti, et al.      Expires 20 November 2023               [Page 13]
+Galimberti, et al.       Expires 1 December 2023               [Page 13]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -781,7 +781,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
 
-Galimberti, et al.      Expires 20 November 2023               [Page 14]
+Galimberti, et al.       Expires 1 December 2023               [Page 14]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -837,7 +837,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
 
-Galimberti, et al.      Expires 20 November 2023               [Page 15]
+Galimberti, et al.       Expires 1 December 2023               [Page 15]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -893,7 +893,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
 
-Galimberti, et al.      Expires 20 November 2023               [Page 16]
+Galimberti, et al.       Expires 1 December 2023               [Page 16]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -949,7 +949,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
 
-Galimberti, et al.      Expires 20 November 2023               [Page 17]
+Galimberti, et al.       Expires 1 December 2023               [Page 17]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -1005,7 +1005,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
 
-Galimberti, et al.      Expires 20 November 2023               [Page 18]
+Galimberti, et al.       Expires 1 December 2023               [Page 18]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -1061,7 +1061,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
 
-Galimberti, et al.      Expires 20 November 2023               [Page 19]
+Galimberti, et al.       Expires 1 December 2023               [Page 19]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -1117,7 +1117,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
 
-Galimberti, et al.      Expires 20 November 2023               [Page 20]
+Galimberti, et al.       Expires 1 December 2023               [Page 20]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -1173,7 +1173,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
 
-Galimberti, et al.      Expires 20 November 2023               [Page 21]
+Galimberti, et al.       Expires 1 December 2023               [Page 21]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -1191,7 +1191,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
    This document registers a YANG module in the YANG Module Names
    registry [RFC6020].
 
-   prefix: ietf-ext-xponder-wdm-if reference: RFC XXXX
+   prefix: [I-D.draft-ietf-ccamp-dwdm-if-param-yang]
 
 8.  References
 
@@ -1214,6 +1214,9 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
               2023, <https://datatracker.ietf.org/doc/html/draft-ietf-
               ccamp-optical-impairment-topology-yang-12>.
 
+   [I-D.draft-ietf-optical-impairment-topology-yang]
+              "*** BROKEN REFERENCE ***".
+
    [I-D.draft-ietf-teas-actn-poi-applicability]
               Peruzzini, F., Bouquier, J., Busi, I., King, D., and D.
               Ceccarelli, "Applicability of Abstraction and Control of
@@ -1226,10 +1229,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
 
-
-
-
-Galimberti, et al.      Expires 20 November 2023               [Page 22]
+Galimberti, et al.       Expires 1 December 2023               [Page 22]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -1285,7 +1285,7 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
 
-Galimberti, et al.      Expires 20 November 2023               [Page 23]
+Galimberti, et al.       Expires 1 December 2023               [Page 23]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
@@ -1322,6 +1322,13 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 8.2.  Informative References
 
+   [MANTRA-whitepaper-IPoWDM]
+              "MANTRA whitepaper IPoWDM convergent SDN architecture",
+              August 2022, <https://cdn.brandfolder.io/D8DI15S7/at/
+              n85t9h48bqtkhm9k7tqbs9fv/
+              TIP_OOPT_MANTRA_IP_over_DWDM_Whitepaper_-
+              _Final_Version3.pdf>.
+
    [RFC2629]  Rose, M., "Writing I-Ds and RFCs using XML", RFC 2629,
               DOI 10.17487/RFC2629, June 1999,
               <https://www.rfc-editor.org/rfc/rfc2629>.
@@ -1332,19 +1339,20 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
               DOI 10.17487/RFC3410, December 2002,
               <https://www.rfc-editor.org/rfc/rfc3410>.
 
-Acknowledgments
-
-   This document was prepared using kramdown.
-
-Contributors
 
 
-
-
-Galimberti, et al.      Expires 20 November 2023               [Page 24]
+Galimberti, et al.       Expires 1 December 2023               [Page 24]
 
 Internet-Draft  Applicability of Abstraction and Control        May 2023
 
+
+Acknowledgments
+
+   Many Thanks to Italo Busi for the several comments, suggestion and
+   support in GitHub process management.  This document was prepared
+   using kramdown.
+
+Contributors
 
    Phil Bedard
    Cisco
@@ -1386,6 +1394,14 @@ Authors' Addresses
 
    Jean-Francois Bouquier (editor)
    Vodafone
+
+
+
+Galimberti, et al.       Expires 1 December 2023               [Page 25]
+
+Internet-Draft  Applicability of Abstraction and Control        May 2023
+
+
    Email: jeff.bouquier@vodafone.com
 
 
@@ -1394,14 +1410,6 @@ Authors' Addresses
    AMOT ATRIUM Tower 19th floor
    TEL AVIV-YAFO, TA
    Israel
-
-
-
-Galimberti, et al.      Expires 20 November 2023               [Page 25]
-
-Internet-Draft  Applicability of Abstraction and Control        May 2023
-
-
    Email: ogerstel@cisco.com
 
 
@@ -1423,6 +1431,9 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
    Email: sergio.belotti@nokia.com
 
 
+   Oscar Gonzalez de Dios (editor)
+   Telefonica
+   Email: oscar.gonzalezdedios@telefonica.com
 
 
 
@@ -1442,15 +1453,4 @@ Internet-Draft  Applicability of Abstraction and Control        May 2023
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-Galimberti, et al.      Expires 20 November 2023               [Page 26]
+Galimberti, et al.       Expires 1 December 2023               [Page 26]
