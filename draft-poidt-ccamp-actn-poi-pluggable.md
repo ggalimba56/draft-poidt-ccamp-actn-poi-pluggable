@@ -675,7 +675,7 @@ MC-link = Media Channel link (MC optical circuit)
    The inter-domain link must be set (or clear) any time a new pluggable
    module is installed (or removed) and it is connected to the ROADM
    port with the fiber patchcord.  When a new coherent pluggable interface is installed an
-   inventory notification must be reported to the PNC and MDSC, the
+   inventory notification must be reported to the PNCs and MDSC, the
    reported info are:
 
             - Pluggable port-ID (e.g. rack/shelf/slot/port or UUID)
