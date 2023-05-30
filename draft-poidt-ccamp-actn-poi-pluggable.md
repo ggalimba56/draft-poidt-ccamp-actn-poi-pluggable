@@ -430,7 +430,7 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    Although the MPI interface should present an abstracted topology to
    the MDSC (hiding technology-specific aspects of the network and
    hiding topology details depending on the policy chosen) in the case
-   of DWDM coherent pluggable located in the PN some information 
+   of DWDM coherent pluggable located in the router some information 
    related to the physical component must be shared on MPI. The above
    statement is assumed as the Domain PNC (e.g. O-PNC) may not be able
    to get information from a node belonging to a different
