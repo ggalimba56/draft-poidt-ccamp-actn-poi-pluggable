@@ -532,7 +532,7 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    calculate the optical feasibility and the spectrum allocation.  The
    parameters are read by the P-PNC from the DWDM pluggable and shared
    with MDSC to give the visibility of the pluggable characteristics.
-   MDSC can use the info to understand the client capability and, again,
+   MDSC can use the info to understand the pluggable capability and, again,
    share the same info to O-PNC for the impairment verification.  
    
    ## Pluggables provisioning
