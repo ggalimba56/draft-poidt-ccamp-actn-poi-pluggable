@@ -761,7 +761,9 @@ Option 1
           are already known by the O-PNC  
      6.2. the bandwidth (e.g. 100G or 400G, etc.)
      6.3. the routing constraints (e.g. SRLG XRO, etc)
-  7. O-PNC calculates the optical route, selects the Lambda, verifies
+  7. O-PNC, potentially with the help of a planning tool in charge for planning for 
+  mixed optical channels (both usual optical transponders and optical pluggable) , 
+  calculates the optical route, selects the Lambda, verifies
      the optical feasibility, calculates the pluggable TX power.
      7.1.  If all is OK, provisions the optical circuit in ROADM.
      7.2.  If anything went wrong the O-PNC rejects the MDSC request.
