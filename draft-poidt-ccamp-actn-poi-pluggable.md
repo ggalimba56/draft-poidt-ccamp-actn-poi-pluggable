@@ -699,8 +699,7 @@ MC-link = Media Channel link (MC optical circuit)
 
    The first operation executed by the P-PNC and O-PNC is to discover
    the network topology and share it with the MDSC via the MPI.  The
-   PNCs will discover and share also the inter-layer links (or
-   connections) so that the MDSC can rebuild the full network topology
+   PNCs will discover and share also the inter-layer links so that the MDSC can rebuild the full network topology
    associating the DWDM Router ports to the ROADM ports.  Once the
    association is discovered the P-PNC must share the characteristics of
    Pluggable module with the MDSC and then MDSC with the O-PNC.  At this
