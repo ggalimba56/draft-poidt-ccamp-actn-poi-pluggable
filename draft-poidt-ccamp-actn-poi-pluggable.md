@@ -182,7 +182,7 @@ informative:
    multilayer network use cases where the DWDM optical transmission
    function is located within the packet domain equipment instead of 
    being part of the Optical domain {{my_figure-1}}.
-   This means that an IP/MPLS capable device becomes a multi-layer
+   This means that an IP/MPLS capable device becomes a multi-technology
    IP/MPLS/Optical device, as the optical connections (OTSi service
    and media channels) start and end at such devices.
 
