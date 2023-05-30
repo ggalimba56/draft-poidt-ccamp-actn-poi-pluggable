@@ -528,7 +528,7 @@ The figure {{my_figure-2}} describes the architecture of option 1.
       frequency and TX power, in the pluggable though MDSC and P-PNC.
 
    The above optical parameters are related to the Edge Node Transceiver
-   and are used by the Optical Network control plane in order to
+   and are used by the Optical Network controller in order to
    calculate the optical feasibility and the spectrum allocation.  The
    parameters are read by the P-PNC from the DWDM pluggable and shared
    with MDSC to give the visibility of the pluggable characteristics.
