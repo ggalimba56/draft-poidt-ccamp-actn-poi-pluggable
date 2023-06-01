@@ -457,7 +457,7 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    feasibility the O-PNC needs to know the Transceiver optical
    characteristics, e.g.  OSNR Robustness, DC capability, supported
    PDL, FEC, etc.  For more details refer to 
-   {{!I-D.draft-ietf-ccamp-dwdm-if-param-yang}} and {{!I-D.draft-ietf-optical-impairment-topology-yang}}. 
+   {{!I-D.draft-ietf-ccamp-dwdm-if-param-yang}} and {{!I-D.draft-ietf-ccamp-optical-impairment-topology-yang}}. 
    The above parameters may not be directly retrieved
    from Packet Node by the O-PNC, (e.g. because the Packet Node
    supports only proprietary models or the Packet Nodes is not able
@@ -517,15 +517,8 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    > In order to make the MPI communication more efficient and improve
       the abstraction, the above (and more) parameters can be 
       summarized by the operational-mode parameter.  
-      The operational-mode can be either standard ("application code"
-      defined by ITU-T G.698.2) or organization/vendor specific.
-      In both cases are strings of characters defined by ITU-T or
-      by vendors.  A pluggable may support several operational modes,
-      those values are collected by the P-PNC and notified to O-PNC
-      through the MDSC.  They are used, by O-PNC, to check the circuit
-      optical feasibility.  For each transceiver the O-PNC will select
-      only one operational-mode to be set, together with central 
-      frequency and TX power, in the pluggable though MDSC and P-PNC.
+      The operational mode is described in section 2.5.2 of 
+      {{!I-D.draft-ietf-ccamp-optical-impairment-topology-yang}}.
 
    The above optical parameters are related to the Edge Node Transceiver
    and are used by the Optical Network controller in order to
@@ -662,7 +655,7 @@ MC-link = Media Channel link (MC optical circuit)
    The inter-domain links are set in the Packet and DWDM nodes either
    manually (e.g. via CLI or NMS) during the installation phase when the
    operator connects the Pluggable Transceiver to the ROADM port via
-   fiber patch cord or is defined by the MDSC controller and provisioned
+   fiber patchcord or is defined by the MDSC controller and provisioned
    via the PNCs.  One method and model to define the Inter Layer Link
    is, for example, to assign a value to the patchcord (for Tx and RX
    directions) and store those values in the Pluggable and ROADM port
@@ -684,22 +677,22 @@ MC-link = Media Channel link (MC optical circuit)
     - Pluggable part number (if the op-mode in not standard)
     - Manufacturing data
 
-   It would be also possible to auto-discover the inter-domain (inter-
-   domain) links between DWDM coherent pluggables and ROADM ports by
+   It would be also possible to auto-discover the inter-domain
+   links between DWDM coherent pluggables and ROADM ports by
    checking the input/output power levels (and probably switching on/off
    the lasers of the pluggables).  This would require the help of MDSC,
    O-PNC and P-PNC.  The same method could be used to verify the
-   provisioned connectivity.  For further study in this draft.
+   provisioned connectivity. For further study in this draft.
 
    In this use case no difference between option 1 and 2 is foreseen,
    the MDSC can discover the inter-domain links correlating the
-   information received by the P-PNC and O-PN
+   information received by the P-PNC and O-PNC.
 
 ## Network topology discovery and provisioning
 
    The first operation executed by the P-PNC and O-PNC is to discover
    the network topology and share it with the MDSC via the MPI.  The
-   PNCs will discover and share also the inter-layer links so that
+   PNCs will discover and share also the inter-domain links so that
    the MDSC can rebuild the full network topology
    associating the DWDM Router ports to the ROADM ports.  Once the
    association is discovered the P-PNC must share the characteristics of
@@ -770,10 +763,12 @@ Option 1
      7.1.  If all is OK, provisions the optical circuit in ROADM.
      7.2.  If anything went wrong the O-PNC rejects the MDSC request.
   8. O-PNC updates the MDSC of successful circuit provisioning
-     including the path, the nominal central frequency, the operational 
-     mode (or the explicit optical parameters), the TX power, SRLG etc.
-     The optical circuit at this point is provisioned but not yet
-     operational (no optical power coming from the transceivers yet)
+     including the path, the nominal central frequency, the 
+     operational mode (or the explicit optical parameters - see
+     draft-ietf-ccamp-optical-impairment-topology-yang for more details),
+     the TX power, SRLG etc. The optical circuit at this point is 
+     provisioned but not yet operational (no optical power coming
+     from the transceivers yet).
   9. The MDSC updates the service DB and forward the pluggable
      provisioning parameters to P-PNC to complete the optical set-up.
   10. MDSC is ready to commission the packet service through P-PNC
@@ -815,7 +810,7 @@ Option 1
   3. First MDSC starts to compute the routing, the bandwidth, the
      constrains of the packet service.
   4. If the Packet network can support the service without additional
-     connections among the Routers
+     connections among the Routers.
      4.1. then the packet service is commissioned through the P-PNC
      4.2. a notification with all the service info is sent to OSS.
   5. If more optical connectivity is needed
@@ -837,15 +832,18 @@ Option 1
             - Admin-state (common ?)
      6.2. the bandwidth (e.g. 100G or 400G, etc.)
      6.3. the routing constraints (e.g. SRLG XRO, etc)
-  7. O-PNC calculates the optical route, selects the Lambda, verifies
-     the optical feasibility, calculates the pluggable TX power.
+  7. O-PNC calculates the optical route, selects the nominal
+     central frequency, verifies the optical feasibility, calculates
+     the pluggable TX power.
      7.1.  If all is OK, provisions the optical circuit in ROADM.
      7.2.  If anything went wrong the O-PNC rejects the MDSC request.
   8. O-PNC updates the MDSC of successful circuit provisioning
-     including the path, the Lambda, the operational mode (or the
-     explicit optical parameters), the TX power, SRLG, etc.
-     The optical circuit at this point is provisioned but not yet
-     operational (no optical power coming from the transceivers yet)
+     including the path, the nominal central frequency, the 
+     operational mode (or the explicit optical parameters - see
+     draft-ietf-ccamp-optical-impairment-topology-yang for more details), 
+     the TX power, SRLG, etc. The optical circuit at this point
+     is provisioned but not yet operational (no optical power
+     coming from the transceivers yet).
   9. The MDSC updates the service DB and forward the pluggable
      provisioning parameters to P-PNC to complete the optical set-up.
   10. MDSC is ready to commission the packet service through P-PNC
