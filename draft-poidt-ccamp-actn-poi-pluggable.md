@@ -4,7 +4,7 @@ coding: utf-8
 title: >
   Applicability of Abstraction and Control
 
-docname: draft-poidt-ccamp-actn-poi-pluggable-00
+docname: draft-poidt-ccamp-actn-poi-pluggable-01
 submissiontype: IETF
 workgroup: "Common Control and Measurement Plane"
 category: info
@@ -444,14 +444,16 @@ The figure {{my_figure-2}} describes the architecture of option 1.
 
    Optical Circuit Feasibility
 
-   > During the optical circuit feasibility, the O-PNC can calculate the estimated OSNR for the A to Z circuits
+   > During the optical circuit feasibility, the O-PNC can calculate
+   > the estimated OSNR for the A to Z circuits
    and sort them from the best to the worst performance or select the
-   most suitable one from a optical performance standpoint.  
+   most suitable one from a optical performance standpoint.
    To verify the circuit 
    feasibility the O-PNC needs to know the Transceiver optical
    characteristics, e.g.  OSNR Robustness, DC capability, supported
    PDL, FEC, etc.  For more details refer to 
-   {{!I-D.draft-ietf-ccamp-dwdm-if-param-yang}} and {{!I-D.draft-ietf-ccamp-optical-impairment-topology-yang}}. 
+   {{!I-D.draft-ietf-ccamp-dwdm-if-param-yang}} and
+   {{!I-D.draft-ietf-ccamp-optical-impairment-topology-yang}}. 
    The above parameters may not be directly retrieved
    from Packet Node by the O-PNC, (e.g. because the Packet Node
    supports only proprietary models or the Packet Nodes is not able
@@ -464,9 +466,11 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    
    ## Transceiver optical parameters capabilities
    
-   We can summarize here the list of parameters needed for O-PNC to compute optical circuit
-   feasibility and spectrum allocation. The parameters are read by the P-PNC from the DWDM
-   pluggable and shared with MDSC to give the visibility of the pluggable characteristics.
+   We can summarize here the list of parameters needed for O-PNC
+   to compute optical circuit feasibility and spectrum allocation.
+   The parameters are read by the P-PNC from the DWDM pluggable
+   and shared with MDSC to give the visibility of the pluggable
+   characteristics.
 
    Nominal Central frequency
 
@@ -519,8 +523,8 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    calculate the optical feasibility and the spectrum allocation.  The
    parameters are read by the P-PNC from the DWDM pluggable and shared
    with MDSC to give the visibility of the pluggable characteristics.
-   MDSC can use the info to understand the pluggable capability and, again,
-   share the same info to O-PNC for the impairment verification.  
+   MDSC can use the info to understand the pluggable capability and,
+   again, share the same info to O-PNC for the impairment verification.
    
    ## Pluggables provisioning
    
@@ -548,8 +552,8 @@ The figure {{my_figure-2}} describes the architecture of option 1.
 
    The different services supported by the network are shown in
    {{my_figure-4}}.  This draft is focused on the inter-domain link, 
-   the coherent pluggable interfaces setting through the MC-links setting although the POI
-   first goal is to set an IP service.
+   the coherent pluggable interfaces setting through the MC-links
+   setting although the POI first goal is to set an IP service.
 
    {{my_figure-4}}
 
@@ -595,8 +599,8 @@ MC-link = Media Channel link (MC optical circuit)
 
    > The inter-domain links (or inter-domain links) are the
       interconnections (fiber) between the pluggable ports (in the
-      Packet Layer) and the ROADM ports (in the Optical Layer).  They
-      are set in the Packet and DWDM nodes either manually (e.g.  CLI)
+      Packet Layer) and the ROADM ports (in the Optical Layer). They
+      are set in the Packet and DWDM nodes either manually (e.g. CLI)
       or via PNCs.  The values identifying the inter layer links may be
       defined by MDSC which has the visibility of both IP and Optical
       layers.  The "plug-id" {{!RFC8795}} could be used for this purpose.
@@ -701,8 +705,8 @@ MC-link = Media Channel link (MC optical circuit)
    inserted or remove at any time it is relevant to have admin and
    operational state notification from the network to the PNC and MDSC.
 
-   Also in this case the MDSC can retrieve all the needed info in collaboration
-   with the P-PNC and O-PNC.
+   Also in this case the MDSC can retrieve all the needed info in
+   collaboration with the P-PNC and O-PNC.
 
 {: #e2e-svc-provisioning}
 
@@ -715,8 +719,8 @@ MC-link = Media Channel link (MC optical circuit)
    request can be driven by the operator using the MDSC UI or the MDSC
    receives the service request from the operator OSS/Orchestrator.
 
-   The workflow for the creation of an end to end service is composed by
-   the following steps:
+   The workflow for the creation of an end to end service is composed
+   by the following steps:
 
 ~~~~ ascii-art
 Option 1
