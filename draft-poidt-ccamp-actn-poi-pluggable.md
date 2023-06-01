@@ -272,10 +272,9 @@ Px = DWDM (coherent pluggable) Router ports
    {{MANTRA-whitepaper-IPoWDM}}.
 
    Two different architectural options have been identified, namely:
-~~~~ ascii-art
+
      - Option 1: Dual SBI management of IPoDWDM routers
      - Option 2: Single SBI management of IPoDWDM routers
-~~~~
 
    Both the options foresee that the packet and the optical domain are 
    kept separate from a management perspective.
@@ -300,7 +299,7 @@ The figure {{my_figure-2}} describes the architecture of option 1.
                  ^   ^               ^  ^  ^
                  |   |               |  |  |
          +-------+   +---------------|--|--|------+
-         |                           |  |  |      |  
+         |                           |  |  |      |
          |   +-----------------------+  |  +--+   |
          |   |               +----------+     |   |
          |   |               |                |   |
@@ -308,7 +307,7 @@ The figure {{my_figure-2}} describes the architecture of option 1.
          v   |        +--------------+        |   v
         +-----+      /                \      +-----+
        / P.N.1 \..../..O.N--------O.N..\..../ P.N.2 \
-       \       /    \  Optical Domain  /    \       / 
+       \       /    \  Optical Domain  /    \       /
         +-----+      \                /      +-----+
                       +--------------+
 
@@ -344,8 +343,9 @@ The figure {{my_figure-2}} describes the architecture of option 1.
 
  ## Option 2 - Single SBI management of IPoWDM routers
 
-   The architecture related to option 2 is more meeting a canonical  ACTN approach, i.e.
-   any PNCs only manage resources related to his own administrative domain,  like in {{!RFC8453}} and 
+   The architecture related to option 2 is more meeting a canonical
+   ACTN approach, i.e. any PNCs only manage resources related to his
+   own administrative domain,  like in {{!RFC8453}} and 
    {{!I-D.draft-ietf-teas-actn-poi-applicability}} is described 
    in figure {{my_figure-3}}.
 
@@ -418,7 +418,6 @@ The figure {{my_figure-2}} describes the architecture of option 1.
 
   # Updates to the ACTN MPI interface
 
-
    A specific standard interface (i.e. ACTN MPI - MDSC-PNC interface)
    allows the MDSC to interact with the different O/P-PNCs.
    Although the MPI interface should present an abstracted topology to
@@ -431,12 +430,14 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    domain (e.g.  P-PNC) or to set parameters.
 
 
-  To better explain the reason of this change, there are two phases before setting an optical circuit:
+  To better explain the reason of this change, there are two phases
+  before setting an optical circuit:
 
    O-PNC routing and wavelength assignment and Optical Circuit Feasibility.
 
-   > During the first phase the MDSC can ask the O-PNC to set an optical circuit between two
-   ROADM ports (A and Z).  The O-PNC having the full Optical Topology
+   > During the first phase the MDSC can ask the O-PNC to set an
+   optical circuit between two ROADM ports (A and Z).  
+   The O-PNC having the full Optical Topology
    network knowledge can calculate the Optical Path, the wavelength
    assignment (RWA), etc.  K-circuits may be calculated and sorted
    based on some parameters (e.g. number of hops, path length, OSNR,
@@ -445,7 +446,7 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    Optical Circuit Feasibility
 
    > During the optical circuit feasibility, the O-PNC can calculate
-   > the estimated OSNR for the A to Z circuits
+   the estimated OSNR for the A to Z circuits
    and sort them from the best to the worst performance or select the
    most suitable one from a optical performance standpoint.
    To verify the circuit 
