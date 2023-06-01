@@ -89,12 +89,7 @@ contributor:
     email: manuel-julian.lopez@vodafone.com
 
 normative:
-  RFC8795:
-  RFC7698:
-  RFC7699:
-  RFC6205:
-  RFC7792:
-  RFC2119:
+
   ITU.G698.2:
     title: >
         Amplified multichannel dense wavelength division multiplexing
@@ -133,8 +128,7 @@ normative:
     seriesinfo: OpenZR+ Open ZR+ MSA
 
 informative:
-  RFC3410:
-  RFC2629:
+
   MANTRA-whitepaper-IPoWDM:
    title: MANTRA whitepaper IPoWDM convergent SDN architecture
    author:
@@ -419,8 +413,8 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    the faults/alarms of the services at all layers.
    
    As the path computation for the optical layer is performed by the
-   O-PNC, it needs to expose path computation APIs to the MDSC in order to accept the path characteristics
-   or return the effective patameters of the computed path. 
+   O-PNC, it needs to expose path computation APIs to the MDSC in order
+   to accept the path characteristics or return the effective patameters of the computed path. 
 
   # Updates to the ACTN MPI interface
 
@@ -672,7 +666,7 @@ MC-link = Media Channel link (MC optical circuit)
    the PNCs and MDSC, the reported info are:
 
     - Pluggable port-ID (e.g. rack/shelf/slot/port or UUID)
-    - Supported Operational-modes (standard, organizational and explicit mode)
+    - Supported Operational-modes (standard,organizational and explicit)
     - Supported Application codes
     - Pluggable part number (if the op-mode in not standard)
     - Manufacturing data
@@ -755,7 +749,7 @@ Option 1
           are already known by the O-PNC  
      6.2. the bandwidth (e.g. 100G or 400G, etc.)
      6.3. the routing constraints (e.g. SRLG XRO, etc)
-  7. O-PNC, potentially with the help of a planning tool in charge 
+  7. O-PNC, potentially with the help of a planning tool in charge
      for planning for mixed optical channels (both usual optical 
      transponders and optical pluggable), calculates the optical 
      route, selects the Lambda, verifies the optical feasibility, 
@@ -765,10 +759,11 @@ Option 1
   8. O-PNC updates the MDSC of successful circuit provisioning
      including the path, the nominal central frequency, the 
      operational mode (or the explicit optical parameters - see
-     draft-ietf-ccamp-optical-impairment-topology-yang for more details),
-     the TX power, SRLG etc. The optical circuit at this point is 
-     provisioned but not yet operational (no optical power coming
-     from the transceivers yet).
+     draft-ietf-ccamp-optical-impairment-topology-yang for
+     more details), the TX power, SRLG etc.
+     The optical circuit at this point is provisioned but 
+     not yet operational (no optical power coming from the 
+     transceivers yet).
   9. The MDSC updates the service DB and forward the pluggable
      provisioning parameters to P-PNC to complete the optical set-up.
   10. MDSC is ready to commission the packet service through P-PNC
@@ -840,10 +835,10 @@ Option 1
   8. O-PNC updates the MDSC of successful circuit provisioning
      including the path, the nominal central frequency, the 
      operational mode (or the explicit optical parameters - see
-     draft-ietf-ccamp-optical-impairment-topology-yang for more details), 
-     the TX power, SRLG, etc. The optical circuit at this point
-     is provisioned but not yet operational (no optical power
-     coming from the transceivers yet).
+     draft-ietf-ccamp-optical-impairment-topology-yang for more
+     details), the TX power, SRLG, etc. The optical circuit at 
+     this point is provisioned but not yet operational 
+     (no optical power coming from the transceivers yet).
   9. The MDSC updates the service DB and forward the pluggable
      provisioning parameters to P-PNC to complete the optical set-up.
   10. MDSC is ready to commission the packet service through P-PNC
