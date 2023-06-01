@@ -580,7 +580,7 @@ The figure {{my_figure-2}} describes the architecture of option 1.
 |  |  <--------------------------------------------------->  |  |
 |  |       |  |                                   |  |       |  |
 |  |       |  |              OTSi-link            |  |       |  |
-|  |  DCO <-------------------------------------------> DCO  |  |
+|  |  CPI <-------------------------------------------> CPI  |  |
 +--+-------+--+                                   +--+-------+--+
        ^                                                 ^
        |       +-------+                 +-------+       |
@@ -595,7 +595,7 @@ The figure {{my_figure-2}} describes the architecture of option 1.
 
 IP-link = IP service, out of this document scope
 Eth-link = Ethernet connection
-DCO = Coherent pluggable interface (Digital Coherent Optics)
+CPI = Coherent Pluggable Interface
 OTSi-link = Pluggable connection (OTSi connection)
 MC-link = Media Channel link (MC optical circuit)
 
@@ -674,15 +674,15 @@ MC-link = Media Channel link (MC optical circuit)
 
    The inter-domain link must be set (or clear) any time a new pluggable
    module is installed (or removed) and it is connected to the ROADM
-   port with the fiber patchcord.  When a new coherent pluggable interface is installed an
-   inventory notification must be reported to the PNCs and MDSC, the
-   reported info are:
+   port with the fiber patchcord.  When a new coherent pluggable interface
+   is installed an inventory notification must be reported to
+   the PNCs and MDSC, the reported info are:
 
-            - Pluggable port-ID (e.g. rack/shelf/slot/port or UUID)
-            - Supported Operational-modes (standard, organizational and explicit mode)
-            - Supported Application codes
-            - Pluggable part number (if the op-mode in not standard)
-            - Manufacturing data
+    - Pluggable port-ID (e.g. rack/shelf/slot/port or UUID)
+    - Supported Operational-modes (standard, organizational and explicit mode)
+    - Supported Application codes
+    - Pluggable part number (if the op-mode in not standard)
+    - Manufacturing data
 
    It would be also possible to auto-discover the inter-domain (inter-
    domain) links between DWDM coherent pluggables and ROADM ports by
@@ -699,7 +699,8 @@ MC-link = Media Channel link (MC optical circuit)
 
    The first operation executed by the P-PNC and O-PNC is to discover
    the network topology and share it with the MDSC via the MPI.  The
-   PNCs will discover and share also the inter-layer links so that the MDSC can rebuild the full network topology
+   PNCs will discover and share also the inter-layer links so that
+   the MDSC can rebuild the full network topology
    associating the DWDM Router ports to the ROADM ports.  Once the
    association is discovered the P-PNC must share the characteristics of
    Pluggable module with the MDSC and then MDSC with the O-PNC.  At this
@@ -761,15 +762,16 @@ Option 1
           are already known by the O-PNC  
      6.2. the bandwidth (e.g. 100G or 400G, etc.)
      6.3. the routing constraints (e.g. SRLG XRO, etc)
-  7. O-PNC, potentially with the help of a planning tool in charge for planning for 
-  mixed optical channels (both usual optical transponders and optical pluggable) , 
-  calculates the optical route, selects the Lambda, verifies
-     the optical feasibility, calculates the pluggable TX power.
+  7. O-PNC, potentially with the help of a planning tool in charge 
+     for planning for mixed optical channels (both usual optical 
+     transponders and optical pluggable), calculates the optical 
+     route, selects the Lambda, verifies the optical feasibility, 
+     calculates the pluggable TX power.
      7.1.  If all is OK, provisions the optical circuit in ROADM.
      7.2.  If anything went wrong the O-PNC rejects the MDSC request.
   8. O-PNC updates the MDSC of successful circuit provisioning
-     including the path, the nominal central frequency, the operational mode (or the
-     explicit optical parameters), the TX power, SRLG etc.
+     including the path, the nominal central frequency, the operational 
+     mode (or the explicit optical parameters), the TX power, SRLG etc.
      The optical circuit at this point is provisioned but not yet
      operational (no optical power coming from the transceivers yet)
   9. The MDSC updates the service DB and forward the pluggable
