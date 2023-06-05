@@ -341,7 +341,7 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    and service provisioning for OLS media channel services.
 
 
- ## Option 2 - Single SBI management of IPoWDM routers
+## Option 2 - Single SBI management of IPoWDM routers
 
    The architecture related to option 2 is more meeting a canonical
    ACTN approach, i.e. any PNCs only manage resources related to his
@@ -1055,4 +1055,4 @@ Option 1
 
    Many Thanks to Italo Busi for the several comments, suggestion and 
    support in GitHub process management.
-   This document was prepared using kramdown.
+   Part of this work has been supported by the EU SEASON Project.
