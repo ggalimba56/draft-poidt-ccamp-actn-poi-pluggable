@@ -149,7 +149,7 @@ informative:
    and data models are identified for each multi-layer (packet over
    optical) scenario with a specific focus on the MPI (Multi-Domain
    Service Coordinator to Provisioning Network Controllers Interface)in
-   the ACTN architecture.   CHECK again
+   the ACTN architecture.
 
 --- middle
 
@@ -169,7 +169,7 @@ informative:
    multilayer/multidomain networks using the Abstraction and Control of
    TE Networks (ACTN) architecture, see also {{my_figure-0}}.
 
-   New pluggable
+## New coherent pluggable optics
 
    Coherent pluggable digital coherent optics, such as ZR
    {{OIF-400ZR-01-0}} and ZR+ {{Open_ZR-Plus_MSA}}, are enabling new
@@ -190,10 +190,10 @@ informative:
    simple point-to-point high-capacity link scenarios between two IP/
    MPLS routers.
 
-   {{my_figure-0}} ACTN architecture, defined in {{!RFC8453}}, is used
-   to control the multi-layer and multi-domain network shown in
-   {{my_figure-1}}, where each Packet PNC (P-PNC) is responsible for
-   controlling its IP/MPLS domain, which can be either an Autonomous
+   The ACTN architecture, defined in {{!RFC8453}} and depicted in
+   {{my_figure-0}} , is used to control the multi-layer and multi-domain
+   network shown in {{my_figure-1}}, where each Packet PNC (P-PNC) is
+   responsible for controlling its IP/MPLS domain, which can be either an Autonomous
    System (AS), {{!RFC1930}}, or an IGP area within the same operator
    network.  Each Optical PNC (O-PNC) in the below topology is
    responsible for controlling its own Optical Domain.
@@ -260,10 +260,10 @@ Px = DWDM (coherent pluggable) Router ports
    As described in {{my_figure-0}} and according to the Packet Optical
    Integration (POI) draft
    {{!I-D.draft-ietf-teas-actn-poi-applicability}} in which ACTN
-   hierarchy is deployed {{!RFC8453}}, the PNCs are in charge to
-   control a single domain (e.g.  Packet or Optical) while the MDSC is
+   hierarchy is deployed {{!RFC8453}}, the PNCs are in charge of
+   controlling a single domain (e.g.  Packet or Optical) while the MDSC is
    responsible to coordinate the operations across the different
-   domains having the visibility of the whole network multi-domain and
+   domains having the visibility of the whole multi-domain and
    multi-layer network topology.
 
    An architecture analysis has already been carried out by the MANTRA
@@ -329,6 +329,7 @@ The figure {{my_figure-2}} describes the architecture of option 1.
 
    The read-only capabilities of the O-PNC consist in the following
    tasks:
+
      - Device discovery, poll or stream configuration, state and
        static capabilities.
      - Performance monitoring, periodically poll or stream performance
@@ -555,8 +556,6 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    {{my_figure-4}}.  This draft is focused on the inter-domain link,
    the coherent pluggable interfaces setting through the MC-links
    setting although the POI first goal is to set an IP service.
-
-   {{my_figure-4}}
 
 ~~~~ ascii-art
 
@@ -1016,6 +1015,8 @@ Option 1
 
    ietf-ext-xponder-wdm-if is a top-level model for the support of this
    feature.
+
+   Editor's note: This chapter is to be completed.
 
 # Security Considerations
 
