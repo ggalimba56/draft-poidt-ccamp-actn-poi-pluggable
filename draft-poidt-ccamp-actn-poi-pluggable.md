@@ -55,13 +55,13 @@ author:
     role: editor
     org: Nokia
     email: sergio.belotti@nokia.com
-    
+
   -
     name: Oscar Gonzalez de Dios
     role: editor
     org: Telefonica
     email: oscar.gonzalezdedios@telefonica.com
-    
+
 contributor:
   -
     name: Phil Bedard
@@ -134,7 +134,7 @@ informative:
    author:
    org: Telecom Infra Project
    date: August 2022
-   seriesinfo: 
+   seriesinfo:
    target:  https://cdn.brandfolder.io/D8DI15S7/at/n85t9h48bqtkhm9k7tqbs9fv/TIP_OOPT_MANTRA_IP_over_DWDM_Whitepaper_-_Final_Version3.pdf
 
 
@@ -160,28 +160,28 @@ informative:
    The full automation of the multilayer/multidomain network is a topic
    of high importance in the industry and the service providers
    community.  Typically, the layers composing such network are the IP/
-   MPLS packet domain (with Segment Routing) and the Optical domain 
+   MPLS packet domain (with Segment Routing) and the Optical domain
    providing DWDM transmission and photonic switching.  The requirements
    of high bandwidth availability and dynamic control of the networks
-   are of capital importance too.  
-   The {{!I-D.draft-ietf-teas-actn-poi-applicability}} 
+   are of capital importance too.
+   The {{!I-D.draft-ietf-teas-actn-poi-applicability}}
    specifies very well how to control and manage
    multilayer/multidomain networks using the Abstraction and Control of
    TE Networks (ACTN) architecture, see also {{my_figure-0}}.
 
-   New pluggable 
+   New pluggable
 
-   Coherent pluggable digital coherent optics, such as ZR 
-   {{OIF-400ZR-01-0}} and ZR+ {{Open_ZR-Plus_MSA}}, are enabling new 
+   Coherent pluggable digital coherent optics, such as ZR
+   {{OIF-400ZR-01-0}} and ZR+ {{Open_ZR-Plus_MSA}}, are enabling new
    multilayer network use cases where the DWDM optical transmission
-   function is located within the packet domain equipment instead of 
+   function is located within the packet domain equipment instead of
    being part of the Optical domain {{my_figure-1}}.
    This means that an IP/MPLS capable device becomes a multi-technology
    IP/MPLS/Optical device, as the optical connections (OTSi service
    and media channels) start and end at such devices.
 
    The coherent pluggable interface deployment in routers has already
-   started and are expanding significantly.  The way the pluggables 
+   started and are expanding significantly.  The way the pluggables
    are in general managed is not yet completely specified and defined by
    any standard and it is becoming an urgent matter to cover for Service
    Providers.  A full end-to-end management solution of these pluggable
@@ -191,11 +191,11 @@ informative:
    MPLS routers.
 
    {{my_figure-0}} ACTN architecture, defined in {{!RFC8453}}, is used
-   to control the multi-layer and multi-domain network shown in 
-   {{my_figure-1}}, where each Packet PNC (P-PNC) is responsible for 
-   controlling its IP/MPLS domain, which can be either an Autonomous 
-   System (AS), {{!RFC1930}}, or an IGP area within the same operator 
-   network.  Each Optical PNC (O-PNC) in the below topology is 
+   to control the multi-layer and multi-domain network shown in
+   {{my_figure-1}}, where each Packet PNC (P-PNC) is responsible for
+   controlling its IP/MPLS domain, which can be either an Autonomous
+   System (AS), {{!RFC1930}}, or an IGP area within the same operator
+   network.  Each Optical PNC (O-PNC) in the below topology is
    responsible for controlling its own Optical Domain.
 
 ~~~~ ascii-art
@@ -229,7 +229,7 @@ o--/---o               o---\-|-------|--/---o               o---\--o
 ~~~~
 {: #my_figure-0 title="Reference multilayer/multidomain Scenario"}
 
-   {{my_figure-1}} shows how the Packet Node DWDM coherent Ports are 
+   {{my_figure-1}} shows how the Packet Node DWDM coherent Ports are
    connected to the ROADM ports.
 
 ~~~~ ascii-art
@@ -258,17 +258,17 @@ Px = DWDM (coherent pluggable) Router ports
 # Reference architecture and network scenario
 
    As described in {{my_figure-0}} and according to the Packet Optical
-   Integration (POI) draft 
-   {{!I-D.draft-ietf-teas-actn-poi-applicability}} in which ACTN 
+   Integration (POI) draft
+   {{!I-D.draft-ietf-teas-actn-poi-applicability}} in which ACTN
    hierarchy is deployed {{!RFC8453}}, the PNCs are in charge to
    control a single domain (e.g.  Packet or Optical) while the MDSC is
-   responsible to coordinate the operations across the different 
+   responsible to coordinate the operations across the different
    domains having the visibility of the whole network multi-domain and
    multi-layer network topology.
 
-   An architecture analysis has already been carried out by the MANTRA 
+   An architecture analysis has already been carried out by the MANTRA
    sub-group in the OOPT – (Open Optical & Packet Transport)a Telecom
-   Infra Project (TIP) group Project Group in the MANTRA whitepaper 
+   Infra Project (TIP) group Project Group in the MANTRA whitepaper
    {{MANTRA-whitepaper-IPoWDM}}.
 
    Two different architectural options have been identified, namely:
@@ -276,7 +276,7 @@ Px = DWDM (coherent pluggable) Router ports
      - Option 1: Dual SBI management of IPoDWDM routers
      - Option 2: Single SBI management of IPoDWDM routers
 
-   Both the options foresee that the packet and the optical domain are 
+   Both the options foresee that the packet and the optical domain are
    kept separate from a management perspective.
 
 
@@ -290,9 +290,9 @@ The figure {{my_figure-2}} describes the architecture of option 1.
                         +----------+
                         |   MDSC   |
                         +--+----+--+
-                           |    |  
+                           |    |
   MPI interface    +-------+    +-------+
-                   |                    | 
+                   |                    |
               +----+----+          +----+----+
               |  P-PNC  |          |  O-PNC  |
               +--+---+--+          +----+----+
@@ -311,27 +311,27 @@ The figure {{my_figure-2}} describes the architecture of option 1.
         +-----+      \                /      +-----+
                       +--------------+
 
-   P.N. = Packet/Optical Node (IPoWDM router) 
+   P.N. = Packet/Optical Node (IPoWDM router)
    O.N. = Optical Switching DWDM Node (ROADM)
    ROADM = Lambda/Spectrum switch
 ~~~~
 {: #my_figure-2 title="Dual SBI management Scenario"}
 
 
-   The peculiarity of this option consists of the fact that both the 
+   The peculiarity of this option consists of the fact that both the
    packet SDN controller (P-PNC) and the optical SDN controller (O-PNC)
-   have access to the coherent pluggable optics on the routers. 
+   have access to the coherent pluggable optics on the routers.
    The P-PNC is the only entity allowed to configure them, while the
-   O-PNC is granted with read-only permissions to avoid database 
-   inconsistency between them. Data write access permissions are 
-   expected to be implemented on the routers to only grant 
+   O-PNC is granted with read-only permissions to avoid database
+   inconsistency between them. Data write access permissions are
+   expected to be implemented on the routers to only grant
    configuration rights to the P-PNC.
 
-   The read-only capabilities of the O-PNC consist in the following 
+   The read-only capabilities of the O-PNC consist in the following
    tasks:
-     - Device discovery, poll or stream configuration, state and 
+     - Device discovery, poll or stream configuration, state and
        static capabilities.
-     - Performance monitoring, periodically poll or stream performance 
+     - Performance monitoring, periodically poll or stream performance
        counters.
      - Fault notification, received asynchronous alarm notifications.
 
@@ -345,8 +345,8 @@ The figure {{my_figure-2}} describes the architecture of option 1.
 
    The architecture related to option 2 is more meeting a canonical
    ACTN approach, i.e. any PNCs only manage resources related to his
-   own administrative domain,  like in {{!RFC8453}} and 
-   {{!I-D.draft-ietf-teas-actn-poi-applicability}} is described 
+   own administrative domain,  like in {{!RFC8453}} and
+   {{!I-D.draft-ietf-teas-actn-poi-applicability}} is described
    in figure {{my_figure-3}}.
 
 
@@ -355,16 +355,16 @@ The figure {{my_figure-2}} describes the architecture of option 1.
                         +----------+
                         |   MDSC   |
                         +--+----+--+
-                           |    |  
+                           |    |
   MPI interface    +-------+    +-------+
-                   |                    | 
+                   |                    |
               +----+----+          +----+----+
               |  P-PNC  |          |  O-PNC  |
               +--+---+--+          +----+----+
-                 ^   ^                  ^  
-                 |   |                  |  
+                 ^   ^                  ^
+                 |   |                  |
          +-------+   +------------------|---------+
-         |                              |         |  
+         |                              |         |
          |                              |         |
          |                   +----------+         |
          |                   |                    |
@@ -372,11 +372,11 @@ The figure {{my_figure-2}} describes the architecture of option 1.
          v            +--------------+            v
         +-----+      /                \      +-----+
        / P.N.1 \..../..O.N--------O.N..\..../ P.N.2 \
-       \       /    \  Optical Domain  /    \       / 
+       \       /    \  Optical Domain  /    \       /
         +-----+      \                /      +-----+
                       +--------------+
 
-   P.N. = Packet/Optical Node (IPoWDM router) 
+   P.N. = Packet/Optical Node (IPoWDM router)
    O.N. = Optical Switching DWDM Node (ROADM)
    ROADM = Lambda/Spectrum switch
 ~~~~
@@ -384,7 +384,7 @@ The figure {{my_figure-2}} describes the architecture of option 1.
 
 
    In option 2 the P-PNC is the only component which has access to
-   the routers and implements all the management capabilities. 
+   the routers and implements all the management capabilities.
    In this case the P-PNC not only needs to expose to the MDSC all
    the needed info for the management of the multi-layer network,
    but also physical impairment data needed for the computation and
@@ -404,17 +404,17 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    and {{!I-D.draft-ietf-ccamp-optical-impairment-topology-yang}}.
 
 
-   The role of the MDSC can be summarized into the following functions: 
+   The role of the MDSC can be summarized into the following functions:
    discovery of the pluggables capabilities,
    consolidation of topology and services at all layers from L0 to L3,
-   provisioning of multi-layer services including the OTSi service 
-   (whose path computation can be done by the MDSC itself or 
+   provisioning of multi-layer services including the OTSi service
+   (whose path computation can be done by the MDSC itself or
    requested to the O-PNC), monitoring the performances and managing
    the faults/alarms of the services at all layers.
-   
+
    As the path computation for the optical layer is performed by the
    O-PNC, it needs to expose path computation APIs to the MDSC in order
-   to accept the path characteristics or return the effective patameters of the computed path. 
+   to accept the path characteristics or return the effective patameters of the computed path.
 
   # Updates to the ACTN MPI interface
 
@@ -423,7 +423,7 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    Although the MPI interface should present an abstracted topology to
    the MDSC (hiding technology-specific aspects of the network and
    hiding topology details depending on the policy chosen) in the case
-   of DWDM coherent pluggable located in the router some information 
+   of DWDM coherent pluggable located in the router some information
    related to the physical component must be shared on MPI. The above
    statement is assumed as the Domain PNC (e.g. O-PNC) may not be able
    to get information from a node belonging to a different
@@ -436,7 +436,7 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    O-PNC routing and wavelength assignment and Optical Circuit Feasibility.
 
    > During the first phase the MDSC can ask the O-PNC to set an
-   optical circuit between two ROADM ports (A and Z).  
+   optical circuit between two ROADM ports (A and Z).
    The O-PNC having the full Optical Topology
    network knowledge can calculate the Optical Path, the wavelength
    assignment (RWA), etc.  K-circuits may be calculated and sorted
@@ -449,12 +449,12 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    the estimated OSNR for the A to Z circuits
    and sort them from the best to the worst performance or select the
    most suitable one from a optical performance standpoint.
-   To verify the circuit 
+   To verify the circuit
    feasibility the O-PNC needs to know the Transceiver optical
    characteristics, e.g.  OSNR Robustness, DC capability, supported
-   PDL, FEC, etc.  For more details refer to 
+   PDL, FEC, etc.  For more details refer to
    {{!I-D.draft-ietf-ccamp-dwdm-if-param-yang}} and
-   {{!I-D.draft-ietf-ccamp-optical-impairment-topology-yang}}. 
+   {{!I-D.draft-ietf-ccamp-optical-impairment-topology-yang}}.
    The above parameters may not be directly retrieved
    from Packet Node by the O-PNC, (e.g. because the Packet Node
    supports only proprietary models or the Packet Nodes is not able
@@ -464,9 +464,9 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    parameters like central frequency and transmit power are
    calculated by the O-PNC and must be provisioned to the Pluggable
    optics when the circuit is set-up.
-   
+
    ## Transceiver optical parameters capabilities
-   
+
    We can summarize here the list of parameters needed for O-PNC
    to compute optical circuit feasibility and spectrum allocation.
    The parameters are read by the P-PNC from the DWDM pluggable
@@ -500,23 +500,23 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    Receiver input power range
 
    > This parameter is the Min and Max input power supported by the
-      Transceiver, i.e. Receiver Sensitivity.  It is an input for 
-      O-PNC to properly calculate the optical power to set at ROADM 
+      Transceiver, i.e. Receiver Sensitivity.  It is an input for
+      O-PNC to properly calculate the optical power to set at ROADM
       port
 
    Receiver input power
 
-   > This parameter is the measured input power at the receiver.  
-      It is an input for O-PNC to properly check the patchcord 
+   > This parameter is the measured input power at the receiver.
+      It is an input for O-PNC to properly check the patchcord
       (between transceiver and ROADM) loss comparing it with the ROADM
       port received power.
 
    Operational-mode
 
    > In order to make the MPI communication more efficient and improve
-      the abstraction, the above (and more) parameters can be 
-      summarized by the operational-mode parameter.  
-      The operational mode is described in section 2.5.2 of 
+      the abstraction, the above (and more) parameters can be
+      summarized by the operational-mode parameter.
+      The operational mode is described in section 2.5.2 of
       {{!I-D.draft-ietf-ccamp-optical-impairment-topology-yang}}.
 
    The above optical parameters are related to the Edge Node Transceiver
@@ -526,14 +526,14 @@ The figure {{my_figure-2}} describes the architecture of option 1.
    with MDSC to give the visibility of the pluggable characteristics.
    MDSC can use the info to understand the pluggable capability and,
    again, share the same info to O-PNC for the impairment verification.
-   
+
    ## Pluggables provisioning
-   
+
    On the opposite direction O-PNC can send to MDSC the values (e.g.
    operational mode, lambda, TX power) to provision the Client (Packet)
    DWDM Pluggable.  The pluggable provisioning will be done by the
    P-PNC.  For more details on the optical interface parameters see:
-   {{!I-D.draft-ietf-ccamp-dwdm-if-param-yang}} 
+   {{!I-D.draft-ietf-ccamp-dwdm-if-param-yang}}
    {{!I-D.draft-ietf-ccamp-optical-impairment-topology-yang}}.
 
    In summary the pluggable parameters exchanged from O-PNC to MDSC
@@ -545,14 +545,14 @@ The figure {{my_figure-2}} describes the architecture of option 1.
      - TX Output power (source port-ID)
      - TX Output power (destination port-ID)
      - Operational-mode (compatible)
-     - Vendor OUI 
+     - Vendor OUI
      - Pluggable part number (if the operational mode in not standard)
      - Admin-state (common ?)
 
 # Use Cases
 
    The different services supported by the network are shown in
-   {{my_figure-4}}.  This draft is focused on the inter-domain link, 
+   {{my_figure-4}}.  This draft is focused on the inter-domain link,
    the coherent pluggable interfaces setting through the MC-links
    setting although the POI first goal is to set an IP service.
 
@@ -643,11 +643,11 @@ MC-link = Media Channel link (MC optical circuit)
       maintenance and coordinate the O-PNC and P-PNC to preserve the
       traffic during the maintenance operation.
 
-   In the following sub-sections a workflow for each use case is 
-   described.  Each workflow is analyzed consider a scenario like the 
+   In the following sub-sections a workflow for each use case is
+   described.  Each workflow is analyzed consider a scenario like the
    one described in option 2. In those cases when the workflow differs
-   between option 1 and option 2, a note describing the differences 
-   is added.    
+   between option 1 and option 2, a note describing the differences
+   is added.
 
 ## Inter Domain Link discovery and provisioning
 
@@ -699,7 +699,7 @@ MC-link = Media Channel link (MC optical circuit)
    point the Hierarchical controller (MDSC) and the domain controllers
    have all the information to commit and honor any service request
    coming from the OSS/orchestrator.  The details of the general
-   operations are described in 
+   operations are described in
    {{!I-D.draft-ietf-teas-actn-poi-applicability}},
    while this draft describes how to operate the Pluggable module during
    the optical circuit set-up operation.  As the Pluggable can be
@@ -751,23 +751,23 @@ Option 1
             - Vendor OUI (if the operational mode in not standard)
             - Pluggable part number (if the op-mode in not standard)
             - Admin-state
-          are already known by the O-PNC  
+          are already known by the O-PNC
      6.2. the bandwidth (e.g. 100G or 400G, etc.)
      6.3. the routing constraints (e.g. SRLG XRO, etc)
   7. O-PNC, potentially with the help of a planning tool in charge
-     for planning for mixed optical channels (both usual optical 
-     transponders and optical pluggable), calculates the optical 
-     route, selects the Lambda, verifies the optical feasibility, 
+     for planning for mixed optical channels (both usual optical
+     transponders and optical pluggable), calculates the optical
+     route, selects the Lambda, verifies the optical feasibility,
      calculates the pluggable TX power.
      7.1.  If all is OK, provisions the optical circuit in ROADM.
      7.2.  If anything went wrong the O-PNC rejects the MDSC request.
   8. O-PNC updates the MDSC of successful circuit provisioning
-     including the path, the nominal central frequency, the 
+     including the path, the nominal central frequency, the
      operational mode (or the explicit optical parameters - see
      draft-ietf-ccamp-optical-impairment-topology-yang for
      more details), the TX power, SRLG etc.
-     The optical circuit at this point is provisioned but 
-     not yet operational (no optical power coming from the 
+     The optical circuit at this point is provisioned but
+     not yet operational (no optical power coming from the
      transceivers yet).
   9. The MDSC updates the service DB and forward the pluggable
      provisioning parameters to P-PNC to complete the optical set-up.
@@ -777,8 +777,8 @@ Option 1
       10.3. MDSC service DB is updated
   11. MDSC notifies the OSS of successful end to end service set-up
   12. The service assurance can then start, through the O-PNC for the
-      optical circuit (including Pluggable Alarms and PM), 
-      through the P-PNC for the IP/MPLS service. 
+      optical circuit (including Pluggable Alarms and PM),
+      through the P-PNC for the IP/MPLS service.
 
 ~~~~
 
@@ -791,8 +791,8 @@ Option 1
    Another point to note is the information about the pluggable are
    directly collected by O-PNC. In reality this info should be known
    by the O-PNC at network commissioning time when the Inter Domain
-   Link is set or discovered.  The pluggable information may have 
-   multiple instances when the pluggable support multiple bit rate 
+   Link is set or discovered.  The pluggable information may have
+   multiple instances when the pluggable support multiple bit rate
    (e.g.  ZR+).
    In case of multiple bit rate (and multiple operational mode) the
    O-PNC can decide to propose to MDSC a different bit rate (higher or
@@ -838,11 +838,11 @@ Option 1
      7.1.  If all is OK, provisions the optical circuit in ROADM.
      7.2.  If anything went wrong the O-PNC rejects the MDSC request.
   8. O-PNC updates the MDSC of successful circuit provisioning
-     including the path, the nominal central frequency, the 
+     including the path, the nominal central frequency, the
      operational mode (or the explicit optical parameters - see
      draft-ietf-ccamp-optical-impairment-topology-yang for more
-     details), the TX power, SRLG, etc. The optical circuit at 
-     this point is provisioned but not yet operational 
+     details), the TX power, SRLG, etc. The optical circuit at
+     this point is provisioned but not yet operational
      (no optical power coming from the transceivers yet).
   9. The MDSC updates the service DB and forward the pluggable
      provisioning parameters to P-PNC to complete the optical set-up.
@@ -852,7 +852,7 @@ Option 1
       10.3. MDSC service DB is updated
   11. MDSC notifies the OSS of successful end to end service set-up
   12. The service assurance can then start, through the O-PNC for the
-       optical circuit, through the P-PNC for the pluggable and the 
+       optical circuit, through the P-PNC for the pluggable and the
        IP/MPLS service.
 
 ~~~~
@@ -915,8 +915,8 @@ Option 1
       provisioning parameters to P-PNC to complete the optical set-up
   8. MDSC verifies the end to end optical circuits (active)
   9. The MDSC notifies the OSS of successful optical circuit set-up.
-  10.The assurance operational can start, fully driven by O-PNC in 
-     option 1 or coordinated by MDSC in option 2. 
+  10.The assurance operational can start, fully driven by O-PNC in
+     option 1 or coordinated by MDSC in option 2.
 ~~~~
 
    NOTE: the Optical service may not be feasible due to optical
@@ -1020,7 +1020,7 @@ Option 1
 # Security Considerations
 
    This document does not introduce any new interfaces or protocols
-   in addition to the ACTN architecture defined in {{!RFC8453}}, 
+   in addition to the ACTN architecture defined in {{!RFC8453}},
    hence the same considerations apply. In addition,  IPsec and HMAC-
    MD5 authentication are common examples of existing mechanisms.
 
@@ -1053,6 +1053,6 @@ Option 1
 
 # Acknowledgments
 
-   Many Thanks to Italo Busi for the several comments, suggestion and 
+   Many Thanks to Italo Busi for the several comments, suggestion and
    support in GitHub process management.
    Part of this work has been supported by the EU SEASON Project.
