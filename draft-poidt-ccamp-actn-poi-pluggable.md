@@ -4,7 +4,7 @@ coding: utf-8
 title: >
   Applicability of Abstraction and Control
 
-docname: draft-poidt-ccamp-actn-poi-pluggable-01
+docname: draft-poidt-ccamp-actn-poi-pluggable-latest
 submissiontype: IETF
 workgroup: "Common Control and Measurement Plane"
 category: info
