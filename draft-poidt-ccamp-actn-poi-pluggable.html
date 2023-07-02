@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="en" class="Internet-Draft">
+<head>
+<meta charset="utf-8">
+<meta content="Common,Latin" name="scripts">
+<meta content="initial-scale=1.0" name="viewport">
+<title>Applicability of Abstraction and Control of Traffic Engineered Networks (ACTN) to Packet Optical Integration (POI) extensions to support Router Optical interfaces</title>
+<meta content="Gabriele Galimberti" name="author">
+<meta content="Jean-Francois Bouquier" name="author">
+<meta content="Ori Gerstel" name="author">
+<meta content="Brent Foster" name="author">
+<meta content="Daniele Ceccarelli" name="author">
+<meta content="
+       This document extends the draft-ietf-teas-actn-poi-applicability to
+   the use case where the DWDM optical coherent interface is equipped on
+   the Packet device.  It identifies the YANG data models being defined
+   by the IETF to support this deployment architecture and specific
+   scenarios relevant for Service Providers.  Existing IETF protocols
+   and data models are identified for each multi-layer (packet over
+   optical) scenario with a specific focus on the MPI (Multi-Domain
+   Service Coordinator to Provisioning Network Controllers Interface)in
+   the ACTN architecture. 
+    " name="description">
+<meta content="xml2rfc 3.17.3" name="generator">
+<meta content="draft-poidt-ccamp-actn-poi-pluggable-latest" name="ietf.draft">
+<!-- Generator version information:
+  xml2rfc 3.17.3
+    Python 3.11.3
+    appdirs 1.4.4
+    ConfigArgParse 1.5.3
+    google-i18n-address 3.0.0
+    intervaltree 3.1.0
+    Jinja2 3.1.2
+    lxml 4.9.2
+    pycountry 22.3.5
+    PyYAML 6.0
+    requests 2.31.0
+    setuptools 67.7.2
+    six 1.16.0
+    wcwidth 0.2.6
+-->
+<link href="draft-poidt-ccamp-actn-poi-pluggable.xml" rel="alternate" type="application/rfc+xml">
+<link href="#copyright" rel="license">
+<style type="text/css">@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Lora SemiBold'), local('Lora-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-semibold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Cabin Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Cabin Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Cabin Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  color-scheme: light dark;
+  --background-color: #fff;
+  --text-color: #222;
+  --title-color: #191919;
+  --link-color: #2a6496;
+  --highlight-color: #f9f9f9;
+  --line-color: #eee;
+  --pilcrow-weak: #ddd;
+  --pilcrow-strong: #bbb;
+  --small-font-size: 14.5px;
+  --font-mono: 'Oxygen Mono', monospace;
+  scrollbar-color: #bbb #eee;
+}
+body {
+  max-width: 600px;
+  margin: 75px auto;
+  padding: 0 5px;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font: 16px/22px "Lora", serif;
+  scroll-behavior: smooth;
+}
+
+.ears {
+  display: none;
+}
+
+/* headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Cabin Condensed", sans-serif;
+  font-weight: 600;
+  margin: 0.8em 0 0.3em;
+  font-size-adjust: 0.5;
+  color: var(--title-color);
+}
+h1#title {
+  font-size: 32px;
+  line-height: 40px;
+  clear: both;
+}
+h1#title, h1#rfcnum {
+  margin: 1.5em 0 0.2em;
+}
+h1#rfcnum + h1#title {
+  margin: 0.2em 0;
+}
+
+h1, h2, h3 {
+  font-size: 22px;
+  line-height: 27px;
+}
+h4, h5, h6 {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+/* general structure */
+.author {
+  padding-bottom: 0.3em;
+}
+#abstract+p {
+  font-size: 18px;
+  line-height: 24px;
+}
+#abstract+p code, #abstract+p samp, #abstract+p tt {
+  font-size: 16px;
+  line-height: 0;
+}
+
+p {
+  padding: 0;
+  margin: 0.5em 0;
+  text-align: left;
+}
+div {
+  margin: 0;
+}
+.alignRight.art-text {
+  background-color: var(--highlight-color);
+  border: 1px solid var(--line-color);
+  border-radius: 3px;
+  padding: 0.5em 1em 0;
+  margin-bottom: 0.5em;
+}
+.alignRight.art-text pre {
+  padding: 0;
+  width: auto;
+}
+.alignRight {
+  margin: 1em 0;
+}
+.alignRight > *:first-child {
+  border: none;
+  margin: 0;
+  float: right;
+  clear: both;
+}
+.alignRight > *:nth-child(2) {
+  clear: both;
+  display: block;
+  border: none;
+}
+svg {
+  display: block;
+}
+/* font-family isn't space-separated, but =~ will have to do */
+svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
+  font-family: var(--font-mono);
+}
+.alignCenter.art-text {
+  background-color: var(--highlight-color);
+  border: 1px solid var(--line-color);
+  border-radius: 3px;
+  padding: 0.5em 1em 0;
+  margin-bottom: 0.5em;
+}
+.alignCenter.art-text pre {
+  padding: 0;
+  width: auto;
+}
+.alignCenter {
+  margin: 1em 0;
+}
+.alignCenter > *:first-child {
+  border: none;
+  /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
+     support flexbox yet.
+  */
+  display: table;
+  margin: 0 auto;
+}
+
+/* lists */
+ol, ul {
+  padding: 0;
+  margin: 0 0 0.5em 2em;
+}
+:is(ol, ul) :is(ol, ul) {
+  margin-left: 1em;
+}
+li {
+  margin: 0 0 0.25em 0;
+}
+.ulCompact li {
+  margin: 0;
+}
+ul.empty, .ulEmpty {
+  list-style-type: none;
+}
+ul.empty li, .ulEmpty li {
+  margin-top: 0.5em;
+}
+:is(ul, ol).compact, .ulCompact, .olCompact {
+  line-height: 1;
+  margin: 0 0 0 2em;
+}
+
+/* definition lists */
+dl {
+  clear: left;
+  --indent: 3ch;
+  /* --indent: attr(indent ch); not supported in any browser, but we can dream */
+}
+dl.olPercent {
+  --indent: 5ch;
+}
+dl > dt {
+  float: left;
+  margin-right: 2ch;
+  min-width: 8ch;
+}
+dl.dlNewline > dt {
+  float: none;
+}
+dl > dd {
+  margin-bottom: .8em;
+  margin-left: var(--indent) !important; /* stupid element overrides */
+  min-height: 2ex;
+}
+dl.olPercent > dt {
+  min-width: calc(var(--indent) - 2ch);
+}
+:is(dl.compact, .dlCompact) > dd {
+  margin-bottom: 0;
+}
+:is(dl.compact, .dlCompact) > dd > :is(:first-child, .break:first-child + *) {
+  margin-top: 0;
+}
+:is(dl.compact, .dlCompact) > dd > :is(:last-child) {
+  margin-bottom: 0;
+}
+dl > dd > dl {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+:is(dd, span).break {
+  display: none;
+}
+
+/* links */
+a, a[href].selfRef:hover {
+  text-decoration: none;
+}
+a[href] {
+  color: var(--link-color);
+}
+a[href].selfRef, .iref + a[href].internal {
+  color: var(--text-color);
+}
+a[href]:hover {
+  text-decoration: underline;
+}
+a[href].selfRef:hover {
+  background-color: var(--highlight-color);
+}
+a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
+  white-space: nowrap;
+}
+
+/* Figures */
+tt, code, pre {
+  background-color: var(--highlight-color);
+  font: 14px/22px var(--font-mono);
+}
+tt, code {
+  /* changing the font for inline elements leads to different ascender
+     and descender heights; as we want to retain baseline alignment,
+     remove leading to avoid altering the final height of lines
+     note: this fails if these blocks take an entire line,
+     a different solution would be great */
+  line-height: 0;
+}
+:is(h1, h2, h3, h4, h5, h6) :is(tt, code) {
+  font-size: 84%;
+}
+pre {
+  border: 1px solid var(--line-color);
+  font-size: 13.5px;
+  line-height: 16px;
+  letter-spacing: -0.2px;
+  margin: 5px;
+  padding: 5px;
+}
+img {
+  max-width: 100%;
+}
+figure {
+  margin: 0.5em 0;
+  padding: 0;
+}
+figure blockquote {
+  margin: 0.8em 0.4em 0.4em;
+}
+figcaption, caption {
+  font-style: italic;
+  margin: 0.5em 1.5em;
+  text-align: left;
+}
+@media screen {
+  /* Auto-collapse boilerplate. */
+  :is(#status-of-memo, #copyright) p {
+    margin: -2px 0;
+    max-height: 0;
+    transition: max-height 2s ease, margin 0.5s ease 0.5s;
+    overflow: hidden;
+  }
+  :is(#status-of-memo, #copyright):hover p,
+  :is(#status-of-memo, #copyright) h2:target ~ p {
+    margin: 0.5em 0;
+    max-height: 500px;
+    overflow: auto;
+  }
+  pre, svg {
+    display: inline-block;
+    overflow-x: auto;
+  }
+  pre {
+    max-width: 100%;
+    width: calc(100% - 22px - 1em);
+  }
+  svg {
+    max-width: calc(100% - 22px - 1em);
+  }
+  figure pre {
+    display: block;
+    width: calc(100% - 25px);
+  }
+  :is(pre, svg) + .pilcrow {
+    display: inline-block;
+    vertical-align: text-bottom;
+    padding-bottom: 8px;
+  }
+}
+
+/* aside, blockquote */
+aside, blockquote {
+  margin-left: 0;
+  padding: 0 2em;
+  font-style: italic;
+}
+blockquote {
+  margin: 1em 0;
+}
+cite {
+  display: block;
+  text-align: right;
+  font-style: italic;
+}
+
+/* tables */
+table {
+  max-width: 100%;
+  margin: 0 0 1em;
+  border-collapse: collapse;
+}
+table.right {
+  margin-left: auto;
+}
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+table.left {
+  margin-right: auto;
+}
+thead, tbody {
+  border: 1px solid var(--line-color);
+}
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 5px 10px;
+}
+th {
+  background-color: var(--line-color);
+}
+:is(tr:nth-child(2n), thead+tbody > tr:nth-child(2n+1)) > td {
+  background-color: var(--background-color);
+}
+:is(tr:nth-child(2n+1), thead+tbody > tr:nth-child(2n)) > td {
+  background-color: var(--highlight-color);
+}
+table caption {
+  margin: 0;
+  padding: 3px 0 3px 1em;
+}
+table p {
+  margin: 0;
+}
+
+/* pilcrow */
+a.pilcrow {
+  margin-left: 3px;
+  opacity: 0.2;
+  user-select: none;
+}
+a.pilcrow[href] { color: var(--pilcrow-weak); }
+a.pilcrow[href]:hover { text-decoration: none; }
+@media not print {
+  :hover > a.pilcrow {
+    opacity: 1;
+  }
+  a.pilcrow[href]:hover {
+    color: var(--pilcrow-strong);
+    background-color: transparent;
+  }
+}
+@media print {
+  a.pilcrow {
+    display: none;
+  }
+}
+
+/* misc */
+hr {
+  border: 0;
+  border-top: 1px solid var(--line-color);
+}
+.bcp14 {
+  font-variant: small-caps;
+  font-weight: 600;
+  font-size: var(--small-font-size);
+}
+.role {
+  font-variant: all-small-caps;
+}
+sub, sup {
+  line-height: 1;
+  font-size: 80%;
+}
+
+/* info block */
+#identifiers {
+  margin: 0;
+  font-size: var(--small-font-size);
+  line-height: 18px;
+  --identifier-width: 15ch;
+}
+#identifiers dt {
+  width: var(--identifier-width);
+  min-width: var(--identifier-width);
+  clear: left;
+  float: left;
+  text-align: right;
+  margin-right: 1ch;
+}
+#identifiers dd {
+  margin: 0;
+  margin-left: calc(1em + var(--identifier-width)) !important;
+  min-width: 5em;
+}
+#identifiers .authors .author {
+  display: inline-block;
+  margin-right: 1.5em;
+}
+#identifiers .authors .org {
+  font-style: italic;
+}
+
+/* The prepared/rendered info at the very bottom of the page */
+.docInfo {
+  color: #999;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: 2em;
+}
+.docInfo .prepared {
+  float: left;
+}
+.docInfo .prepared {
+  float: right;
+}
+
+/* table of contents */
+#toc {
+  padding: 0.75em 0 2em 0;
+  margin-bottom: 1em;
+}
+#toc nav ul {
+  margin: 0 0.5em 0 0;
+  padding: 0;
+  list-style: none;
+}
+#toc nav li {
+  line-height: 1.3em;
+  margin: 0.75em 0;
+  padding-left: 1.2em;
+  text-indent: -1.2em;
+}
+#toc a.xref {
+  white-space: normal;
+}
+/* references */
+.references dt {
+  text-align: right;
+  font-weight: bold;
+  min-width: 10ch;
+  margin-right: 1.5ch;
+}
+.references dt:target::before {
+  content: "⇒";
+  width: 15px;
+  margin: 0 10px 0 -25px;
+}
+.references dd {
+  margin-left: 12ch !important;
+  overflow: auto;
+}
+
+.refInstance {
+  margin-bottom: 1.25em;
+}
+
+.references .ascii {
+  margin-bottom: 0.25em;
+}
+
+/* index */
+#rfc\.index\.index + ul {
+  margin-left: 0;
+}
+
+/* authors */
+address.vcard {
+  font-style: normal;
+  margin: 1em 0;
+}
+address.vcard .nameRole {
+  font-weight: 700;
+  margin-left: 0;
+}
+address.vcard .label {
+  margin: 0.5em 0;
+}
+address.vcard .type {
+  display: none;
+}
+.alternative-contact {
+  margin: 1.5em 0 1em;
+}
+hr.addr {
+  border-top: 1px dashed;
+  margin: 0;
+  color: #ddd;
+  max-width: calc(100% - 16px);
+}
+@media (min-width: 500px) {
+  #authors-addresses > section {
+    column-count: 2;
+    column-gap: 20px;
+  }
+  #authors-addresses > section > h2 {
+    column-span: all;
+  }
+  /* hack for break-inside: avoid-column */
+  #authors-addresses address {
+    display: inline-block;
+    break-inside: avoid-column;
+  }
+}
+
+.rfcEditorRemove p:first-of-type {
+  font-style: italic;
+}
+.cref {
+  background-color: rgba(249, 232, 105, 0.3);
+  padding: 2px 4px;
+}
+.crefSource {
+  font-style: italic;
+}
+/* alternative layout for smaller screens */
+@media screen and (max-width: 929px) {
+  #toc {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+    opacity: 0.6;
+  }
+  #toc.active {
+      opacity: 1;
+  }
+  #toc h2 {
+    margin: 0;
+    padding: 2px 0 2px 6px;
+    padding-right: 1em;
+    font-size: 18px;
+    line-height: 24px;
+    min-width: 190px;
+    text-align: right;
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+  }
+  #toc h2::before { /* css hamburger */
+    float: right;
+    position: relative;
+    width: 1em;
+    height: 1px;
+    left: -164px;
+    margin: 8px 0 0 0;
+    background: white none repeat scroll 0 0;
+    box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+    content: "";
+  }
+  #toc nav {
+    display: none;
+    background-color: var(--background-color);
+    padding: 0.5em 1em 1em;
+    overflow: auto;
+    overscroll-behavior: contain;
+    height: calc(100vh - 48px);
+    border-left: 1px solid #ddd;
+  }
+  #toc.active nav {
+    display: block;
+  }
+  /* Make the collapsed ToC header render white on gray also when it's a link */
+  #toc h2 a,
+  #toc h2 a:link,
+  #toc h2 a:focus,
+  #toc h2 a:hover,
+  #toc a.toplink,
+  #toc a.toplink:hover {
+    color: white;
+    background-color: #444;
+    text-decoration: none;
+  }
+  #toc a.toplink {
+    margin-top: 2px;
+  }
+}
+
+/* alternative layout for wide screens */
+@media screen and (min-width: 930px) {
+  body {
+    padding-right: 360px;
+    padding-right: calc(min(180px + 20%, 500px));
+  }
+  #toc {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    right: calc(50vw - 480px);
+    width: 312px;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+  }
+  #toc h2 {
+    margin: 0;
+    padding: 0.25em 1em 1em 0;
+  }
+  #toc nav {
+    display: block;
+    height: calc(90vh - 84px);
+    bottom: 0;
+    padding: 0.5em 0 2em;
+    overflow: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
+  #toc nav > ul  {
+    margin-bottom: 2em;
+  }
+  #toc ul {
+    margin: 0 0 0 4px;
+    font-size: var(--small-font-size);
+  }
+  #toc ul :is(p, li) {
+    margin: 2px 0;
+    line-height: 22px;
+  }
+  img { /* future proofing */
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* pagination */
+@media print {
+  body {
+    width: 100%;
+  }
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+  #n-copyright-notice {
+    border-bottom: none;
+  }
+  #toc, #n-introduction {
+    page-break-before: always;
+  }
+  #toc {
+    border-top: none;
+    padding-top: 0;
+  }
+  figure, pre {
+    page-break-inside: avoid;
+  }
+  figure {
+    overflow: scroll;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  h2+*, h3+*, h4+*, h5+*, h6+* {
+    page-break-before: avoid;
+  }
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 10pt;
+  }
+  table {
+    border: 1px solid #ddd;
+  }
+  td {
+    border-top: 1px solid #ddd;
+  }
+}
+
+@page :first {
+  padding-top: 0;
+  @top-left {
+    content: normal;
+    border: none;
+  }
+  @top-center {
+    content: normal;
+    border: none;
+  }
+  @top-right {
+    content: normal;
+    border: none;
+  }
+}
+
+@page {
+  size: A4;
+  margin-bottom: 45mm;
+  padding-top: 20px;
+}
+
+/* Changes introduced to fix issues found during implementation */
+
+/* Separate body from document info even without intervening H1 */
+section {
+  clear: both;
+}
+
+/* Top align author divs, to avoid names without organization dropping level with org names */
+.author {
+  vertical-align: top;
+}
+
+/* Style section numbers with more space between number and title */
+.section-number {
+  padding-right: 0.5em;
+}
+
+/* Add styling for a link in the ToC that points to the top of the document */
+a.toplink {
+  float: right;
+  margin: 8px 0.5em 0;
+}
+
+/* Provide styling for table cell text alignment */
+table .text-left {
+  text-align: left;
+}
+table .text-center {
+  text-align: center;
+}
+table .text-right {
+  text-align: right;
+}
+
+/* Make the alternative author contact information look less like just another
+   author, and group it closer with the primary author contact information */
+.alternative-contact {
+  margin: 0.5em 0 0.25em 0;
+}
+address .non-ascii {
+  margin: 0 0 0 2em;
+}
+
+/* With it being possible to set tables with alignment
+  left, center, and right, { width: 100%; } does not make sense */
+table {
+  width: auto;
+}
+
+/* Avoid reference text that sits in a block with very wide left margin,
+   because of a long floating dt label.*/
+.references dd {
+  overflow: visible;
+}
+
+/* Control caption placement */
+caption {
+  caption-side: bottom;
+}
+
+/* Limit the width of the author address vcard, so names in right-to-left
+   script don't end up on the other side of the page. */
+
+address.vcard {
+  max-width: 20em;
+  margin-right: auto;
+}
+
+/* For address alignment dependent on LTR or RTL scripts */
+address div.left {
+  text-align: left;
+}
+address div.right {
+  text-align: right;
+}
+
+/* Give the table caption label the same styling as the figcaption */
+
+@media print {
+  .toplink {
+    display: none;
+  }
+
+  /* avoid overwriting the top border line with the ToC header */
+  #toc {
+    padding-top: 1px;
+  }
+
+  /* Avoid page breaks inside dl and author address entries */
+  dd {
+    page-break-before: avoid;
+  }
+  .vcard {
+    page-break-inside: avoid;
+  }
+
+}
+
+/* Dark mode. */
+@media (prefers-color-scheme: dark) {
+:root {
+  --background-color: #121212;
+  --text-color: #f0f0f0;
+  --title-color: #fff;
+  --link-color: #4da4f0;
+  --highlight-color: #282828;
+  --line-color: #444;
+  --pilcrow-weak: #444;
+  --pilcrow-strong: #666;
+  scrollbar-color: #777 #333;
+}
+}
+
+/* SVG Trick: a prefix match works because only black and white are allowed */
+svg :is([stroke="black"], [stroke^="#000"]) {
+  stroke: var(--text-color);
+}
+svg :is([stroke="white"], [stroke^="#fff"]) {
+  stroke: var(--background-color);
+}
+svg :is([fill="black"], [fill^="#000"], :not([fill])) {
+  fill: var(--text-color);
+}
+svg :is([fill="white"], [fill^="#fff"]) {
+  fill: var(--background-color);
+}
+</style>
+
+</head>
+<body class="xml2rfc">
+<table class="ears">
+<thead><tr>
+<td class="left">Internet-Draft</td>
+<td class="center">Applicability of Abstraction and Control</td>
+<td class="right">June 2023</td>
+</tr></thead>
+<tfoot><tr>
+<td class="left">Galimberti, et al.</td>
+<td class="center">Expires 17 December 2023</td>
+<td class="right">[Page]</td>
+</tr></tfoot>
+</table>
+<div id="external-metadata" class="document-information"></div>
+<div id="internal-metadata" class="document-information">
+<dl id="identifiers">
+<dt class="label-workgroup">Workgroup:</dt>
+<dd class="workgroup">Common Control and Measurement Plane</dd>
+<dt class="label-internet-draft">Internet-Draft:</dt>
+<dd class="internet-draft">draft-poidt-ccamp-actn-poi-pluggable-latest</dd>
+<dt class="label-published">Published:</dt>
+<dd class="published">
+<time datetime="2023-06-15" class="published">15 June 2023</time>
+    </dd>
+<dt class="label-intended-status">Intended Status:</dt>
+<dd class="intended-status">Informational</dd>
+<dt class="label-expires">Expires:</dt>
+<dd class="expires"><time datetime="2023-12-17">17 December 2023</time></dd>
+<dt class="label-authors">Authors:</dt>
+<dd class="authors">
+<div class="author">
+      <div class="author-name">G. Galimberti, <span class="editor">Ed.</span>
+</div>
+<div class="org">Cisco</div>
+</div>
+<div class="author">
+      <div class="author-name">J. Bouquier, <span class="editor">Ed.</span>
+</div>
+<div class="org">Vodafone</div>
+</div>
+<div class="author">
+      <div class="author-name">O. Gerstel, <span class="editor">Ed.</span>
+</div>
+<div class="org">Cisco</div>
+</div>
+<div class="author">
+      <div class="author-name">B. Foster, <span class="editor">Ed.</span>
+</div>
+<div class="org">Cisco</div>
+</div>
+<div class="author">
+      <div class="author-name">D. Ceccarelli, <span class="editor">Ed.</span>
+</div>
+<div class="org">Cisco</div>
+</div>
+</dd>
+</dl>
+</div>
+<h1 id="title">Applicability of Abstraction and Control of Traffic Engineered Networks (ACTN) to Packet Optical Integration (POI) extensions to support Router Optical interfaces</h1>
+<section id="section-abstract">
+      <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
+<p id="section-abstract-1">This document extends the draft-ietf-teas-actn-poi-applicability to
+   the use case where the DWDM optical coherent interface is equipped on
+   the Packet device.  It identifies the YANG data models being defined
+   by the IETF to support this deployment architecture and specific
+   scenarios relevant for Service Providers.  Existing IETF protocols
+   and data models are identified for each multi-layer (packet over
+   optical) scenario with a specific focus on the MPI (Multi-Domain
+   Service Coordinator to Provisioning Network Controllers Interface)in
+   the ACTN architecture.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+</section>
+<section class="note rfcEditorRemove" id="section-note.1">
+      <h2 id="name-discussion-venues">
+<a href="#name-discussion-venues" class="section-name selfRef">Discussion Venues</a>
+      </h2>
+<p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
+<p id="section-note.1-2">Discussion of this document takes place on the
+    Common Control and Measurement Plane Working Group mailing list (ccamp@ietf.org),
+    which is archived at <span><a href="https://mailarchive.ietf.org/arch/browse/ccamp/">https://mailarchive.ietf.org/arch/browse/ccamp/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+<p id="section-note.1-3">Source for this draft and an issue tracker can be found at
+    <span><a href="https://github.com/ggalimba56/draft-poidt-ccamp-actn-poi-pluggable">https://github.com/ggalimba56/draft-poidt-ccamp-actn-poi-pluggable</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
+</section>
+<div id="status-of-memo">
+<section id="section-boilerplate.1">
+        <h2 id="name-status-of-this-memo">
+<a href="#name-status-of-this-memo" class="section-name selfRef">Status of This Memo</a>
+        </h2>
+<p id="section-boilerplate.1-1">
+        This Internet-Draft is submitted in full conformance with the
+        provisions of BCP 78 and BCP 79.<a href="#section-boilerplate.1-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-2">
+        Internet-Drafts are working documents of the Internet Engineering Task
+        Force (IETF). Note that other groups may also distribute working
+        documents as Internet-Drafts. The list of current Internet-Drafts is
+        at <span><a href="https://datatracker.ietf.org/drafts/current/">https://datatracker.ietf.org/drafts/current/</a></span>.<a href="#section-boilerplate.1-2" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-3">
+        Internet-Drafts are draft documents valid for a maximum of six months
+        and may be updated, replaced, or obsoleted by other documents at any
+        time. It is inappropriate to use Internet-Drafts as reference
+        material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-4">
+        This Internet-Draft will expire on 17 December 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="copyright">
+<section id="section-boilerplate.2">
+        <h2 id="name-copyright-notice">
+<a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
+        </h2>
+<p id="section-boilerplate.2-1">
+            Copyright (c) 2023 IETF Trust and the persons identified as the
+            document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.2-2">
+            This document is subject to BCP 78 and the IETF Trust's Legal
+            Provisions Relating to IETF Documents
+            (<span><a href="https://trustee.ietf.org/license-info">https://trustee.ietf.org/license-info</a></span>) in effect on the date of
+            publication of this document. Please review these documents
+            carefully, as they describe your rights and restrictions with
+            respect to this document. Code Components extracted from this
+            document must include Revised BSD License text as described in
+            Section 4.e of the Trust Legal Provisions and are provided without
+            warranty as described in the Revised BSD License.<a href="#section-boilerplate.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="toc">
+<section id="section-toc.1">
+        <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
+<a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
+        </h2>
+<nav class="toc"><ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-reference-architecture-and-" class="internal xref">Reference architecture and network scenario</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-use-cases" class="internal xref">Use Cases</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
+                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-inter-layer-link-discovery-" class="internal xref">Inter Layer Link discovery and provisioning</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-network-topology-discovery-" class="internal xref">Network topology discovery and provisioning</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-end-to-end-service-provisio" class="internal xref">End to End service provisioning / deletion</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4">
+                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-optical-circuit-provisionin" class="internal xref">Optical Circuit provisioning / deletion</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5">
+                <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="auto internal xref">3.5</a>.  <a href="#name-lag-extension" class="internal xref">LAG extension</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.6">
+                <p id="section-toc.1-1.3.2.6.1"><a href="#section-3.6" class="auto internal xref">3.6</a>.  <a href="#name-optical-restoration" class="internal xref">Optical Restoration</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.7">
+                <p id="section-toc.1-1.3.2.7.1"><a href="#section-3.7" class="auto internal xref">3.7</a>.  <a href="#name-network-maintenance-operati" class="internal xref">Network Maintenance Operations</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-optical-interface-for-exter" class="internal xref">Optical Interface for external transponder in a WDM network</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-structure-of-the-yang-modul" class="internal xref">Structure of the Yang Module</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-references" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1">
+                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="auto internal xref">8.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.2">
+                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="auto internal xref">8.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
+            <p id="section-toc.1-1.10.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-contributors" class="internal xref">Contributors</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
+            <p id="section-toc.1-1.11.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+</li>
+        </ul>
+</nav>
+</section>
+</div>
+<div id="introduction">
+<section id="section-1">
+      <h2 id="name-introduction">
+<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
+      </h2>
+<p id="section-1-1">The full automation of the multilayer/multidomain network is a topic
+   of high importance in the industry and the service providers
+   community.  Typically, the layers composing such network are the IP/
+   MPLS, (with Segment Routing) and the Optical ones.  The requirements
+   of high bandwidth availability and dynamic control of the networks
+   are of capital importance too.  The draft-ietf-teas-actn-poi-
+   applicability specifies very well how to control and manage
+   multilayer/multidomain networks using the Abstraction and Control of
+   TE Networks (ACTN) architecture, see also <a href="#my_figure-0" class="auto internal xref">Figure 1</a>.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">New DWDM Coherent pluggable optics, such as ZR <span>[<a href="#OIF-400ZR-01-0" class="cite xref">OIF-400ZR-01-0</a>]</span> and
+   ZR+ <span>[<a href="#Open_ZR-Plus_MSA" class="cite xref">Open_ZR-Plus_MSA</a>]</span>, are enabling new multilayer network use cases
+   where the DWDM interface is located within the packet domain
+   equipment instead of being part of the Optical domain <a href="#my_figure-1" class="auto internal xref">Figure 2</a>.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">ZR and ZR+ (and also CFP2-DCO) deployment in routers has already
+   started and are expanding significantly.  The way the DWDM pluggable
+   are in general managed is not yet completely specified and defined by
+   any standard and it is becoming an urgent matter to cover for Service
+   Providers.  Full end-to-end management solution of these DWDM
+   coherent pluggable optics, leveraging on ACTN hierarchical
+   architecture, is becoming critical to allow a wider deployment beyond
+   simple point-to-point high capacity link scenarios between two IP/
+   MPLS routers.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4"><a href="#my_figure-0" class="auto internal xref">Figure 1</a> The ACTN architecture, defined in <span>[<a href="#RFC8453" class="cite xref">RFC8453</a>]</span>, is used to
+   control the multi-domain network shown in <a href="#my_figure-1" class="auto internal xref">Figure 2</a> , where each
+   Packet PNC (P-PNC) is responsible for controlling its IP domain,
+   which can be either an Autonomous System (AS), <span>[<a href="#RFC1930" class="cite xref">RFC1930</a>]</span>, or an IGP
+   area within the same operator network.  Each Optical PNC (O-PNC) in
+   the below topology is responsible for controlling its own Optical
+   Domain.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<span id="name-reference-multilayer-multid"></span><div id="my_figure-0">
+<figure id="figure-1">
+        <div class="alignLeft art-ascii-art art-text artwork" id="section-1-5.1">
+<pre>
+                           +----------+
+                           |   MDSC   |
+                           +-----+----+
+                                 |
+   MPI interf. +-----------+-----+------+-----------+
+               |           |            |           |
+          +----+----+ +----+----+  +----+----+ +----+----+
+          | P-PNC 1 | | O-PNC 1 |  | O-PNC 2 | | P-PNC 2 |
+          +----+----+ +----+----+  +----+----+ +----+----+
+               |           |            |           |
+               |           \            /           |
+     +-------------------+  \          /  +-------------------+
+CE1 / P.N.1         P.N.2 \  |        /  / P.N.3         P.N.4 \ CE2
+o--/---o               o---\-|-------|--/---o               o---\--o
+   \   :               :   / |       |  \   :               :   /
+    \  : PKT Domain 1  :  /  |       |   \  : PKT Domain 2  :  /
+     +-:---------------:-+   |       |    +-:---------------:-+
+       :               :     |       |      :               :
+       :               :     |       |      :               :
+     +-:---------------:------+     +-------:---------------:--+
+    /  :               :       \   /        :               :   \
+   /   o...............o  O.N.  \ /    O.N. o...............o    \
+   \     Optical Domain 1       / \       Optical Domain 2       /
+    \                          /   \                            /
+     +------------------------+     +--------------------------+
+
+</pre>
+</div>
+<figcaption><a href="#figure-1" class="selfRef">Figure 1</a>:
+<a href="#name-reference-multilayer-multid" class="selfRef">Reference multilayer/multidomain Scenario</a>
+        </figcaption></figure>
+</div>
+<p id="section-1-6"><a href="#my_figure-1" class="auto internal xref">Figure 2</a> shows how the Packet Node DWDM coherent Ports are connected
+   to the ROADM ports.<a href="#section-1-6" class="pilcrow">¶</a></p>
+<span id="name-cross-layer-interconnection"></span><div id="my_figure-1">
+<figure id="figure-2">
+        <div class="alignLeft art-ascii-art art-text artwork" id="section-1-7.1">
+<pre>
+   +------+       +------+  _________  +------+       +------+
+   |P.N.1 |       | O.N. | /        /\ | O.N. |       |P.N.2 |
+   |    P1| ----- |      ||        |  ||      | ----- |P1    |
+ ==|    P2| ----- |      ||Optical |  ||      | ----- |P2    |==
+ ==|    P3| ----- |      ||Network |  ||      | ----- |P3    |==
+   |    P4| ----- |      ||        |  ||      | ----- |P4    |
+   |      |       | ROADM| \________\/ | ROADM|       |      |
+   +------+       +------+             +------+       +------+
+    Packet                  Optical                    Packet
+    Layer                   Layer                      Layer
+
+
+
+
+P.N. = Packet Node (ROADM)
+O.N. = Optical DWDM Node
+ROADM = Lambda/Spectrum switch
+Px = DWDM (coherent pluggable) Router ports
+
+</pre>
+</div>
+<figcaption><a href="#figure-2" class="selfRef">Figure 2</a>:
+<a href="#name-cross-layer-interconnection" class="selfRef">Cross layer interconnection</a>
+        </figcaption></figure>
+</div>
+</section>
+</div>
+<div id="reference-architecture-and-network-scenario">
+<section id="section-2">
+      <h2 id="name-reference-architecture-and-">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-reference-architecture-and-" class="section-name selfRef">Reference architecture and network scenario</a>
+      </h2>
+<p id="section-2-1">As described in <a href="#my_figure-0" class="auto internal xref">Figure 1</a> and according to the Packet Optical
+   Integration (POI) draft <span>[<a href="#I-D.draft-ietf-teas-actn-poi-applicability" class="cite xref">I-D.draft-ietf-teas-actn-poi-applicability</a>]</span> in
+   which ACTN hierarchy is deployed <span>[<a href="#RFC8453" class="cite xref">RFC8453</a>]</span>, the PNCs are in charge to
+   control a single domain (e.g.  Packet or Optical) while the MDSC is
+   responsible to coordinate the operations across the different domains
+   having the visibility of the whole network multi-domain and multi-
+   layer network topolgy.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-2">A specific standard interface (MPI) allows the MDSC to interact with
+   the different Provisioning Network Controller (O/P-PNCs).  Although
+   the MPI interface should present an abstracted topology to the MDSC
+   (hiding technology-specific aspects of the network and hiding
+   topology details depending on the policy chosen) in the case of DWDM
+   coherent pluggable located in the PN some information related to the
+   physical component must be shared on MPI.  The above statement is
+   assumed as the Domain PNC (e.g.  O-PNC) may not be able to get
+   information from or set parameters to a node belonging to a different
+   domain (e.g.  P-PNC).<a href="#section-2-2" class="pilcrow">¶</a></p>
+<p id="section-2-3">The reason of this change is due to the following statements:<a href="#section-2-3" class="pilcrow">¶</a></p>
+<p id="section-2-4">O-PNC routing and wavelength assignment<a href="#section-2-4" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-2-5.1">
+          <p id="section-2-5.1.1">The MDSC can ask the O-PNC to set an optical circuit between two
+   ROADM ports (A and Z).  The O-PNC having the full Optical Topology
+   network knowledge can calculate the Optical Path, the wavelength
+   assignment (RWA), etc.  K-circuits may be calculated and sorted
+   based on some parameters (e.g. number of hops, path length, OSNR,
+   etc.)<a href="#section-2-5.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-2-6">Optical Circuit Feasibility<a href="#section-2-6" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-2-7.1">
+          <p id="section-2-7.1.1">O-PNC can calculate the estimated OSNR for the A to Z circuits and
+   sort them from the best to the worse performance or select the
+   most suitable performance circuit.  To verify the circuit
+   feasibility the O-PNC needs to know the Transceiver optical
+   characteristics, e.g.  OSNR Robustness, DC capability, supported
+   PDL, FEC, etc.  For more details refer to draft-ietf-ccamp-dwdm-
+   if-param-yang.  The above parameters may not be directly retrieved
+   from Packet Node by the O-PNC, (e.g. because the Packet Node
+   supports only proprietary models or the Packet Nodes is not able
+   to support dual writing operation or the Packet Node belongs to a
+   different IP AS nor reachable by O-PNC), then they must be read by
+   the P-PNC, shared to MDSC via MPI and finally to O-PNC.  Other
+   parameters like central frequency and transmit power are
+   calculated by the O-PNC and must be provisioned to the Pluggable
+   optics when the circuit is set-up.<a href="#section-2-7.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-2-8">Nominal Central frequency<a href="#section-2-8" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-2-9.1">
+          <p id="section-2-9.1.1">After having verified the Circuit Optical feasibility the O-PNC
+   shares the channel central frequency to MDSC so that the MDSC can
+   ask P-PNC to provision the Lambda to Router Pluggable.<a href="#section-2-9.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-2-10">FEC Coding<a href="#section-2-10" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-2-11.1">
+          <p id="section-2-11.1.1">This parameter indicate what Forward Error Correction (FEC) code
+   is used at Ss and Rs (R/W) (not mentioned in G.698.2), it is used
+   by the O-PNC to calculate the optical feasibility.  The FEC coding
+   list (FEC can be many) supported by the pluggable is an input for
+   O-PNC, one coding is selected for a specific circuit and is shared
+   (as output) to MDSC for pluggable provisioning.<a href="#section-2-11.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-2-12">Modulation format<a href="#section-2-12" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-2-13.1">
+          <p id="section-2-13.1.1">This parameter indicates the list of supported Modulation Formats
+   and the provisioned Modulation Format.  It is an input for O-PNC<a href="#section-2-13.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-2-14">Transmitter Output power<a href="#section-2-14" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-2-15.1">
+          <p id="section-2-15.1.1">This parameter provisions the Transceiver Output power.<a href="#section-2-15.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-2-16">Receiver input power range<a href="#section-2-16" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-2-17.1">
+          <p id="section-2-17.1.1">This parameter is the Min and Max input power supported by the
+      Transceiver, i.e. Receiver Sensitivity.  It is an input for O-PNC
+      to properly calculate the optical power to set at ROADM port<a href="#section-2-17.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-2-18">Receiver input power<a href="#section-2-18" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-2-19.1">
+          <p id="section-2-19.1.1">This parameter is the measured input power at the receiver.  It is
+      an input for O-PNC to properly check the patchcord (between
+      transceiver and ROADM) loss comparing it with the ROADM port
+      received power.<a href="#section-2-19.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-2-20">operational-mode<a href="#section-2-20" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-2-21.1">
+          <p id="section-2-21.1.1">In order to make the MPI communication more efficient and improve
+      the abstraction, the above (and more) parameters can be summarised
+      by the operational-mode parameter.  The operational-mode can be
+      either standard ("application code" defined by ITU-T G.698.2) or
+      organization/vendor specific.  In both cases are strings of
+      characters defined by ITU-T or by vendors.  A pluggable may
+      support several operational modes, those values are collected by
+      the P-PNC and notified to O-PNC through the MDSC.  They are used,
+      by O-PNC, to check the circuit optical feasibility.  For each
+      transceiver the O-PNC will select only one operational-mode to be
+      set, together with central frequency and TX power, in the
+      pluggable though MDSC and P-PNC.<a href="#section-2-21.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-2-22">The above optocal parameters are related to the Edge Node Transceiver
+   and are used by the Optical Network control plane in order to
+   calculate the optical feasibility and the spectrum allocation.  The
+   parameters are read by the P-PNC from the DWDM pluggable and shared
+   with MDSC to give the visibility of the pluggable characteristics.
+   MDSC can use the info to understand the client capabolity and, again,
+   share the same info to O-PNC for the impairment verification.  On the
+   opposite direction O-PNC can send to MDSC the values (e.g.
+   operational mode, lambda, TX power) to provision the Client (Packet)
+   DWDM Pluggable.  The pluggable provisioning will be done by the
+   P-PNC.  For more details on the optical interface parameters see:
+   <span>[<a href="#I-D.ietf-ccamp-dwdm-if-param-yang" class="cite xref">I-D.ietf-ccamp-dwdm-if-param-yang</a>]</span>.<a href="#section-2-22" class="pilcrow">¶</a></p>
+<p id="section-2-23">In summary the pluggable parameters exchanged from O-PNC to MDSC
+     to P-PNC for end to end service provisioning are:<a href="#section-2-23" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-2-24">
+<pre>
+ - Pluggable Service source port-ID
+ - Pluggable Service destination port-ID
+ - Central Frequency (Lambda) (common to source and destination)
+ - TX Output power (source port-ID)
+ - TX Output power (destination port-ID)
+ - Operational-mode (compatible)
+ - Vendor OUI (if the operational mode in not standard)
+ - Pluggable part number (if the operational mode in not standard)
+ - Admin-state (common ?)
+</pre><a href="#section-2-24" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+<div id="use-cases">
+<section id="section-3">
+      <h2 id="name-use-cases">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-use-cases" class="section-name selfRef">Use Cases</a>
+      </h2>
+<p id="section-3-1">The different services supported by the network are shown in
+   <a href="#my_figure-3" class="auto internal xref">Figure 3</a>.  This draft is focused on the inter-layer link, the DCO
+   links setting through the MC-links setting although the POI first
+   goal is to set an IP service.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2"><a href="#my_figure-3" class="auto internal xref">Figure 3</a><a href="#section-3-2" class="pilcrow">¶</a></p>
+<span id="name-cross-layer-interconnection-2"></span><div id="my_figure-3">
+<figure id="figure-3">
+        <div class="alignLeft art-ascii-art art-text artwork" id="section-3-3.1">
+<pre>
+
+
++-------------+                                   +-------------+
+|     IP      |                                   |     IP      |
+|             |              IP-link              |             |
+|   &lt;-------------------------------------------------------&gt;   |
+|             |                                   |             |
+|             |                                   |             |
+|  +-------+  |              Eth-link             |  +-------+  |
+|  |  &lt;---------------------------------------------------&gt;  |  |
+|  |       |  |                                   |  |       |  |
+|  |       |  |              DCO-link             |  |       |  |
+|  |  DCO &lt;-------------------------------------------&gt; DCO  |  |
++--+-------+--+                                   +--+-------+--+
+       ^                                                 ^
+       |       +-------+                 +-------+       |
+       |       |  OLS  |                 |  OLS  |       |
+       |       |       |                 |       |       |
+       +-----&gt; | &lt;-----------------------------&gt; |&lt;------+
+  inter-layer  |       |    MC-link      |       | inter-layer
+     link      |       |                 |       |    link
+               +-------+                 +-------+
+
+
+
+IP-link = IP service, out of this document scope
+Eth-link = Ethernet connection
+DCO-link = Pluggable connection (OTSi connection)
+MC-link = Media Channel link (MC optical circuit)
+
+</pre>
+</div>
+<figcaption><a href="#figure-3" class="selfRef">Figure 3</a>:
+<a href="#name-cross-layer-interconnection-2" class="selfRef">Cross layer interconnection</a>
+        </figcaption></figure>
+</div>
+<p id="section-3-4">The use cases supported by the models are:<a href="#section-3-4" class="pilcrow">¶</a></p>
+<p id="section-3-5">Inter Layer (or domain) Link discovery and provisioning<a href="#section-3-5" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-3-6.1">
+          <p id="section-3-6.1.1">The inter-layer links (or inter-domain links)are the
+      interconnections (fiber) between the pluggable ports (in the
+      Packet Layer) and the ROADM ports (in the Optical Layer).  They
+      are set in the Packet and DWDM nodes either manually (e.g.  CLI)
+      or via PNCs.  The values identifying the inter layer links may be
+      defined by MDSC which has the visibility of both IP and Optical
+      layers.  The "plug-id" could be used for this purpose.<a href="#section-3-6.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-3-7">Network topology discovery and provisioning<a href="#section-3-7" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-3-8.1">
+          <p id="section-3-8.1.1">MDSC retrieves the packet network topology from the P-PNC and the
+      optical network topology from the O-PNC.  MDSC collects and
+      rebuilds the service topology based on the services information
+      coming from P-PNC and O-PNC as described in draft-ietf-teas-actn-
+      poi- applicability.  <span>[<a href="#I-D.draft-ietf-teas-actn-poi-applicability" class="cite xref">I-D.draft-ietf-teas-actn-poi-applicability</a>]</span><a href="#section-3-8.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-3-9">End to End Packet service provisioning / deletion<a href="#section-3-9" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-3-10.1">
+          <p id="section-3-10.1.1">MDSC is asked to set a Packet service between two Routers
+      requiring additional connectivity bandwidth.<a href="#section-3-10.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-3-11">Optical Circuit provisioning / deletion<a href="#section-3-11" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-3-12.1">
+          <p id="section-3-12.1.1">MDSC is asked to set an Optical Circuit between two router ports
+      (O-PNC will receive the same request from MDSC).  This is
+      specially needed during the network installation to provide
+      Connectivity between two Routers, the IP link will be set up later
+      using this optical tunnel.<a href="#section-3-12.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-3-13">LAG extension<a href="#section-3-13" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-3-14.1">
+          <p id="section-3-14.1.1">MDSC is asked to extend a service bandwidth.  This may require
+      more Router optical connectivity.<a href="#section-3-14.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-3-15">Optical Restoration<a href="#section-3-15" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-3-16.1">
+          <p id="section-3-16.1.1">O-PNC detects an optical network failure and reroutes the optical
+      circuits to a different path (and lambda).<a href="#section-3-16.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-3-17">Network Maintenance Operations<a href="#section-3-17" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-3-18.1">
+          <p id="section-3-18.1.1">MDSC is asked to isolate part of the optical network for
+      maintenance and coordinate the O-PNC and P-PNC to preserve the
+      traffic during the maintenance operation.<a href="#section-3-18.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<div id="inter-layer-link-discovery-and-provisioning">
+<section id="section-3.1">
+        <h3 id="name-inter-layer-link-discovery-">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-inter-layer-link-discovery-" class="section-name selfRef">Inter Layer Link discovery and provisioning</a>
+        </h3>
+<p id="section-3.1-1">The inter-layer links are set in the Packet and DWDM nodes either
+   manually (e.g. via CLI or NMS) during the installation phase when the
+   operator connects the Pluggable Transceiver to the ROADM port via
+   fiber patch cord or is defined by the MDSC controller and provisioned
+   via the PNCs.  One method and model to define the Inter Layer Link
+   is, for example, to assign a value to the patchcord (for Tx and RX
+   directions) and store those values in the Pluggable and ROADM port
+   provisioning when the fiber is connected between the two ports.  This
+   allows the PNCs to retrieve the values and share them with the MDSC
+   for the correlation and check.  Other smarter and automatic methods
+   of patchcord discovery may be defined but are outside of this draft
+   scope.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1-2">The inter-layer link must be set (or clear) any time a new pluggable
+   module is installed (or removed) and it is connected to the ROADM
+   port with the fiber patchcord.  When a new DCO is installed an
+   inventory notification must be reported to the PNC and MDSC, the
+   reported info are:<a href="#section-3.1-2" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-3.1-3">
+<pre>
+        - Pluggable port-ID (e.g. rack/shelf/slot/port or UUID)
+        - Supported Operational-modes
+        - Vendor OUI (if the operational mode in not standard)
+        - Pluggable part number (if the op-mode in not standard)
+        - Manufacturing data
+</pre><a href="#section-3.1-3" class="pilcrow">¶</a>
+</div>
+<p id="section-3.1-4">It would be also possible to auto-discover the inter-layer (inter-
+   domain) links between DWDM coherent pluggables and ROADM ports by
+   checking the input/output power levels (and probably switching on/off
+   the lasers of the pluggables).  This would require the help of MDSC,
+   O-PNC and P-PNC.  The same methoc could be used to verify the
+   provisioned connectivty.  For further study in this draft.<a href="#section-3.1-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="network-topology-discovery-and-provisioning">
+<section id="section-3.2">
+        <h3 id="name-network-topology-discovery-">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-network-topology-discovery-" class="section-name selfRef">Network topology discovery and provisioning</a>
+        </h3>
+<p id="section-3.2-1">The first operation executed by the P-PNC and O-PNC is to discover
+   the network topology and share it with the MDSC via the MPI.  The
+   PNCs will discover and share also the inter-layer links (or
+   connections) so that the MDSC can rebuild the full network topology
+   associating the DWDM Router ports to the ROADM ports.  Once the
+   association is discovered the P-PNC must share the characteristics of
+   Pluggable module with the MDSC and then MDSC with the O-PNC.  At this
+   point the Hierarchical controller (MDSC) and the domain controllers
+   have all the information to commit and honour any service request
+   coming from the OSS/orchestrator.  The details of the general
+   operations are described in draft-ietf-teas-actn-poi-applicability,
+   while this draft describes how to operate the Pluggable module during
+   the optical circuit set-up operation.  As the Pluggable can be
+   inserted or remove at any time it is relevant to have admin and
+   operational state notification from the network to the PNC and MDSC.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="e2e-svc-provisioning">
+<section id="section-3.3">
+        <h3 id="name-end-to-end-service-provisio">
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-end-to-end-service-provisio" class="section-name selfRef">End to End service provisioning / deletion</a>
+        </h3>
+<p id="section-3.3-1">The End to End service provisioning is a multilayer provisioning
+   involving both the packet layer and the optical layer.  The MDSC
+   plays a key role as it has the full network visibility and can co-
+   ordinate the different domain controllers' operations.  The service
+   request can be driven by the operator using the MDSC UI or the MDSC
+   receives the service request from the operator OSS/Orchestrator.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.3-2">The workflow for the creation of an end to end service is composed by
+   the following steps:<a href="#section-3.3-2" class="pilcrow">¶</a></p>
+<div class="alignLeft art-ascii-art art-text artwork" id="section-3.3-3">
+<pre>
+   1. MDSC receives an end to end service request from OSS/Orchestrator
+   2. MDSC starts computing the different operations to implement the
+      service.
+   3. First MDSC starts to compute the routing, the bandwidth, the
+      constrains of the packet service.
+   4. If the Packer network can support the service without additional
+      connections among the Routers
+      4.1. then the packet service is commissioned through the P-PNC
+      4.2. a notification with all the service info is sent to OSS.
+   5. If more optical connectivity is needed
+     5.1. the MDSC notifies the operator about the extra bandwidth need
+     5.2. optionally, automatically identifies the spare router ports
+          to be used for the connection extension (e.g. A and Z).
+     5.3. The Router ports (pluggable) must be connected to A' and Z'
+          ROADM ports and must be compatible (in terms of optical
+          parameters, etc.).
+   6. MDSC (autonomously or under operator demand) asks to O-PNC to set
+      an optical circuit between ROADM ports A' and Z' providing
+      information on:
+     6.1. the pluggable supported parameters (A and Z)
+            - Pluggable Service source port-ID
+            - Pluggable Service destination port-ID
+            - Operational-mode or standard mode (compatible)
+            - Vendor OUI (if the operational mode in not standard)
+            - Pluggable part number (if the op-mode in not standard)
+            - Admin-state (common ?)
+     6.2. the bandwidth (e.g. 100G or 400G, etc.)
+     6.3. the routing constraints (e.g. SRLG XRO, etc)
+   7. O-PNC calculates the optical route, selects the Lambda, verifies
+      the optical feasibility, calculates the pluggable TX power.
+     7.1.  If all is OK, provisions the optical circuit in ROADM.
+     7.2.  If anything went wrong the O-PNC rejects the MDSC request.
+   8. O-PNC updates the MDSC of successful circuit provisioning
+      including the path, the Lambda, the operational mode (or the
+      explicit optical parameters), the TX power, SRLG, etc.
+      The optical circuit at this point is provisioned but not yet
+      operational (no optical power coming from the transceivers yet)
+   9. The MDSC updates the service DB and forward the pluggable
+      provisioning parameters to P-PNC to complete the optical set-up.
+   10. MDSC is then ready to commission the packet service through P-PNC
+      10.1. has the visibility of end to end optical circuit (active)
+      10.2. the packer service is commissioned
+      10.3. MDSC service DB is updated
+   11. The MDSC notifies the OSS of successful end to end service set-up
+
+</pre><a href="#section-3.3-3" class="pilcrow">¶</a>
+</div>
+<p id="section-3.3-4">NOTE: the Optical service may not be feasible due to optical
+   impairments calculation failure.  In this case the O-PNC will reject
+   the optical circuit creation request to MDSC.  It is up to the
+   operator (through MDSC) to scale down (e.g.  propose a 300Gb/s
+   instead of a 400Gb/s service) the request or plan a network upgrade.<a href="#section-3.3-4" class="pilcrow">¶</a></p>
+<p id="section-3.3-5">Another point to note is the information sent by MDSC to O-PNC about
+   the pluggable characteristics.  In reality this info should be known
+   by the O-PNC at network commissioning time when the Inter Layer Link
+   is set or discovered.  The pluggable information may have multiple
+   instances when the pluggable support multiple bit rate (e.g.  ZR+).
+   In case of multiple bit rate (and multiple operational mode) the
+   O-PNC can decide to propose to MDSC a different bit rate (higher or
+   lower) calculated in base of the optical validation algorithms.  That
+   is: MDSC ask for a 400Gb/s bit rate while O-PNC proposer a 300Gb/s
+   bit rate, instead of rejecting the circuit request.<a href="#section-3.3-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="optical-circuit-provisioning-deletion">
+<section id="section-3.4">
+        <h3 id="name-optical-circuit-provisionin">
+<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-optical-circuit-provisionin" class="section-name selfRef">Optical Circuit provisioning / deletion</a>
+        </h3>
+<p id="section-3.4-1">Upon receiving an optical service request from the OSS/Orchestrator,
+   the MDSC starts performing the different operations to implement the
+   optical service (e.g. from A to Z).  As an alternative the service
+   request can be driven by the operator using the MDSC UI.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.4-2">The steps of the workflow are:<a href="#section-3.4-2" class="pilcrow">¶</a></p>
+<div class="alignLeft art-ascii-art art-text artwork" id="section-3.4-3">
+<pre>
+   1. MDSC receives an end to end service request from the OSS/Orchestr.
+   2. MDSC starts computing the different operations to implement the
+      service.
+   3. to check whether the optical connectivity is feasible
+     3.1. automatically identifies the router ports to be
+          used for the optical connection (e.g. A and Z).
+     3.2. The Router ports (pluggable) must be connected to A' and Z'
+          ROADM ports and must be compatible (in terms of optical
+          parameters, etc.).
+   4. MDSC asks to O-PNC to set the optical circuit between ROADM
+      ports A' and Z' providing information on:
+     4.1. the pluggable supported parameters (A and Z)
+            - Pluggable Service source port-ID
+            - Pluggable Service destination port-ID
+            - Operational-mode or standard mode (compatible)
+            - Vendor OUI (if the operational mode in not standard)
+            - Pluggable part number (if the op-mode in not standard)
+            - Admin-state (common ?)
+     4.2. the bandwidth (e.g. 100G or 400G, etc.)
+     4.3. the routing constraints (e.g. SRLG XRO, etc)
+   5. O-PNC calculates the optical route, selects the Lambda, verifies
+      the optical feasibility, the pluggable TX power.
+     5.1.  If all is OK, provisions the optical circuit
+   6. O-PNC updates the MDSC of successful circuit provisioning
+      including the path, the Lambda, the operational mode (or the
+      explicit optical parameters), the TX power, etc.
+   7. The MDSC updates the service DB and forward the pluggable
+      provisioning parameters to P-PNC to complete the optical set-up.
+   8. MDSC verifies the end to end optical circuits (active)
+   9. The MDSC notifies the OSS of successful optical circuit set-up.
+
+</pre><a href="#section-3.4-3" class="pilcrow">¶</a>
+</div>
+<p id="section-3.4-4">NOTE: the Optical service may not be feasible due to optical
+   impairments calculation failure.  In this case the O-PNC will reject
+   the optical circuit creation request to MDSC.  It is up to the
+   operator (through MDSC) to scale down the request or plan a network
+   upgrade.<a href="#section-3.4-4" class="pilcrow">¶</a></p>
+<p id="section-3.4-5">The same consideration done in the previus use case are applicable
+   here.<a href="#section-3.4-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="lag-extension">
+<section id="section-3.5">
+        <h3 id="name-lag-extension">
+<a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-lag-extension" class="section-name selfRef">LAG extension</a>
+        </h3>
+<p id="section-3.5-1">Upon receiving a LAG service request from OSS/Orchestrator, the MDSC
+   start computing the different operations to implement the request.<a href="#section-3.5-1" class="pilcrow">¶</a></p>
+<p id="section-3.5-2">The MDSC would determine if an existing multi-layer connection exists
+   between the routers participating in the LAG.  If so, the MDSC would
+   request the P-PNC to configure and add the new LAG bundle member link<a href="#section-3.5-2" class="pilcrow">¶</a></p>
+<p id="section-3.5-3">using this existing connection, and notify the OSS confirmation of
+   the additional link.  If more optical connectivity is needed, then
+   the procedures defined in <a href="#e2e-svc-provisioning" class="auto internal xref">Section 3.3</a> would be followed.<a href="#section-3.5-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="optical-restoration">
+<section id="section-3.6">
+        <h3 id="name-optical-restoration">
+<a href="#section-3.6" class="section-number selfRef">3.6. </a><a href="#name-optical-restoration" class="section-name selfRef">Optical Restoration</a>
+        </h3>
+<p id="section-3.6-1">For this use case the trigger for the Domain controller and MDSC to
+   take actions is coming from the optical data plane when the O-PNC
+   detects or is notified about an optical network failure (e.g. a fiber
+   cut or a node failure).  This kind of events affect the traffic and a
+   number of optical circuits are lost.<a href="#section-3.6-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-ascii-art art-text artwork" id="section-3.6-2">
+<pre>
+   1. First action is taken by the O-PNC to identify what are the
+       affected circuits enabled to restoration
+   2. For the circuits enabled to restoration O-PNC starts to compute
+     2.1. the restore paths
+     2.2. their feasibility and any optical parameter change (e.g.
+          lambda retuning, TX power, etc.)
+   3. If the restore path and all parameters are OK for the optical
+      feasibility
+     3.1. the restore path is provisioned
+     3.2. modifications to MDSC are sent to notify the new circuits data
+            - circuit path + SRLG
+            - Pluggable Service source port-ID
+            - Pluggable Service destination port-ID
+            - Operational-mode or standard mode (compatible)
+            - Admin-state (common ?)
+   4. The MDSC updates the circuit DB and forward any pluggable
+      provisioning change to P-PNC
+   5. P-PNC will take care to apply the new provisioning data to the
+      pluggables (e.g. lambda, operational data, TX power, etc.)
+   6. The Restoration process is then completed and the IP connection
+      between the routers is recovered.
+
+</pre><a href="#section-3.6-2" class="pilcrow">¶</a>
+</div>
+<p id="section-3.6-3">NOTE: the restoration may not be feasible due to optical impairments
+   calculation failure.  In this case the O-PNC will notify the optical
+   circuit restoration failure to MDSC.  It is up to the operator,
+   through MDSC, to take actions and/or plan a network upgrade.<a href="#section-3.6-3" class="pilcrow">¶</a></p>
+<p id="section-3.6-4">In case the optical circuit restoration is revertible, is again O-PNC
+   responsibility to monitor the failure after the fix and start the
+   revert procedure to bring the restore path to the original route.<a href="#section-3.6-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="network-maintenance-operations">
+<section id="section-3.7">
+        <h3 id="name-network-maintenance-operati">
+<a href="#section-3.7" class="section-number selfRef">3.7. </a><a href="#name-network-maintenance-operati" class="section-name selfRef">Network Maintenance Operations</a>
+        </h3>
+<p id="section-3.7-1">The maintenance operation is requested by the OSS when a part of the
+   network needs a maintenance activity.  There could be Packet network
+   maintenance or Optical network Maintenance.  As an alternative the
+   maintenance request can be driven by the operator using the MDSC UI.<a href="#section-3.7-1" class="pilcrow">¶</a></p>
+<p id="section-3.7-2">The Packet network maintenance is simple and is addressed by the MDSC
+   in cooperation with the P-PNC.<a href="#section-3.7-2" class="pilcrow">¶</a></p>
+<p id="section-3.7-3">The optical network maintenance is more complex and needs the MDSC
+   coordination to ask the P-PNC to move away the traffic from the
+   resources under maintenance in the optical network.  That means MDSC
+   has to search in the service DB whether a service is using a definite
+   optical link and re-route the service to a part of the optical
+   network not affected by the maintenance operation.  Upon maintenance
+   completion the MDSC will bring all the traffic back to the original
+   route.<a href="#section-3.7-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="optical-interface-for-external-transponder-in-a-wdm-network">
+<section id="section-4">
+      <h2 id="name-optical-interface-for-exter">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-optical-interface-for-exter" class="section-name selfRef">Optical Interface for external transponder in a WDM network</a>
+      </h2>
+<p id="section-4-1">This document proposes an augmentation to the ietf-interface module
+   called ietf-ext-xponder-wdm-if.  The ietf-ext-xponder-wdm-if, author
+   note: define the model, is an augment to the ietf-interface.  It
+   allows the user to set the operating mode of transceivers as well as
+   other operational parameters.  The module also provides threshold
+   settings and notifications to supervise measured parameters and
+   notify the client.<a href="#section-4-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="structure-of-the-yang-module">
+<section id="section-5">
+      <h2 id="name-structure-of-the-yang-modul">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-structure-of-the-yang-modul" class="section-name selfRef">Structure of the Yang Module</a>
+      </h2>
+<p id="section-5-1">ietf-ext-xponder-wdm-if is a top-level model for the support of this
+   feature.<a href="#section-5-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="security-considerations">
+<section id="section-6">
+      <h2 id="name-security-considerations">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+      </h2>
+<p id="section-6-1">RSVP-TE message security is described in <span>[<a href="#RFC5920" class="cite xref">RFC5920</a>]</span>.  IPsec and HMAC-
+   MD5 authentication are common examples of existing mechanisms.  This
+   document only defines new UNI objects that are carried in existing
+   UNI messages, thus it does not introduce new security considerations.<a href="#section-6-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="iana-considerations">
+<section id="section-7">
+      <h2 id="name-iana-considerations">
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+      </h2>
+<div class="alignLeft art-ascii-art art-text artwork" id="section-7-1">
+<pre>
+   // [TEMPLATE TODO] In order to comply with IESG policy as set forth
+   // in http://www.ietf.org/ID-Checklist.html, every Internet-Draft
+   // that is submitted to the IESG for publication MUST contain an IANA
+   // Considerations section.  The requirements for this section vary
+   // depending what actions are required of the IANA.  See "Guidelines
+   // for Writing an IANA Considerations Section in RFCs" [RFC8126]. and
+   // see [RFC4181] section 3.5 for more information on writing an IANA
+   // clause for a MIB module internet draft.
+</pre><a href="#section-7-1" class="pilcrow">¶</a>
+</div>
+<p id="section-7-2">This document registers a URI in the IETF XML registry <span>[<a href="#RFC3688" class="cite xref">RFC3688</a>]</span>.
+   Following the format in <span>[<a href="#RFC3688" class="cite xref">RFC3688</a>]</span>, the following registration is
+   requested to be made:<a href="#section-7-2" class="pilcrow">¶</a></p>
+<p id="section-7-3">URI: urn:ietf:params:xml:ns:yang:ietf-interfaces:ietf-ext-xponder-
+   wdm-if<a href="#section-7-3" class="pilcrow">¶</a></p>
+<p id="section-7-4">Registrant Contact: The IESG.<a href="#section-7-4" class="pilcrow">¶</a></p>
+<p id="section-7-5">XML: N/A, the requested URI is an XML namespace.<a href="#section-7-5" class="pilcrow">¶</a></p>
+<p id="section-7-6">This document registers a YANG module in the YANG Module Names
+   registry <span>[<a href="#RFC6020" class="cite xref">RFC6020</a>]</span>.<a href="#section-7-6" class="pilcrow">¶</a></p>
+<p id="section-7-7">This document registers a YANG module in the YANG Module Names
+   registry <span>[<a href="#RFC6020" class="cite xref">RFC6020</a>]</span>.<a href="#section-7-7" class="pilcrow">¶</a></p>
+<p id="section-7-8">prefix: ietf-ext-xponder-wdm-if reference: RFC XXXX<a href="#section-7-8" class="pilcrow">¶</a></p>
+</section>
+</div>
+<section id="section-8">
+      <h2 id="name-references">
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-references" class="section-name selfRef">References</a>
+      </h2>
+<section id="section-8.1">
+        <h3 id="name-normative-references">
+<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+        </h3>
+<dl class="references">
+<dt id="I-D.draft-ietf-teas-actn-poi-applicability">[I-D.draft-ietf-teas-actn-poi-applicability]</dt>
+        <dd>
+<span class="refAuthor">Peruzzini, F.</span>, <span class="refAuthor">Bouquier, J.</span>, <span class="refAuthor">Busi, I.</span>, <span class="refAuthor">King, D.</span>, and <span class="refAuthor">D. Ceccarelli</span>, <span class="refTitle">"Applicability of Abstraction and Control of Traffic Engineered Networks (ACTN) to Packet Optical Integration (POI)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-teas-actn-poi-applicability-08</span>, <time datetime="2023-01-11" class="refDate">11 January 2023</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-teas-actn-poi-applicability-08">https://datatracker.ietf.org/doc/html/draft-ietf-teas-actn-poi-applicability-08</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-ccamp-dwdm-if-param-yang">[I-D.ietf-ccamp-dwdm-if-param-yang]</dt>
+        <dd>
+<span class="refAuthor">Galimberti, G.</span>, <span class="refAuthor">Kunze, R.</span>, <span class="refAuthor">Hiremagalur, D.</span>, and <span class="refAuthor">G. Grammel</span>, <span class="refTitle">"A YANG model to manage the optical interface parameters for an external transponder in a WDM network"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-ccamp-dwdm-if-param-yang-09</span>, <time datetime="2023-03-13" class="refDate">13 March 2023</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-ccamp-dwdm-if-param-yang-09">https://datatracker.ietf.org/doc/html/draft-ietf-ccamp-dwdm-if-param-yang-09</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="ITU.G694.1">[ITU.G694.1]</dt>
+        <dd>
+<span class="refAuthor">International Telecommunications Union</span>, <span class="refTitle">"Spectral grids for WDM applications: DWDM frequency grid"</span>, <span class="seriesInfo">ITU-T Recommendation G.698.2 </span>, <time datetime="2012-02" class="refDate">February 2012</time>. </dd>
+<dd class="break"></dd>
+<dt id="ITU.G698.2">[ITU.G698.2]</dt>
+        <dd>
+<span class="refAuthor">International Telecommunications Union</span>, <span class="refTitle">"Amplified multichannel dense wavelength division multiplexing applications with single channel optical interfaces"</span>, <span class="seriesInfo">ITU-T Recommendation G.698.2 </span>, <time datetime="2009-11" class="refDate">November 2009</time>. </dd>
+<dd class="break"></dd>
+<dt id="ITU.G872">[ITU.G872]</dt>
+        <dd>
+<span class="refAuthor">International Telecommunications Union</span>, <span class="refTitle">"Architecture of optical transport networks"</span>, <span class="seriesInfo">ITU-T Recommendation G.872 </span>, <time datetime="2017-01" class="refDate">January 2017</time>. </dd>
+<dd class="break"></dd>
+<dt id="OIF-400ZR-01-0">[OIF-400ZR-01-0]</dt>
+        <dd>
+<span class="refAuthor">Optical Internetworking Forum (OIF)</span>, <span class="refTitle">"Implementation Agreement 400ZR"</span>, <span class="seriesInfo">OIF OIF-400ZR-01-0 </span>, <time datetime="2020-03" class="refDate">March 2020</time>. </dd>
+<dd class="break"></dd>
+<dt id="Open_ZR-Plus_MSA">[Open_ZR-Plus_MSA]</dt>
+        <dd>
+<span class="refAuthor">OpenZR+ Multi-Source Agreement</span>, <span class="refTitle">"400ZR+ Multi-Source Agreement"</span>, <span class="seriesInfo">OpenZR+ Open ZR+ MSA </span>, <time datetime="2020-09" class="refDate">September 2020</time>. </dd>
+<dd class="break"></dd>
+<dt id="RFC1930">[RFC1930]</dt>
+        <dd>
+<span class="refAuthor">Hawkinson, J.</span> and <span class="refAuthor">T. Bates</span>, <span class="refTitle">"Guidelines for creation, selection, and registration of an Autonomous System (AS)"</span>, <span class="seriesInfo">BCP 6</span>, <span class="seriesInfo">RFC 1930</span>, <span class="seriesInfo">DOI 10.17487/RFC1930</span>, <time datetime="1996-03" class="refDate">March 1996</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc1930">https://www.rfc-editor.org/rfc/rfc1930</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC2119">[RFC2119]</dt>
+        <dd>
+<span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC3688">[RFC3688]</dt>
+        <dd>
+<span class="refAuthor">Mealling, M.</span>, <span class="refTitle">"The IETF XML Registry"</span>, <span class="seriesInfo">BCP 81</span>, <span class="seriesInfo">RFC 3688</span>, <span class="seriesInfo">DOI 10.17487/RFC3688</span>, <time datetime="2004-01" class="refDate">January 2004</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3688">https://www.rfc-editor.org/rfc/rfc3688</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC5920">[RFC5920]</dt>
+        <dd>
+<span class="refAuthor">Fang, L., Ed.</span>, <span class="refTitle">"Security Framework for MPLS and GMPLS Networks"</span>, <span class="seriesInfo">RFC 5920</span>, <span class="seriesInfo">DOI 10.17487/RFC5920</span>, <time datetime="2010-07" class="refDate">July 2010</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5920">https://www.rfc-editor.org/rfc/rfc5920</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6020">[RFC6020]</dt>
+        <dd>
+<span class="refAuthor">Bjorklund, M., Ed.</span>, <span class="refTitle">"YANG - A Data Modeling Language for the Network Configuration Protocol (NETCONF)"</span>, <span class="seriesInfo">RFC 6020</span>, <span class="seriesInfo">DOI 10.17487/RFC6020</span>, <time datetime="2010-10" class="refDate">October 2010</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6020">https://www.rfc-editor.org/rfc/rfc6020</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6205">[RFC6205]</dt>
+        <dd>
+<span class="refAuthor">Otani, T., Ed.</span> and <span class="refAuthor">D. Li, Ed.</span>, <span class="refTitle">"Generalized Labels for Lambda-Switch-Capable (LSC) Label Switching Routers"</span>, <span class="seriesInfo">RFC 6205</span>, <span class="seriesInfo">DOI 10.17487/RFC6205</span>, <time datetime="2011-03" class="refDate">March 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6205">https://www.rfc-editor.org/rfc/rfc6205</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7698">[RFC7698]</dt>
+        <dd>
+<span class="refAuthor">Gonzalez de Dios, O., Ed.</span>, <span class="refAuthor">Casellas, R., Ed.</span>, <span class="refAuthor">Zhang, F.</span>, <span class="refAuthor">Fu, X.</span>, <span class="refAuthor">Ceccarelli, D.</span>, and <span class="refAuthor">I. Hussain</span>, <span class="refTitle">"Framework and Requirements for GMPLS-Based Control of Flexi-Grid Dense Wavelength Division Multiplexing (DWDM) Networks"</span>, <span class="seriesInfo">RFC 7698</span>, <span class="seriesInfo">DOI 10.17487/RFC7698</span>, <time datetime="2015-11" class="refDate">November 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7698">https://www.rfc-editor.org/rfc/rfc7698</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7699">[RFC7699]</dt>
+        <dd>
+<span class="refAuthor">Farrel, A.</span>, <span class="refAuthor">King, D.</span>, <span class="refAuthor">Li, Y.</span>, and <span class="refAuthor">F. Zhang</span>, <span class="refTitle">"Generalized Labels for the Flexi-Grid in Lambda Switch Capable (LSC) Label Switching Routers"</span>, <span class="seriesInfo">RFC 7699</span>, <span class="seriesInfo">DOI 10.17487/RFC7699</span>, <time datetime="2015-11" class="refDate">November 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7699">https://www.rfc-editor.org/rfc/rfc7699</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7792">[RFC7792]</dt>
+        <dd>
+<span class="refAuthor">Zhang, F.</span>, <span class="refAuthor">Zhang, X.</span>, <span class="refAuthor">Farrel, A.</span>, <span class="refAuthor">Gonzalez de Dios, O.</span>, and <span class="refAuthor">D. Ceccarelli</span>, <span class="refTitle">"RSVP-TE Signaling Extensions in Support of Flexi-Grid Dense Wavelength Division Multiplexing (DWDM) Networks"</span>, <span class="seriesInfo">RFC 7792</span>, <span class="seriesInfo">DOI 10.17487/RFC7792</span>, <time datetime="2016-03" class="refDate">March 2016</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7792">https://www.rfc-editor.org/rfc/rfc7792</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8453">[RFC8453]</dt>
+      <dd>
+<span class="refAuthor">Ceccarelli, D., Ed.</span> and <span class="refAuthor">Y. Lee, Ed.</span>, <span class="refTitle">"Framework for Abstraction and Control of TE Networks (ACTN)"</span>, <span class="seriesInfo">RFC 8453</span>, <span class="seriesInfo">DOI 10.17487/RFC8453</span>, <time datetime="2018-08" class="refDate">August 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8453">https://www.rfc-editor.org/rfc/rfc8453</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+<section id="section-8.2">
+        <h3 id="name-informative-references">
+<a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+        </h3>
+<dl class="references">
+<dt id="RFC2629">[RFC2629]</dt>
+        <dd>
+<span class="refAuthor">Rose, M.</span>, <span class="refTitle">"Writing I-Ds and RFCs using XML"</span>, <span class="seriesInfo">RFC 2629</span>, <span class="seriesInfo">DOI 10.17487/RFC2629</span>, <time datetime="1999-06" class="refDate">June 1999</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2629">https://www.rfc-editor.org/rfc/rfc2629</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC3410">[RFC3410]</dt>
+      <dd>
+<span class="refAuthor">Case, J.</span>, <span class="refAuthor">Mundy, R.</span>, <span class="refAuthor">Partain, D.</span>, and <span class="refAuthor">B. Stewart</span>, <span class="refTitle">"Introduction and Applicability Statements for Internet-Standard Management Framework"</span>, <span class="seriesInfo">RFC 3410</span>, <span class="seriesInfo">DOI 10.17487/RFC3410</span>, <time datetime="2002-12" class="refDate">December 2002</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3410">https://www.rfc-editor.org/rfc/rfc3410</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</section>
+<div id="acknowledgments">
+<section id="appendix-A">
+      <h2 id="name-acknowledgments">
+<a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
+      </h2>
+<p id="appendix-A-1">This document was prepared using kramdown.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="contributors">
+<section id="appendix-B">
+      <h2 id="name-contributors">
+<a href="#name-contributors" class="section-name selfRef">Contributors</a>
+      </h2>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Phil Bedard</span></div>
+<div dir="auto" class="left"><span class="org">Cisco</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:phbedard@cisco.com" class="email">phbedard@cisco.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Rana El Desouky Kazamel</span></div>
+<div dir="auto" class="left"><span class="org">Cisco</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:reldesou@cisco.com" class="email">reldesou@cisco.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Gert Grammel</span></div>
+<div dir="auto" class="left"><span class="org">Juniper</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:ggrammel@juniper.net" class="email">ggrammel@juniper.net</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Prasenjit Manna</span></div>
+<div dir="auto" class="left"><span class="org">Cisco</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:prmanna@cisco.com" class="email">prmanna@cisco.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Jose-Angel Perez</span></div>
+<div dir="auto" class="left"><span class="org">Vodafone</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:jose-angel.perez@vodafone.com" class="email">jose-angel.perez@vodafone.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Manuel-Julian Lopez</span></div>
+<div dir="auto" class="left"><span class="org">Vodafone</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:manuel-julian.lopez@vodafone.com" class="email">manuel-julian.lopez@vodafone.com</a>
+</div>
+</address>
+</section>
+</div>
+<div id="authors-addresses">
+<section id="appendix-C">
+      <h2 id="name-authors-addresses">
+<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
+      </h2>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Gabriele Galimberti (<span class="role">editor</span>)</span></div>
+<div dir="auto" class="left"><span class="org">Cisco</span></div>
+<div dir="auto" class="left"><span class="street-address">Via S. Maria Molgora, 48 c</span></div>
+<div dir="auto" class="left">
+<span class="locality">20871 - Vimercate</span> </div>
+<div dir="auto" class="left"><span class="country-name">Italy</span></div>
+<div class="tel">
+<span>Phone:</span>
+<a href="tel:+390392091462" class="tel">+390392091462</a>
+</div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:ggalimbe56@gmail.com" class="email">ggalimbe56@gmail.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Jean-Francois Bouquier (<span class="role">editor</span>)</span></div>
+<div dir="auto" class="left"><span class="org">Vodafone</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:jeff.bouquier@vodafone.com" class="email">jeff.bouquier@vodafone.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Ori Gerstel (<span class="role">editor</span>)</span></div>
+<div dir="auto" class="left"><span class="org">Cisco</span></div>
+<div dir="auto" class="left"><span class="street-address">AMOT ATRIUM Tower 19th floor</span></div>
+<div dir="auto" class="left">
+<span class="locality">TEL AVIV-YAFO, TA</span> </div>
+<div dir="auto" class="left"><span class="country-name">Israel</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:ogerstel@cisco.com" class="email">ogerstel@cisco.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Brent Foster (<span class="role">editor</span>)</span></div>
+<div dir="auto" class="left"><span class="org">Cisco</span></div>
+<div dir="auto" class="left"><span class="street-address">Research Triangle Park</span></div>
+<div dir="auto" class="left">
+<span class="locality">North Carolina</span>,  </div>
+<div dir="auto" class="left"><span class="country-name">United States</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:brfoster@cisco.com" class="email">brfoster@cisco.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Daniele Ceccarelli (<span class="role">editor</span>)</span></div>
+<div dir="auto" class="left"><span class="org">Cisco</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:daniele.ietf@gmail.com" class="email">daniele.ietf@gmail.com</a>
+</div>
+</address>
+</section>
+</div>
+<script>const toc = document.getElementById("toc");
+toc.querySelector("h2").addEventListener("click", e => {
+  toc.classList.toggle("active");
+});
+toc.querySelector("nav").addEventListener("click", e => {
+  toc.classList.remove("active");
+});
+</script>
+</body>
+</html>

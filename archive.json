@@ -1,0 +1,1336 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2023-07-02T01:42:41.948140+00:00",
+  "repo": "ggalimba56/draft-poidt-ccamp-actn-poi-pluggable",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 2,
+      "id": "I_kwDOJDdBfM5hH2g7",
+      "title": "Prepare list of open issues",
+      "url": "https://github.com/ggalimba56/draft-poidt-ccamp-actn-poi-pluggable/issues/2",
+      "state": "OPEN",
+      "author": "italobusi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "ggalimba56"
+      ],
+      "labels": [],
+      "body": "**[2023-03-14 ACTN POI Call (Slot 1)](https://github.com/FabioPeruzzini/actn-poi/blob/master/minutes/minutes-2023-03-14.md)**\r\n\r\nIt has been agreed to align the terminology of the draft with the terminology used in the current POI draft and with other IETF drafts (e.g., optical impairments)\r\n\r\nThe terminology used in IETF for the optical layer is aligned with the ITU-T terminology but not always aligned with Openconfig terminology. It would be good to have some guidelines describing how the terminology used by Openconfig aligns with the terminology used by IETF:\r\n- one option is to write a terminology draft\r\n- another option is to add an appendix to the DWDM interface model draft\r\n\r\nThe analysis provided in this draft is more generic than POI and applies to any scenario where the DCO and the OLS are under different controllers (PNCs): the draft analysis will stay focused on POI, to keep consistency/alignment with other POI work, but some text will be added to the draft describing the generality of the approach\r\n\r\nTIP MANTRA describe two options to manage these scenarios. The draft is analyzing only one option, the one in which hierarchical controller only is managing e2e service. It might be worthwhile considering both options (second option?) in the next updates to the draft\r\n\r\n- [ ] @ggalimba56 to prepare a list of open issues to share during the IETF 116 presentation\r\n",
+      "createdAt": "2023-03-17T14:50:50Z",
+      "updatedAt": "2023-03-17T14:50:57Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 3,
+      "id": "I_kwDOJDdBfM5hk-N6",
+      "title": "IETF-116 Presentation",
+      "url": "https://github.com/ggalimba56/draft-poidt-ccamp-actn-poi-pluggable/issues/3",
+      "state": "CLOSED",
+      "author": "ggalimba56",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Please have a look to the preso and provide feedbacks.\r\n\r\n[IETF-116-draft-poidt-ccamp-actn-poi-pluggable.pptx](https://github.com/ggalimba56/draft-poidt-ccamp-actn-poi-pluggable/files/11048632/IETF-116-draft-poidt-ccamp-actn-poi-pluggable.pptx)\r\n\r\n",
+      "createdAt": "2023-03-23T08:39:53Z",
+      "updatedAt": "2023-04-11T08:47:57Z",
+      "closedAt": "2023-04-11T08:47:57Z",
+      "comments": [
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Overall the slides look aligned with the discussion we have had\r\n\r\nI have few comments/questions\r\n\r\n1. Looking at point 4 in slide 2 (\"Define a set of use cases to address and plan the Yang models extension to support them\") and the penultimate bullet in slide 7 (\"Define the (Yang) models to support the Pluggables in Routers\"), I am getting the feeling that the future plan for this draft is to define YANG models to support these use cases, while my previous understanding was that this draft is mainly intended to identify the gaps and trigger further work in other drafts to resolve those gaps (as it has been done in the parent POI draft).\r\n\r\n   Could you please clarify this point?\r\n\r\n3. Looking at some supported use cases in slide 6 (Optical Restoration and Network Maintenance Operations) and the new use cases in slide 7, I am getting the feeling that this draft is going to cover also the service assurance aspects in case of pluggable optics, while my previous understanding (reported also in the slides to be presented at TEAS WG) was that this draft was only covering the same set of use cases of the parent draft and service assurance aspects for pluggable and grey interfaces are covered in the POI assurance draft.\r\n\r\n   Could you please clarify this point?\r\n\r\n5. Pending alignment on previous point, I would also suggest to copy slides 2 and 3 from the POI assurance presentation (https://github.com/italobusi/draft-poidt-teas-actn-poi-assurance/pull/6) to give a consistent view of the overall picture of these three drafts\r\n\r\n6. In the third bullet of slide 7, I would mention terminology alignment also to other relevant IETF drafts or RFCs",
+          "createdAt": "2023-03-23T09:38:31Z",
+          "updatedAt": "2023-03-23T09:38:31Z"
+        },
+        {
+          "author": "ggalimba56",
+          "authorAssociation": "OWNER",
+          "body": "Hi Italo,\r\n\r\nSee in line [gmg]\r\n\r\nI\u2019ll update the preso.\r\n\r\nThanks a lot !\r\n\r\nBest Regards,\r\n\r\nGabriele\r\n\r\nFrom: italobusi ***@***.***>\r\nReply to: ggalimba56/draft-poidt-ccamp-actn-poi-pluggable ***@***.***>\r\nDate: Thursday, 23 March 2023 at 10:39\r\nTo: ggalimba56/draft-poidt-ccamp-actn-poi-pluggable ***@***.***>\r\nCc: ggalimbe ***@***.***>, Author ***@***.***>\r\nSubject: Re: [ggalimba56/draft-poidt-ccamp-actn-poi-pluggable] IETF-116 Presentation (Issue #3)\r\n\r\n\r\nOverall the slides look aligned with the discussion we have had\r\n\r\nI have few comments/questions\r\n\r\n  1.  Looking at point 4 in slide 2 (\"Define a set of use cases to address and plan the Yang models extension to support them\") and the penultimate bullet in slide 7 (\"Define the (Yang) models to support the Pluggables in Routers\"), I am getting the feeling that the future plan for this draft is to define YANG models to support these use cases, while my previous understanding was that this draft is mainly intended to identify the gaps and trigger further work in other drafts to resolve those gaps (as it has been done in the parent POI draft).\r\n\r\nCould you please clarify this point?   [gmg] yes you are right, I\u2019ll rephrase the sentences to be more plear\r\n\r\n  1.  Looking at some supported use cases in slide 6 (Optical Restoration and Network Maintenance Operations) and the new use cases in slide 7, I am getting the feeling that this draft is going to cover also the service assurance aspects in case of pluggable optics, while my previous understanding (reported also in the slides to be presented at TEAS WG) was that this draft was only covering the same set of use cases of the parent draft and service assurance aspects for pluggable and grey interfaces are covered in the POI assurance draft.\r\n\r\nCould you please clarify this point?   [gmg] Restoration and maintenance operation (better to say coordinated-maintenance) are not assurance in my opinion although they benefit of assurance loke alarm and PM functions.\r\n\r\n  1.  Pending alignment on previous point, I would also suggest to copy slides 2 and 3 from the POI assurance presentation (italobusi/draft-poidt-teas-actn-poi-assurance#6<https://github.com/italobusi/draft-poidt-teas-actn-poi-assurance/pull/6>) to give a consistent view of the overall picture of these three drafts   [gmg] OK !\r\n  2.  In the third bullet of slide 7, I would mention terminology alignment also to other relevant IETF drafts or RFCs.  [gmg] agree, I move it to first position\r\n\r\n\u2014\r\nReply to this email directly, view it on GitHub<https://github.com/ggalimba56/draft-poidt-ccamp-actn-poi-pluggable/issues/3#issuecomment-1480874121>, or unsubscribe<https://github.com/notifications/unsubscribe-auth/ADQWFMBZBTGYZUAACMSMEODW5QK2HANCNFSM6AAAAAAWE35NBM>.\r\nYou are receiving this because you authored the thread.Message ID: ***@***.***>\r\n",
+          "createdAt": "2023-03-23T14:37:59Z",
+          "updatedAt": "2023-03-23T14:37:59Z"
+        },
+        {
+          "author": "ggalimba56",
+          "authorAssociation": "OWNER",
+          "body": "I\u2019ve updated the slides upon Jeff, Italo, Sergio and Daniele comments.\r\n[IETF-116-draft-poidt-ccamp-actn-poi-pluggable.pptx](https://github.com/ggalimba56/draft-poidt-ccamp-actn-poi-pluggable/files/11052467/IETF-116-draft-poidt-ccamp-actn-poi-pluggable.pptx)\r\n",
+          "createdAt": "2023-03-23T15:10:35Z",
+          "updatedAt": "2023-03-23T15:10:35Z"
+        },
+        {
+          "author": "sergiobelotti",
+          "authorAssociation": "COLLABORATOR",
+          "body": "\r\n\r\n\r\n> I\u2019ve updated the slides upon Jeff, Italo, Sergio and Daniele comments. [IETF-116-draft-poidt-ccamp-actn-poi-pluggable.pptx](https://github.com/ggalimba56/draft-poidt-ccamp-actn-poi-pluggable/files/11052467/IETF-116-draft-poidt-ccamp-actn-poi-pluggable.pptx)\r\n\r\n@ggalimba56  Thanks !",
+          "createdAt": "2023-03-23T15:30:05Z",
+          "updatedAt": "2023-03-23T15:30:05Z"
+        }
+      ]
+    }
+  ],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOJDdBfM5Lxc35",
+      "title": "Update draft-poidt-ccamp-actn-poi-pluggable.md",
+      "url": "https://github.com/ggalimba56/draft-poidt-ccamp-actn-poi-pluggable/pull/1",
+      "state": "OPEN",
+      "author": "ggalimba56",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "commit test",
+      "createdAt": "2023-03-10T14:37:32Z",
+      "updatedAt": "2023-06-29T14:22:29Z",
+      "baseRepository": "ggalimba56/draft-poidt-ccamp-actn-poi-pluggable",
+      "baseRefName": "main",
+      "baseRefOid": "7a418d0cf61e32d57e58d3ae75df2d8b4a2f95b1",
+      "headRepository": "ggalimba56/draft-poidt-ccamp-actn-poi-pluggable",
+      "headRefName": "first-draft",
+      "headRefOid": "d92c8bf645f93cd40c6cb2a5de8884c03ebadc31",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJDdBfM5Udebr",
+          "commit": {
+            "abbreviatedOid": "ec105b8"
+          },
+          "author": "sergiobelotti",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-05-08T15:21:01Z",
+          "updatedAt": "2023-05-11T15:38:27Z",
+          "comments": [
+            {
+              "originalPosition": 79,
+              "body": "I would add \"multi-technology\", IP/MPLS is already multi-layer",
+              "createdAt": "2023-05-08T15:21:01Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 85,
+              "body": "What \"DCO\" is standing for ? Better to add the translation of the abbreviation. ",
+              "createdAt": "2023-05-08T15:23:33Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 156,
+              "body": "What is the target to show twice ROADM , the first by brackets in O.N and then below as separated entity?",
+              "createdAt": "2023-05-08T15:39:10Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 267,
+              "body": "Why? Both the options are based on ACTN hierarchical approach the only difference is related to SBI that as we know, is not in the scope of ACTN. I would delete this sentence.",
+              "createdAt": "2023-05-10T13:44:00Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 374,
+              "body": "..and I-D. draft-ietf-ccamp-optical-impairment-topology-yang",
+              "createdAt": "2023-05-10T15:31:47Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 356,
+              "body": "I would restructure a bit this section: need to separate a first section explaining the reason to expose some technology parameters . And then a nested section 3.1 \"List of parameters for optical circuit feasibility\" we can title the section \r\n\" Transceiver optical parameters capabilities\". See my word modification in the file.",
+              "createdAt": "2023-05-10T17:07:24Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 443,
+              "body": "What do you mean here \"to understand the client capability\" , you are getting the transceiver optical capabilities ",
+              "createdAt": "2023-05-10T17:11:21Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 409,
+              "body": "In the definition of operational mode we need to be sure to be aligned with what described in draft-ietf-ccamp-optical-impairment-topology-yang section 2.5.2.",
+              "createdAt": "2023-05-11T07:59:23Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 437,
+              "body": "This part should be put at the beginning of section 3.1 as introduction to the list of parameters. See my proposal in word document",
+              "createdAt": "2023-05-11T08:01:27Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 341,
+              "body": "This section is valid for Option 2 . Need to highlight that.",
+              "createdAt": "2023-05-11T08:19:47Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 438,
+              "body": "Are we talking about O-PNC or control plane here ? I'm a bit confused...",
+              "createdAt": "2023-05-11T08:30:48Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 444,
+              "body": "I would put this last part in another sub-section 3.2 \"pluggable provisioning\" ",
+              "createdAt": "2023-05-11T08:39:47Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 450,
+              "body": "..and draft-ietf-ccamp-optical-impairment-topology-yang. \r\n",
+              "createdAt": "2023-05-11T08:43:06Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 480,
+              "body": "Looking at the picture it seems that DCO-link that means OTSi connection and MC link are two separated things i.e. you  need to have first a NMC configuration before OTSi. This is something debated and looking to G.807 section 10.3.1 they claim that OTIA is a single action form management point of view , encompassing \"modulator(s) and demodulator(s), the network media channels and the OTSiG-O\". Just a question for calrification what is the intention in the draft. ",
+              "createdAt": "2023-05-11T09:33:03Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 505,
+              "body": "Below we use the term Routers, sometimes PN, packet node, we need to decide only one",
+              "createdAt": "2023-05-11T09:58:33Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 513,
+              "body": "As for my previous comment we need to calrify here what is optical tunnel, it is MC only or OTSi + MC ?",
+              "createdAt": "2023-05-11T10:01:36Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 543,
+              "body": "are you saying to both PNCs (P-PNC and O-PNC) ? In this case better explictly saying PNCs plural. If not you need to specify which of the two",
+              "createdAt": "2023-05-11T10:25:14Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 545,
+              "body": "same comment as before regarding operational mode . Operational mode is one thing another mode is standard mode based on application code.",
+              "createdAt": "2023-05-11T10:27:41Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 549,
+              "body": "I think would be more consistent to take this piece of text regarding the input/output power level checking for inter-domain links discovering and move above together with patchcord value storage method.",
+              "createdAt": "2023-05-11T12:55:27Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 563,
+              "body": "Why inter-domain links are now called connections? ",
+              "createdAt": "2023-05-11T13:07:34Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 579,
+              "body": "I think this is instead a typical case in which the behavior is different in case of the two options. \r\nI would rephrase the text in this way:\r\n\" In this case the pluggable and interdomains links can be retrieved by MDSC by O-PNC in case of Option 1 and by P-PNC in case of Option 2.\"",
+              "createdAt": "2023-05-11T13:17:59Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 640,
+              "body": "Planning tool should be added in the workflow .\r\n\"O-PNC , maybe with the help of a planning tool in charge for planning for mixed optical channels (both usual optical transponders and optical pluggable) ,  calculate the optical route...etc \"",
+              "createdAt": "2023-05-11T13:56:53Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 645,
+              "body": "adding the target nominal central frequency,",
+              "createdAt": "2023-05-11T14:02:50Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            },
+            {
+              "originalPosition": 646,
+              "body": "never mentioned explicit optical parameters so adding : \" see draft-ietf-ccamp-optical-impairment-topology-yang for more information regarding explaicit parameters)\"",
+              "createdAt": "2023-05-11T15:24:40Z",
+              "updatedAt": "2023-05-11T15:38:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5Uz9D3",
+          "commit": {
+            "abbreviatedOid": "ec105b8"
+          },
+          "author": "sergiobelotti",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-05-11T15:38:34Z",
+          "updatedAt": "2023-05-11T15:38:34Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5U5Xfc",
+          "commit": {
+            "abbreviatedOid": "ec105b8"
+          },
+          "author": "DanieleIETF",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-12T11:46:36Z",
+          "updatedAt": "2023-05-12T11:46:37Z",
+          "comments": [
+            {
+              "originalPosition": 156,
+              "body": "The packet node shoudln't be a ROADM right?\r\n",
+              "createdAt": "2023-05-12T11:46:37Z",
+              "updatedAt": "2023-05-12T11:46:37Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5U5X8c",
+          "commit": {
+            "abbreviatedOid": "ec105b8"
+          },
+          "author": "DanieleIETF",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-12T11:48:03Z",
+          "updatedAt": "2023-05-12T11:48:03Z",
+          "comments": [
+            {
+              "originalPosition": 267,
+              "body": "Yes and no. The hierarchical approach is still there, but in option 1 we have the optical PNC that connects to the packet nodes. It's not a classical ACTN architecture.",
+              "createdAt": "2023-05-12T11:48:03Z",
+              "updatedAt": "2023-05-12T11:48:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5U5Yez",
+          "commit": {
+            "abbreviatedOid": "ec105b8"
+          },
+          "author": "DanieleIETF",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-12T11:49:43Z",
+          "updatedAt": "2023-05-12T11:49:44Z",
+          "comments": [
+            {
+              "originalPosition": 443,
+              "body": "yes i guess so.\r\n",
+              "createdAt": "2023-05-12T11:49:43Z",
+              "updatedAt": "2023-05-12T11:49:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5VKui8",
+          "commit": {
+            "abbreviatedOid": "ec105b8"
+          },
+          "author": "ggalimba56",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-16T15:35:21Z",
+          "updatedAt": "2023-05-16T15:35:21Z",
+          "comments": [
+            {
+              "originalPosition": 79,
+              "body": "OK !  accepted",
+              "createdAt": "2023-05-16T15:35:21Z",
+              "updatedAt": "2023-05-16T15:35:21Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5VKwqf",
+          "commit": {
+            "abbreviatedOid": "ec105b8"
+          },
+          "author": "ggalimba56",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-16T15:39:16Z",
+          "updatedAt": "2023-05-16T15:39:17Z",
+          "comments": [
+            {
+              "originalPosition": 85,
+              "body": "let's use coherent interface instead of DCO",
+              "createdAt": "2023-05-16T15:39:17Z",
+              "updatedAt": "2023-05-16T15:39:17Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5VKx1Q",
+          "commit": {
+            "abbreviatedOid": "ec105b8"
+          },
+          "author": "ggalimba56",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-16T15:41:52Z",
+          "updatedAt": "2023-05-16T15:41:52Z",
+          "comments": [
+            {
+              "originalPosition": 156,
+              "body": "Correct, It will be fixed ",
+              "createdAt": "2023-05-16T15:41:52Z",
+              "updatedAt": "2023-05-16T15:41:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5VKz9j",
+          "commit": {
+            "abbreviatedOid": "ec105b8"
+          },
+          "author": "ggalimba56",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-16T15:46:30Z",
+          "updatedAt": "2023-05-16T15:46:31Z",
+          "comments": [
+            {
+              "originalPosition": 374,
+              "body": "OK !\r\n",
+              "createdAt": "2023-05-16T15:46:30Z",
+              "updatedAt": "2023-05-16T15:46:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5VK3ju",
+          "commit": {
+            "abbreviatedOid": "ec105b8"
+          },
+          "author": "ggalimba56",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-16T15:54:11Z",
+          "updatedAt": "2023-05-16T15:54:11Z",
+          "comments": [
+            {
+              "originalPosition": 356,
+              "body": "Look at the Sergio proposal in the .doc file ",
+              "createdAt": "2023-05-16T15:54:11Z",
+              "updatedAt": "2023-05-16T15:54:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5VK5TJ",
+          "commit": {
+            "abbreviatedOid": "ec105b8"
+          },
+          "author": "ggalimba56",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-16T15:57:45Z",
+          "updatedAt": "2023-05-16T15:57:46Z",
+          "comments": [
+            {
+              "originalPosition": 443,
+              "body": "change \"client\" to \"pluggable capabilities\"",
+              "createdAt": "2023-05-16T15:57:45Z",
+              "updatedAt": "2023-05-16T15:57:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5VK58e",
+          "commit": {
+            "abbreviatedOid": "ec105b8"
+          },
+          "author": "ggalimba56",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-16T15:59:06Z",
+          "updatedAt": "2023-05-16T15:59:06Z",
+          "comments": [
+            {
+              "originalPosition": 409,
+              "body": "Yes, need to clarify better.",
+              "createdAt": "2023-05-16T15:59:06Z",
+              "updatedAt": "2023-05-16T15:59:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5VK7eU",
+          "commit": {
+            "abbreviatedOid": "ec105b8"
+          },
+          "author": "ggalimba56",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-16T16:02:14Z",
+          "updatedAt": "2023-05-16T16:02:14Z",
+          "comments": [
+            {
+              "originalPosition": 438,
+              "body": "Better to avoid \"optical control plane\" term as can be confused with GMPLS",
+              "createdAt": "2023-05-16T16:02:14Z",
+              "updatedAt": "2023-05-16T16:02:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5VK7sz",
+          "commit": {
+            "abbreviatedOid": "ec105b8"
+          },
+          "author": "ggalimba56",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-16T16:02:43Z",
+          "updatedAt": "2023-05-16T16:02:44Z",
+          "comments": [
+            {
+              "originalPosition": 450,
+              "body": "OK !",
+              "createdAt": "2023-05-16T16:02:43Z",
+              "updatedAt": "2023-05-16T16:02:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5VK9fa",
+          "commit": {
+            "abbreviatedOid": "ec105b8"
+          },
+          "author": "ggalimba56",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-16T16:06:47Z",
+          "updatedAt": "2023-05-16T16:06:47Z",
+          "comments": [
+            {
+              "originalPosition": 480,
+              "body": "Yes, we need to clarify and provide the model of the OTSi vs. MC",
+              "createdAt": "2023-05-16T16:06:47Z",
+              "updatedAt": "2023-05-16T16:06:47Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5VmpU1",
+          "commit": {
+            "abbreviatedOid": "ec105b8"
+          },
+          "author": "sergiobelotti",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-22T09:23:52Z",
+          "updatedAt": "2023-05-22T09:23:52Z",
+          "comments": [
+            {
+              "originalPosition": 267,
+              "body": "```suggestion\r\n   The architecture related to option 2 is more meeting a canonical  ACTN approach, i.e. any PNCs only manage resources related to his own administrative domain,  like in {{!RFC8453}} and \r\n```",
+              "createdAt": "2023-05-22T09:23:52Z",
+              "updatedAt": "2023-05-22T09:23:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5WZTqA",
+          "commit": {
+            "abbreviatedOid": "79cb5d8"
+          },
+          "author": "jbouqui153",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-05-29T13:11:21Z",
+          "updatedAt": "2023-05-29T13:11:21Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5WgJKW",
+          "commit": {
+            "abbreviatedOid": "29b5c23"
+          },
+          "author": "DanieleIETF",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-30T15:40:15Z",
+          "updatedAt": "2023-05-30T15:40:16Z",
+          "comments": [
+            {
+              "originalPosition": 341,
+              "body": "The P-PNC has read and write capabilities in both options, so the section applies to both.",
+              "createdAt": "2023-05-30T15:40:15Z",
+              "updatedAt": "2023-05-30T15:40:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5WgN1K",
+          "commit": {
+            "abbreviatedOid": "29b5c23"
+          },
+          "author": "DanieleIETF",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-30T15:49:51Z",
+          "updatedAt": "2023-05-30T15:49:51Z",
+          "comments": [
+            {
+              "originalPosition": 437,
+              "body": "Offline",
+              "createdAt": "2023-05-30T15:49:51Z",
+              "updatedAt": "2023-05-30T15:49:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5WgOT6",
+          "commit": {
+            "abbreviatedOid": "29b5c23"
+          },
+          "author": "DanieleIETF",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-30T15:50:57Z",
+          "updatedAt": "2023-05-30T15:50:58Z",
+          "comments": [
+            {
+              "originalPosition": 437,
+              "body": "Will be fixed in 02",
+              "createdAt": "2023-05-30T15:50:57Z",
+              "updatedAt": "2023-05-30T15:50:58Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5WgRy5",
+          "commit": {
+            "abbreviatedOid": "59fb4b7"
+          },
+          "author": "DanieleIETF",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-30T15:58:47Z",
+          "updatedAt": "2023-05-30T15:58:47Z",
+          "comments": [
+            {
+              "originalPosition": 480,
+              "body": "v02 - Add that both options are applicable here. ",
+              "createdAt": "2023-05-30T15:58:47Z",
+              "updatedAt": "2023-05-30T15:58:47Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5WgSNm",
+          "commit": {
+            "abbreviatedOid": "59fb4b7"
+          },
+          "author": "DanieleIETF",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-30T15:59:39Z",
+          "updatedAt": "2023-05-30T15:59:39Z",
+          "comments": [
+            {
+              "originalPosition": 505,
+              "body": "used router everywhere",
+              "createdAt": "2023-05-30T15:59:39Z",
+              "updatedAt": "2023-05-30T15:59:39Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5WgSbs",
+          "commit": {
+            "abbreviatedOid": "59fb4b7"
+          },
+          "author": "DanieleIETF",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-30T16:00:08Z",
+          "updatedAt": "2023-05-30T16:00:08Z",
+          "comments": [
+            {
+              "originalPosition": 513,
+              "body": "v02",
+              "createdAt": "2023-05-30T16:00:08Z",
+              "updatedAt": "2023-05-30T16:00:08Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5WgRAA",
+          "commit": {
+            "abbreviatedOid": "2152b13"
+          },
+          "author": "oscargdd",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-30T15:57:00Z",
+          "updatedAt": "2023-05-30T16:01:19Z",
+          "comments": [
+            {
+              "originalPosition": 775,
+              "body": "Is the router port -  line system port connection (aka inter-layer link) self discoverable? In the regular ACTN POI... by means of LLDP, it could be discovered... but in this case, to the best of my knowlege there is no standard solution for this. We might need to rewrite the text, here the asumption is that there is a feasible discovery... If there is a communication required between the controllers... do we need to include it here? ",
+              "createdAt": "2023-05-30T15:57:00Z",
+              "updatedAt": "2023-05-30T16:08:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5WgYOv",
+          "commit": {
+            "abbreviatedOid": "a3bb8ec"
+          },
+          "author": "DanieleIETF",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-30T16:11:45Z",
+          "updatedAt": "2023-05-30T16:11:45Z",
+          "comments": [
+            {
+              "originalPosition": 549,
+              "body": "v02",
+              "createdAt": "2023-05-30T16:11:45Z",
+              "updatedAt": "2023-05-30T16:11:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5Wgedc",
+          "commit": {
+            "abbreviatedOid": "05d8006"
+          },
+          "author": "nigel-r-davis",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-30T16:27:00Z",
+          "updatedAt": "2023-05-30T16:27:01Z",
+          "comments": [
+            {
+              "originalPosition": 68,
+              "body": "Whilst this is true, there are other interface technologies that are prevalent (and will be ongoing) such as OpenConfig. Minimally, these need to be acknowledged.",
+              "createdAt": "2023-05-30T16:27:00Z",
+              "updatedAt": "2023-05-30T16:27:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5Wgg5B",
+          "commit": {
+            "abbreviatedOid": "05d8006"
+          },
+          "author": "nigel-r-davis",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-30T16:32:23Z",
+          "updatedAt": "2023-05-30T16:32:24Z",
+          "comments": [
+            {
+              "originalPosition": 113,
+              "body": "We need to be very careful with the term \"domain\". From my viewpoint, the \"packet domain\" is concerned with packet processing and not photonics and hence an equipment that has photonics is NOT in the packet domain, it straddles the two domains. A device straddling multiple domains is well recognized as there are many cases where a device spreads across multiple domains (admin, protection, technology etc.).\r\n\r\nThis will impact several diagrams. I have drawn a sample of the key changes to figure 1 and have a sketch of the changes to figure 2. ",
+              "createdAt": "2023-05-30T16:32:23Z",
+              "updatedAt": "2023-05-31T08:18:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5WgiMV",
+          "commit": {
+            "abbreviatedOid": "05d8006"
+          },
+          "author": "nigel-r-davis",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-30T16:35:49Z",
+          "updatedAt": "2023-05-30T16:35:50Z",
+          "comments": [
+            {
+              "originalPosition": 127,
+              "body": "I suggest that this be reworded\u2026 \"A\u00a0full\u00a0end-to-end management solution of these\u00a0pluggable digital\u00a0coherent\u00a0optics is becoming critical to allow a wider deployment beyond simple point-to-point\u00a0high-capacity\u00a0link scenarios between two IP/ MPLS routers. It is proposed that this solution leverages and builds on the ACTN hierarchical architecture.\"",
+              "createdAt": "2023-05-30T16:35:49Z",
+              "updatedAt": "2023-05-30T16:35:50Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5Wgi6b",
+          "commit": {
+            "abbreviatedOid": "05d8006"
+          },
+          "author": "nigel-r-davis",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-30T16:37:42Z",
+          "updatedAt": "2023-05-30T16:37:43Z",
+          "comments": [
+            {
+              "originalPosition": 147,
+              "body": "Remove \"own\" so \"Each Optical PNC (O-PNC) in the below topology is responsible for controlling its Optical Domain.\" (this is more consistent with the previous sentence).",
+              "createdAt": "2023-05-30T16:37:43Z",
+              "updatedAt": "2023-05-30T16:37:43Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5Wkz7E",
+          "commit": {
+            "abbreviatedOid": "05d8006"
+          },
+          "author": "nigel-r-davis",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-31T08:21:41Z",
+          "updatedAt": "2023-05-31T08:21:41Z",
+          "comments": [
+            {
+              "originalPosition": 160,
+              "body": "Considering my comment on Domains earlier, the node names in this figure need some adjustment. I propose simple numbering of nodes with no mention of technology/domain.",
+              "createdAt": "2023-05-31T08:21:41Z",
+              "updatedAt": "2023-05-31T08:21:41Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5Wk2Zw",
+          "commit": {
+            "abbreviatedOid": "05d8006"
+          },
+          "author": "nigel-r-davis",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-31T08:26:37Z",
+          "updatedAt": "2023-05-31T08:26:38Z",
+          "comments": [
+            {
+              "originalPosition": 197,
+              "body": "This is clearly a reflection of solutions today and is not looking forward to where the solutions are likely to eventually land (single control fabric). That's OK so long as the intention of this document is to not push industry advancement.\r\n\r\nIt is expected that the single control fabric will be an assembly of fine-grained components from various vendors providing a holistic treatment of the entire network not fragmented by traditional artificial boundaries. It is also likely that there will be specialist components focused on key aspects such as photonic technology where these components have direct access to the relevant properties of the device (so a component dealing with photonic technology would access the device \"directly\" for monitoring and control of photonic parameters.",
+              "createdAt": "2023-05-31T08:26:37Z",
+              "updatedAt": "2023-05-31T08:26:38Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5Wk37M",
+          "commit": {
+            "abbreviatedOid": "05d8006"
+          },
+          "author": "nigel-r-davis",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-31T08:29:41Z",
+          "updatedAt": "2023-05-31T08:29:42Z",
+          "comments": [
+            {
+              "originalPosition": 283,
+              "body": "I suggest that \"peculiarity\" is replaced with \"distinction\" or similar (peculiarity has negative connotations).",
+              "createdAt": "2023-05-31T08:29:41Z",
+              "updatedAt": "2023-05-31T08:29:42Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5Wk4oC",
+          "commit": {
+            "abbreviatedOid": "05d8006"
+          },
+          "author": "nigel-r-davis",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-31T08:31:13Z",
+          "updatedAt": "2023-05-31T08:31:13Z",
+          "comments": [
+            {
+              "originalPosition": 286,
+              "body": "It would seem more reasonable that the O-PNC would have read/write access to the photonics on the plug and the P-PNC would not. The devices straddles the two domains.",
+              "createdAt": "2023-05-31T08:31:13Z",
+              "updatedAt": "2023-05-31T08:31:13Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5Wk5MP",
+          "commit": {
+            "abbreviatedOid": "05d8006"
+          },
+          "author": "nigel-r-davis",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-31T08:32:21Z",
+          "updatedAt": "2023-05-31T08:32:21Z",
+          "comments": [
+            {
+              "originalPosition": 287,
+              "body": "Database inconsistencies should not occur if the appropriate responsibility demarcation is drawn and config locking performed.\r\n\r\nThere are examples of successful deployment of devices with several separate controllers, indeed some are required by particular operational practices.",
+              "createdAt": "2023-05-31T08:32:21Z",
+              "updatedAt": "2023-05-31T08:32:21Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5Wk5xI",
+          "commit": {
+            "abbreviatedOid": "05d8006"
+          },
+          "author": "nigel-r-davis",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-31T08:33:32Z",
+          "updatedAt": "2023-05-31T08:33:32Z",
+          "comments": [
+            {
+              "originalPosition": 300,
+              "body": "Agreed, there would be these consequences. This could be an architectural choice, but it is clearly only one possible approach and it also appears to not be the best approach",
+              "createdAt": "2023-05-31T08:33:32Z",
+              "updatedAt": "2023-05-31T08:33:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5Wk9q6",
+          "commit": {
+            "abbreviatedOid": "05d8006"
+          },
+          "author": "nigel-r-davis",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-31T08:41:13Z",
+          "updatedAt": "2023-05-31T08:41:14Z",
+          "comments": [
+            {
+              "originalPosition": 306,
+              "body": "I propose, that minimally an option 3 be added that recognizes the domain boundary in the device and explains that the optical controller controls the photonics of the plug. I would be happy to write up this option (in a consistent form with the other options) and provide the use case details.",
+              "createdAt": "2023-05-31T08:41:13Z",
+              "updatedAt": "2023-05-31T08:41:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5WugHI",
+          "commit": {
+            "abbreviatedOid": "2152b13"
+          },
+          "author": "DanieleIETF",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-06-01T09:40:13Z",
+          "updatedAt": "2023-06-01T09:40:14Z",
+          "comments": [
+            {
+              "originalPosition": 775,
+              "body": "The section above says:\r\n\r\n\r\nIt would be also possible to auto-discover the inter-domain\r\n   links between DWDM coherent pluggables and ROADM ports by\r\n   checking the input/output power levels (and probably switching on/off\r\n   the lasers of the pluggables).  This would require the help of MDSC,\r\n   O-PNC and P-PNC.  The same method could be used to verify the\r\n   provisioned connectivity. For further study in this draft.\r\n\r\nWhat is missing? Maybe describe better the interaction between MDSC, O-PNC and P-PNC ?",
+              "createdAt": "2023-06-01T09:40:13Z",
+              "updatedAt": "2023-06-01T09:40:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5WugMQ",
+          "commit": {
+            "abbreviatedOid": "05d8006"
+          },
+          "author": "DanieleIETF",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-06-01T09:40:24Z",
+          "updatedAt": "2023-06-01T09:40:25Z",
+          "comments": [
+            {
+              "originalPosition": 68,
+              "body": "v02",
+              "createdAt": "2023-06-01T09:40:24Z",
+              "updatedAt": "2023-06-01T09:40:25Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5WugPL",
+          "commit": {
+            "abbreviatedOid": "05d8006"
+          },
+          "author": "DanieleIETF",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-06-01T09:40:31Z",
+          "updatedAt": "2023-06-01T09:40:31Z",
+          "comments": [
+            {
+              "originalPosition": 113,
+              "body": "v02",
+              "createdAt": "2023-06-01T09:40:31Z",
+              "updatedAt": "2023-06-01T09:40:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5WugRh",
+          "commit": {
+            "abbreviatedOid": "05d8006"
+          },
+          "author": "DanieleIETF",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-06-01T09:40:36Z",
+          "updatedAt": "2023-06-01T09:40:37Z",
+          "comments": [
+            {
+              "originalPosition": 127,
+              "body": "v02",
+              "createdAt": "2023-06-01T09:40:36Z",
+              "updatedAt": "2023-06-01T09:40:37Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5WugT7",
+          "commit": {
+            "abbreviatedOid": "05d8006"
+          },
+          "author": "DanieleIETF",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-06-01T09:40:42Z",
+          "updatedAt": "2023-06-01T09:40:42Z",
+          "comments": [
+            {
+              "originalPosition": 147,
+              "body": "v02",
+              "createdAt": "2023-06-01T09:40:42Z",
+              "updatedAt": "2023-06-01T09:40:42Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5WugWH",
+          "commit": {
+            "abbreviatedOid": "05d8006"
+          },
+          "author": "DanieleIETF",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-06-01T09:40:47Z",
+          "updatedAt": "2023-06-01T09:40:47Z",
+          "comments": [
+            {
+              "originalPosition": 160,
+              "body": "v02",
+              "createdAt": "2023-06-01T09:40:47Z",
+              "updatedAt": "2023-06-01T09:40:48Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5WugYr",
+          "commit": {
+            "abbreviatedOid": "05d8006"
+          },
+          "author": "DanieleIETF",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-06-01T09:40:53Z",
+          "updatedAt": "2023-06-01T09:40:53Z",
+          "comments": [
+            {
+              "originalPosition": 197,
+              "body": "v02",
+              "createdAt": "2023-06-01T09:40:53Z",
+              "updatedAt": "2023-06-01T09:40:53Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5Wuga8",
+          "commit": {
+            "abbreviatedOid": "05d8006"
+          },
+          "author": "DanieleIETF",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-06-01T09:40:57Z",
+          "updatedAt": "2023-06-01T09:40:58Z",
+          "comments": [
+            {
+              "originalPosition": 283,
+              "body": "v02",
+              "createdAt": "2023-06-01T09:40:57Z",
+              "updatedAt": "2023-06-01T09:40:58Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5WugdB",
+          "commit": {
+            "abbreviatedOid": "05d8006"
+          },
+          "author": "DanieleIETF",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-06-01T09:41:02Z",
+          "updatedAt": "2023-06-01T09:41:03Z",
+          "comments": [
+            {
+              "originalPosition": 287,
+              "body": "v02",
+              "createdAt": "2023-06-01T09:41:03Z",
+              "updatedAt": "2023-06-01T09:41:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5YCTCt",
+          "commit": {
+            "abbreviatedOid": "76e39d3"
+          },
+          "author": "nigel-r-davis",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-06-13T12:05:45Z",
+          "updatedAt": "2023-06-13T12:05:45Z",
+          "comments": [
+            {
+              "originalPosition": 68,
+              "body": "I think the draft is weakened without this acknowledgement.",
+              "createdAt": "2023-06-13T12:05:45Z",
+              "updatedAt": "2023-06-13T12:05:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5YCUNf",
+          "commit": {
+            "abbreviatedOid": "76e39d3"
+          },
+          "author": "nigel-r-davis",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-06-13T12:07:54Z",
+          "updatedAt": "2023-06-13T12:07:55Z",
+          "comments": [
+            {
+              "originalPosition": 113,
+              "body": "Whilst I understand that there is significant work in adjustment to the notion of domains, I think the current rationale is flawed. I would minimally want to see some acknowledgement that the photonics is not really in the packet domain and that some refinement is required here.",
+              "createdAt": "2023-06-13T12:07:54Z",
+              "updatedAt": "2023-06-13T12:07:55Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5YCVGa",
+          "commit": {
+            "abbreviatedOid": "76e39d3"
+          },
+          "author": "nigel-r-davis",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-06-13T12:10:00Z",
+          "updatedAt": "2023-06-13T12:10:00Z",
+          "comments": [
+            {
+              "originalPosition": 127,
+              "body": "OK. I think the paragraph is overstating the ACTN usage, but this is not a critical point.",
+              "createdAt": "2023-06-13T12:10:00Z",
+              "updatedAt": "2023-06-13T12:10:00Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5YCVf-",
+          "commit": {
+            "abbreviatedOid": "76e39d3"
+          },
+          "author": "nigel-r-davis",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-06-13T12:10:57Z",
+          "updatedAt": "2023-06-13T12:10:58Z",
+          "comments": [
+            {
+              "originalPosition": 160,
+              "body": "Again, this point relates to the flaw in the domain concept. I am not happy with this being in V02.",
+              "createdAt": "2023-06-13T12:10:57Z",
+              "updatedAt": "2023-06-13T12:10:58Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5YCV1I",
+          "commit": {
+            "abbreviatedOid": "76e39d3"
+          },
+          "author": "nigel-r-davis",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-06-13T12:11:41Z",
+          "updatedAt": "2023-06-13T12:11:41Z",
+          "comments": [
+            {
+              "originalPosition": 197,
+              "body": "OK. V02 is fine here. I would like to see more thinking wrt the target in V02.",
+              "createdAt": "2023-06-13T12:11:41Z",
+              "updatedAt": "2023-06-13T12:11:41Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5YCXUu",
+          "commit": {
+            "abbreviatedOid": "76e39d3"
+          },
+          "author": "nigel-r-davis",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-06-13T12:15:09Z",
+          "updatedAt": "2023-06-13T12:15:09Z",
+          "comments": [
+            {
+              "originalPosition": 283,
+              "body": "This is a tiny wording change. The word \"peculiarity\" suggests something is wrong/strange. I suggest that we do change this one word to \"distinction\" or similar.\r\n",
+              "createdAt": "2023-06-13T12:15:09Z",
+              "updatedAt": "2023-06-13T12:15:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJDdBfM5YCXx0",
+          "commit": {
+            "abbreviatedOid": "76e39d3"
+          },
+          "author": "nigel-r-davis",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-06-13T12:16:17Z",
+          "updatedAt": "2023-06-13T12:16:18Z",
+          "comments": [
+            {
+              "originalPosition": 287,
+              "body": "I would like to discuss this.",
+              "createdAt": "2023-06-13T12:16:18Z",
+              "updatedAt": "2023-06-13T12:16:18Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOJDdBfM5SMYXC",
+      "title": "Add files via upload",
+      "url": "https://github.com/ggalimba56/draft-poidt-ccamp-actn-poi-pluggable/pull/4",
+      "state": "CLOSED",
+      "author": "ggalimba56",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "May 30th 2023 minute",
+      "createdAt": "2023-06-05T13:09:54Z",
+      "updatedAt": "2023-06-05T14:48:39Z",
+      "baseRepository": "ggalimba56/draft-poidt-ccamp-actn-poi-pluggable",
+      "baseRefName": "first-draft",
+      "baseRefOid": "4487c18f1fce6691f6cb0adc990426bd536ecc67",
+      "headRepository": "ggalimba56/draft-poidt-ccamp-actn-poi-pluggable",
+      "headRefName": "minutes",
+      "headRefOid": "c58bb1ff4efc02ffb9d543ef0cf063210a7a045f",
+      "closedAt": "2023-06-05T14:48:39Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
+}
