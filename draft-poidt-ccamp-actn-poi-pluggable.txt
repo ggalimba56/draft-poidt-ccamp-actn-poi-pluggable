@@ -5,12 +5,12 @@
 Common Control and Measurement Plane                  G. Galimberti, Ed.
 Internet-Draft                                                     Cisco
 Intended status: Informational                          J. Bouquier, Ed.
-Expires: 17 December 2023                                       Vodafone
+Expires: 14 March 2024                                          Vodafone
                                                          O. Gerstel, Ed.
                                                           B. Foster, Ed.
                                                       D. Ceccarelli, Ed.
                                                                    Cisco
-                                                            15 June 2023
+                                                       11 September 2023
 
 
 Applicability of Abstraction and Control of Traffic Engineered Networks
@@ -56,7 +56,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 December 2023.
+   This Internet-Draft will expire on 14 March 2024.
 
 Copyright Notice
 
@@ -705,9 +705,9 @@ Table of Contents
               Ceccarelli, "Applicability of Abstraction and Control of
               Traffic Engineered Networks (ACTN) to Packet Optical
               Integration (POI)", Work in Progress, Internet-Draft,
-              draft-ietf-teas-actn-poi-applicability-08, 11 January
-              2023, <https://datatracker.ietf.org/doc/html/draft-ietf-
-              teas-actn-poi-applicability-08>.
+              draft-ietf-teas-actn-poi-applicability-09, 7 July 2023,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-teas-
+              actn-poi-applicability-09>.
 
    [I-D.ietf-ccamp-dwdm-if-param-yang]
               Galimberti, G., Kunze, R., Hiremagalur, D., and G.
