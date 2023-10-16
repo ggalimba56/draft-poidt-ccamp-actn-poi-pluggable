@@ -169,6 +169,37 @@ informative:
    simple point-to-point high capacity link scenarios between two IP/
    MPLS routers.
 
+   [New Jeff's proposal to be agreed and discussed]
+   Two main scenarios can be identified today in most operators' networks:
+   For low power ZR pluggables, due to their shorter reach and optical,
+   they fit better high capacity (nx400G) dedicated point-to-point connections 
+   in Metro areas, for example between a Core router and an Internet Border
+   router. Operationally, being a set of point-to-point WDM connections over
+   a dedicated infrastructure it is a simpler case which can be managed only 
+   by P-PNC and MDSC.
+   For high power ZR+ pluggables (0dBm or slightly higher) their output power
+   as well as their optical characteristics make them very similar to native
+   transponders used today in operators DWDM networks. As a consequence those
+   new pluggables can be connected to the same type of Add/Drop filters of
+   existing ROADMs (e.g. C-F ROADMs, CDC-F ROADMs) in the same way as native 
+   transponders. Typical scenarios now can extend to Metro/regional areas and
+   can cover reach above 100km up to typically 400km-500km considering simple
+   cases with only 2 ROADMs with, for example, 4 to 6 line amplifiers in
+   between. This kind of scenarios can address a number of Core links 
+   depending on geographical considerations of each country. Operationally this
+   scenario is more complex for using existing DWDM infrastructure already in 
+   place and, for that reason requires a set of key end-to-end management
+   functions due to the multi-layer nature of this Open Line System approach.
+   Apart from a preliminar careful optical validation and planning phase, it
+   becomes fundamental for operators' operational teams to get at least 
+   the visualisation of end-to-end multi-layer topology/inventory information
+   including Performance Monitoring information of these new optical connections
+   as well as events/alarms correlation between the pluggables and the optical path
+   in the OLS network.
+
+   [Jeff proposal is to add end-to-end Performance Monitoring and events/alarms
+   correlation as part of this draft in the Use cases section]
+
    {{my_figure-0}} The ACTN architecture, defined in {{!RFC8453}}, is used to
    control the multi-domain network shown in {{my_figure-1}} , where each
    Packet PNC (P-PNC) is responsible for controlling its IP domain,
